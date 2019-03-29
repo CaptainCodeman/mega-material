@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>ripple</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="/test/styles.css">
+  <style>
+    mwc-ripple.box {
+      margin: 16px;
+      width: 196px;
+      height: 128px;
+      border: 1px solid #ccc;
+      line-height: 128px;
+      text-align: center;
+      user-select: none;
+    }
+
+    mwc-ripple[unbounded] {
+      width: 48px;
+      height: 48px;
+      padding: 12px;
+      user-select: none;
+    }
+  </style>
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/dist/icon.js" type="module"></script>
+  <script src="/dist/ripple.js" type="module"></script>
+</head>
+
+<body>
+  <mwc-ripple class="box"><span>regular</span></mwc-ripple>
+  <mwc-ripple class="box" primary>primary</mwc-ripple>
+  <mwc-ripple class="box" accent>accent</mwc-ripple>
+  <p>
+    Unbounded:
+    <mwc-ripple unbounded>
+      <mwc-icon>favorite</mwc-icon>
+    </mwc-ripple>
+  </p>
+  <p>
+      Unbounded:
+      <mwc-ripple unbounded>
+        <button>x</button>
+      </mwc-ripple>
+    </p>
+
+  <script type="module">
+  </script>
+</body>
+
+</html>

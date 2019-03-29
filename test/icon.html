@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>icon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="/test/styles.css">
+  <style>
+    .color-size {
+      color: tomato;
+      --mdc-icon-size: 4em;
+    }
+  </style>
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/dist/icon.js" type="module"></script>
+</head>
+
+<body>
+  <div class="demo-group">
+    <mwc-icon>sentiment_very_dissatisfied</mwc-icon>
+    <mwc-icon>sentiment_dissatisfied</mwc-icon>
+    <mwc-icon>sentiment_neutral</mwc-icon>
+    <mwc-icon>sentiment_satisfied</mwc-icon>
+    <mwc-icon>sentiment_very_satisfied</mwc-icon>
+  </div>
+
+  <h4>color and size</h4>
+  <div class="demo-group color-size">
+    <mwc-icon>all_out</mwc-icon>
+    <mwc-icon>accessibility</mwc-icon>
+    <mwc-icon>exit_to_app</mwc-icon>
+    <mwc-icon>camera</mwc-icon>
+  </div>
+</body>
+
+</html>

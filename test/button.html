@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>button</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="/test/styles.css">
+  <style>
+    h3 {
+      display: block;
+      font-size: 1.17em;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-family: Roboto, sans-serif;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      text-decoration: inherit;
+      text-transform: inherit;
+      font-size: 1rem;
+      line-height: 1.75rem;
+      font-weight: 400;
+      letter-spacing: .009375em;
+    }
+
+    mwc-button {
+      margin-right: 32px;
+    }
+
+    [shaped] {
+      --mdc-button-border-radius: 18px;
+    }
+  </style>
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/dist/button.js" type="module"></script>
+</head>
+
+<body>
+  <section>
+    <h3>Text Button</h3>
+    <mwc-button label="Default"></mwc-button>
+    <mwc-button dense label="Dense"></mwc-button>
+    <mwc-button icon="favorite" label="Icon"></mwc-button>
+  </section>
+  <section>
+    <h3>Raised Button</h3>
+    <mwc-button raised label="Default"></mwc-button>
+    <mwc-button raised dense label="Dense"></mwc-button>
+    <mwc-button raised icon="favorite" label="Icon"></mwc-button>
+  </section>
+  <section>
+    <h3>Unelevated Button</h3>
+    <mwc-button unelevated label="Default"></mwc-button>
+    <mwc-button unelevated dense label="Dense"></mwc-button>
+    <mwc-button unelevated icon="favorite" label="Icon"></mwc-button>
+  </section>
+  <section>
+    <h3>Outlined Button</h3>
+    <mwc-button outlined label="Default"></mwc-button>
+    <mwc-button outlined dense label="Dense"></mwc-button>
+    <mwc-button outlined icon="favorite" label="Icon"></mwc-button>
+  </section>
+  <section>
+    <h3>Shaped Button</h3>
+    <mwc-button shaped unelevated label="Default"></mwc-button>
+    <mwc-button shaped unelevated dense label="Dense"></mwc-button>
+    <mwc-button shaped unelevated icon="favorite" label="Icon"></mwc-button>
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>linear-progress</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="/test/styles.css">
+  <style>
+    mwc-linear-progress {
+      width: 50%;
+      margin: auto;
+    }
+
+    .demo-progress-bar {
+      --mdc-theme-primary: red;
+      --mdc-theme-secondary: orange;
+      --mdc-linear-progress-buffering-dots-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' enable-background='new 0 0 5 2' xml:space='preserve' viewBox='0 0 5 2' preserveAspectRatio='none slice'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23ffcdd2'/%3E%3C/svg%3E");
+    }
+  </style>
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/dist/button.js" type="module"></script>
+  <script src="/dist/linear-progress.js" type="module"></script>
+</head>
+
+<body>
+  <mwc-button id="toggle" raised ripple label="Toggle"></mwc-button>
+  <mwc-linear-progress id="progress"></mwc-linear-progress>
+
+  <h3>linear-progress: reverse</h3>
+  <mwc-linear-progress reverse class="demo-progress-bar"></mwc-linear-progress>
+
+  <h3>linear-progress: determinate</h3>
+  <mwc-linear-progress determinate progress="0.5" buffer="1"></mwc-linear-progress>
+
+  <h3>linear-progress: determinate buffer</h3>
+  <mwc-linear-progress determinate progress="0.3" buffer="0.7" class="demo-progress-bar"></mwc-linear-progress>
+
+  <h3>linear-progress: determinate buffer reverse</h3>
+  <mwc-linear-progress determinate reverse progress="0.2" buffer="0.6"></mwc-linear-progress>
+
+  <script>
+    toggle.onclick = () => progress.closed = !progress.closed
+  </script>
+</body>
+
+</html>
