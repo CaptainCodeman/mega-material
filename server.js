@@ -12,12 +12,11 @@ app.use(compression({ level: 9 }))
 app.use(transformMiddleware())
 
 bs.init({
-  server: true,
-  index: 'test/index.html',
+  server: 'docs',
+  index: 'index.html',
   files: [
-    'test/index.html',
-    'dist/**/*',
-    'test/**/*',
+    'index.html',
+    '*.js',
   ],
   ghostMode: false,
   middleware: [app]

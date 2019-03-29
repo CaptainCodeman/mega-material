@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
-    "map": "source-map-explorer dist/elements.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Simon Green <simon@captaincodeman.com> (https://github.com/captaincodeman)",
@@ -23,12 +22,11 @@
     "express": "^4.16.4",
     "express-cache-headers": "^0.1.4",
     "express-transform-bare-module-specifiers": "^1.0.2",
-    "rollup": "^1.7.0",
+    "rollup": "^1.7.4",
     "rollup-plugin-minify-html-literals": "^1.2.2",
     "rollup-plugin-node-resolve": "^4.0.1",
     "rollup-plugin-terser": "^4.0.4",
-    "rollup-plugin-typescript": "^1.0.0",
-    "source-map-explorer": "^1.8.0",
-    "typescript": "^3.3.4000"
+    "rollup-plugin-typescript": "^1.0.1",
+    "typescript": "^3.4.1"
   }
 }

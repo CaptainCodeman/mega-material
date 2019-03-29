@@ -20,18 +20,12 @@ export default {
     'src/top-app-bar.ts',
   ],
   output: {
-    dir: 'dist',
+    dir: 'docs',
     format: 'esm',
     sourcemap: true,
     entryFileNames: '[name].js',
     chunkFileNames: 'common.js',
   },
-  external: [
-    'lit-html',
-    'lit-html/directives/style-map',
-    'lit-element',
-    'tslib',
-  ],
   plugins: [
     resolve(),
     production && minifyHTML(),
