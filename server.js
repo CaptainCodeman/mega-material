@@ -9,14 +9,14 @@ const app = express()
 
 app.use('/node_modules/*', cache(3600))
 app.use(compression({ level: 9 }))
-app.use(transformMiddleware())
+// app.use(transformMiddleware())
 
 bs.init({
   server: 'docs',
   index: 'index.html',
   files: [
-    'index.html',
-    '*.js',
+    'docs/index.html',
+    'docs/*.js',
   ],
   ghostMode: false,
   middleware: [app]

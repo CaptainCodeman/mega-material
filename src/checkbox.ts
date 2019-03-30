@@ -40,74 +40,31 @@ export class CheckboxElement extends LitElement {
   static get styles() {
     return [
       css`
-@-webkit-keyframes mdc-checkbox-unchecked-checked-checkmark-path {
-  0%, 50% {
-    stroke-dashoffset: 29.7833385;
-  }
-  50% {
-    -webkit-animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
 @keyframes mdc-checkbox-unchecked-checked-checkmark-path {
   0%, 50% {
     stroke-dashoffset: 29.7833385;
   }
   50% {
-    -webkit-animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
   100% {
     stroke-dashoffset: 0;
-  }
-}
-@-webkit-keyframes mdc-checkbox-unchecked-indeterminate-mixedmark {
-  0%, 68.2% {
-    -webkit-transform: scaleX(0);
-            transform: scaleX(0);
-  }
-  68.2% {
-    -webkit-animation-timing-function: cubic-bezier(0, 0, 0, 1);
-            animation-timing-function: cubic-bezier(0, 0, 0, 1);
-  }
-  100% {
-    -webkit-transform: scaleX(1);
-            transform: scaleX(1);
   }
 }
 @keyframes mdc-checkbox-unchecked-indeterminate-mixedmark {
   0%, 68.2% {
-    -webkit-transform: scaleX(0);
-            transform: scaleX(0);
+    transform: scaleX(0);
   }
   68.2% {
-    -webkit-animation-timing-function: cubic-bezier(0, 0, 0, 1);
-            animation-timing-function: cubic-bezier(0, 0, 0, 1);
+    animation-timing-function: cubic-bezier(0, 0, 0, 1);
   }
   100% {
-    -webkit-transform: scaleX(1);
-            transform: scaleX(1);
-  }
-}
-@-webkit-keyframes mdc-checkbox-checked-unchecked-checkmark-path {
-  from {
-    -webkit-animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
-            animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
-    opacity: 1;
-    stroke-dashoffset: 0;
-  }
-  to {
-    opacity: 0;
-    stroke-dashoffset: -29.7833385;
+    transform: scaleX(1);
   }
 }
 @keyframes mdc-checkbox-checked-unchecked-checkmark-path {
   from {
-    -webkit-animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
-            animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+    animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
     opacity: 1;
     stroke-dashoffset: 0;
   }
@@ -116,143 +73,58 @@ export class CheckboxElement extends LitElement {
     stroke-dashoffset: -29.7833385;
   }
 }
-@-webkit-keyframes mdc-checkbox-checked-indeterminate-checkmark {
-  from {
-    -webkit-animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-    opacity: 1;
-  }
-  to {
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-    opacity: 0;
-  }
-}
 @keyframes mdc-checkbox-checked-indeterminate-checkmark {
   from {
-    -webkit-animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    transform: rotate(0deg);
     opacity: 1;
   }
   to {
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
+    transform: rotate(45deg);
     opacity: 0;
-  }
-}
-@-webkit-keyframes mdc-checkbox-indeterminate-checked-checkmark {
-  from {
-    -webkit-animation-timing-function: cubic-bezier(0.14, 0, 0, 1);
-            animation-timing-function: cubic-bezier(0.14, 0, 0, 1);
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-    opacity: 0;
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-    opacity: 1;
   }
 }
 @keyframes mdc-checkbox-indeterminate-checked-checkmark {
   from {
-    -webkit-animation-timing-function: cubic-bezier(0.14, 0, 0, 1);
-            animation-timing-function: cubic-bezier(0.14, 0, 0, 1);
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
+    animation-timing-function: cubic-bezier(0.14, 0, 0, 1);
+    transform: rotate(45deg);
     opacity: 0;
   }
   to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-    opacity: 1;
-  }
-}
-@-webkit-keyframes mdc-checkbox-checked-indeterminate-mixedmark {
-  from {
-    -webkit-animation-timing-function: mdc-animation-deceleration-curve-timing-function;
-            animation-timing-function: mdc-animation-deceleration-curve-timing-function;
-    -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-    opacity: 0;
-  }
-  to {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(360deg);
     opacity: 1;
   }
 }
 @keyframes mdc-checkbox-checked-indeterminate-mixedmark {
   from {
-    -webkit-animation-timing-function: mdc-animation-deceleration-curve-timing-function;
-            animation-timing-function: mdc-animation-deceleration-curve-timing-function;
-    -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
+    animation-timing-function: mdc-animation-deceleration-curve-timing-function;
+    transform: rotate(-45deg);
     opacity: 0;
   }
   to {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
     opacity: 1;
-  }
-}
-@-webkit-keyframes mdc-checkbox-indeterminate-checked-mixedmark {
-  from {
-    -webkit-animation-timing-function: cubic-bezier(0.14, 0, 0, 1);
-            animation-timing-function: cubic-bezier(0.14, 0, 0, 1);
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-    opacity: 1;
-  }
-  to {
-    -webkit-transform: rotate(315deg);
-            transform: rotate(315deg);
-    opacity: 0;
   }
 }
 @keyframes mdc-checkbox-indeterminate-checked-mixedmark {
   from {
-    -webkit-animation-timing-function: cubic-bezier(0.14, 0, 0, 1);
-            animation-timing-function: cubic-bezier(0.14, 0, 0, 1);
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    animation-timing-function: cubic-bezier(0.14, 0, 0, 1);
+    transform: rotate(0deg);
     opacity: 1;
   }
   to {
-    -webkit-transform: rotate(315deg);
-            transform: rotate(315deg);
-    opacity: 0;
-  }
-}
-@-webkit-keyframes mdc-checkbox-indeterminate-unchecked-mixedmark {
-  0% {
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-    -webkit-transform: scaleX(1);
-            transform: scaleX(1);
-    opacity: 1;
-  }
-  32.8%, 100% {
-    -webkit-transform: scaleX(0);
-            transform: scaleX(0);
+    transform: rotate(315deg);
     opacity: 0;
   }
 }
 @keyframes mdc-checkbox-indeterminate-unchecked-mixedmark {
   0% {
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-    -webkit-transform: scaleX(1);
-            transform: scaleX(1);
+    animation-timing-function: linear;
+    transform: scaleX(1);
     opacity: 1;
   }
   32.8%, 100% {
-    -webkit-transform: scaleX(0);
-            transform: scaleX(0);
+    transform: scaleX(0);
     opacity: 0;
   }
 }
@@ -283,17 +155,6 @@ input:enabled:indeterminate ~ .background {
   background-color: var(--mdc-theme-secondary, #018786);
 }
 
-@-webkit-keyframes mdc-checkbox-fade-in-background-0 {
-  0% {
-    border-color: rgba(0, 0, 0, 0.54);
-    background-color: transparent;
-  }
-  50% {
-    border-color: var(--mdc-theme-secondary, #018786);
-    background-color: var(--mdc-theme-secondary, #018786);
-  }
-}
-
 @keyframes mdc-checkbox-fade-in-background-0 {
   0% {
     border-color: rgba(0, 0, 0, 0.54);
@@ -302,16 +163,6 @@ input:enabled:indeterminate ~ .background {
   50% {
     border-color: var(--mdc-theme-secondary, #018786);
     background-color: var(--mdc-theme-secondary, #018786);
-  }
-}
-@-webkit-keyframes mdc-checkbox-fade-out-background-0 {
-  0%, 80% {
-    border-color: var(--mdc-theme-secondary, #018786);
-    background-color: var(--mdc-theme-secondary, #018786);
-  }
-  100% {
-    border-color: rgba(0, 0, 0, 0.54);
-    background-color: transparent;
   }
 }
 @keyframes mdc-checkbox-fade-out-background-0 {
@@ -325,12 +176,10 @@ input:enabled:indeterminate ~ .background {
   }
 }
 .mdc-checkbox--anim-unchecked-checked input:enabled ~ .background, :host([indeterminate]:not([checked])) input:enabled ~ .background {
-  -webkit-animation-name: mdc-checkbox-fade-in-background-0;
-          animation-name: mdc-checkbox-fade-in-background-0;
+  animation-name: mdc-checkbox-fade-in-background-0;
 }
 .mdc-checkbox--anim-checked-unchecked input:enabled ~ .background, :host(:not([checked])) input:enabled ~ .background {
-  -webkit-animation-name: mdc-checkbox-fade-out-background-0;
-          animation-name: mdc-checkbox-fade-out-background-0;
+  animation-name: mdc-checkbox-fade-out-background-0;
 }
 
 .checkmark {
@@ -415,14 +264,12 @@ path {
 .mixedmark {
   width: 100%;
   height: 0;
-  -webkit-transform: scaleX(0) rotate(0deg);
-          transform: scaleX(0) rotate(0deg);
+  transform: scaleX(0) rotate(0deg);
   border-width: 1px;
   border-style: solid;
   opacity: 0;
   transition: opacity 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),
-            transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),
-    -webkit-transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
+            transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 .mdc-checkbox--upgraded .background,
@@ -433,49 +280,39 @@ path {
 }
 
 .mdc-checkbox--anim-unchecked-checked .background, :host([indeterminate]:not([checked])) .background, .mdc-checkbox--anim-checked-unchecked .background, :host(:not([checked])) .background {
-  -webkit-animation-duration: 180ms;
-          animation-duration: 180ms;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-duration: 180ms;
+  animation-timing-function: linear;
 }
 .mdc-checkbox--anim-unchecked-checked path {
-  -webkit-animation: mdc-checkbox-unchecked-checked-checkmark-path 180ms linear 0s;
-          animation: mdc-checkbox-unchecked-checked-checkmark-path 180ms linear 0s;
+  animation: mdc-checkbox-unchecked-checked-checkmark-path 180ms linear 0s;
   transition: none;
 }
 :host([indeterminate]:not([checked])) .mixedmark {
-  -webkit-animation: mdc-checkbox-unchecked-indeterminate-mixedmark 90ms linear 0s;
-          animation: mdc-checkbox-unchecked-indeterminate-mixedmark 90ms linear 0s;
+  animation: mdc-checkbox-unchecked-indeterminate-mixedmark 90ms linear 0s;
   transition: none;
 }
 .mdc-checkbox--anim-checked-unchecked path {
-  -webkit-animation: mdc-checkbox-checked-unchecked-checkmark-path 90ms linear 0s;
-          animation: mdc-checkbox-checked-unchecked-checkmark-path 90ms linear 0s;
+  animation: mdc-checkbox-checked-unchecked-checkmark-path 90ms linear 0s;
   transition: none;
 }
 :host([checked][indeterminate]) .checkmark {
-  -webkit-animation: mdc-checkbox-checked-indeterminate-checkmark 90ms linear 0s;
-          animation: mdc-checkbox-checked-indeterminate-checkmark 90ms linear 0s;
+  animation: mdc-checkbox-checked-indeterminate-checkmark 90ms linear 0s;
   transition: none;
 }
 :host([checked][indeterminate]) .mixedmark {
-  -webkit-animation: mdc-checkbox-checked-indeterminate-mixedmark 90ms linear 0s;
-          animation: mdc-checkbox-checked-indeterminate-mixedmark 90ms linear 0s;
+  animation: mdc-checkbox-checked-indeterminate-mixedmark 90ms linear 0s;
   transition: none;
 }
 :host([checked]) .checkmark {
-  -webkit-animation: mdc-checkbox-indeterminate-checked-checkmark 500ms linear 0s;
-          animation: mdc-checkbox-indeterminate-checked-checkmark 500ms linear 0s;
+  animation: mdc-checkbox-indeterminate-checked-checkmark 500ms linear 0s;
   transition: none;
 }
 :host([checked]) .mixedmark {
-  -webkit-animation: mdc-checkbox-indeterminate-checked-mixedmark 500ms linear 0s;
-          animation: mdc-checkbox-indeterminate-checked-mixedmark 500ms linear 0s;
+  animation: mdc-checkbox-indeterminate-checked-mixedmark 500ms linear 0s;
   transition: none;
 }
 :host(:not([checked])) .mixedmark {
-  -webkit-animation: mdc-checkbox-indeterminate-unchecked-mixedmark 300ms linear 0s;
-          animation: mdc-checkbox-indeterminate-unchecked-mixedmark 300ms linear 0s;
+  animation: mdc-checkbox-indeterminate-unchecked-mixedmark 300ms linear 0s;
   transition: none;
 }
 
@@ -497,25 +334,21 @@ input:indeterminate ~ .background path {
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-transform: scale(0, 0);
-          transform: scale(0, 0);
+  transform: scale(0, 0);
   border-radius: 50%;
   opacity: 0;
   pointer-events: none;
   content: "";
   will-change: opacity, transform;
   transition: opacity 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),
-            transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),
-    -webkit-transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
+            transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 input:focus ~ .background::before {
-  -webkit-transform: scale(2.75, 2.75);
-          transform: scale(2.75, 2.75);
+  transform: scale(2.75, 2.75);
   opacity: 0.12;
   transition: opacity 80ms 0ms cubic-bezier(0, 0, 0.2, 1),
-            transform 80ms 0ms cubic-bezier(0, 0, 0.2, 1),
-    -webkit-transform 80ms 0ms cubic-bezier(0, 0, 0.2, 1);
+            transform 80ms 0ms cubic-bezier(0, 0, 0.2, 1)l
 }
 
 input {
@@ -536,26 +369,21 @@ input:disabled {
 
 input:checked ~ .background .checkmark {
   transition: opacity 180ms 0ms cubic-bezier(0, 0, 0.2, 1),
-            transform 180ms 0ms cubic-bezier(0, 0, 0.2, 1),
-    -webkit-transform 180ms 0ms cubic-bezier(0, 0, 0.2, 1);
+            transform 180ms 0ms cubic-bezier(0, 0, 0.2, 1);
   opacity: 1;
 }
 input:checked ~ .background .mixedmark {
-  -webkit-transform: scaleX(1) rotate(-45deg);
-          transform: scaleX(1) rotate(-45deg);
+  transform: scaleX(1) rotate(-45deg);
 }
 
 input:indeterminate ~ .background .checkmark {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   opacity: 0;
   transition: opacity 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),
-            transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),
-    -webkit-transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
+            transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
 }
 input:indeterminate ~ .background .mixedmark {
-  -webkit-transform: scaleX(1) rotate(0deg);
-          transform: scaleX(1) rotate(0deg);
+  transform: scaleX(1) rotate(0deg);
   opacity: 1;
 }
 

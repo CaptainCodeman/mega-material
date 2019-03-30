@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>textfield</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.7/webcomponents-loader.js"></script>
+  <script src="./textfield.js" type="module"></script>
+</head>
+
+<body>
+  <main>
+    <div class="demo-group-spaced">
+      <mwc-textfield></mwc-textfield>
+      <mwc-textfield label="Say something..."></mwc-textfield>
+      <mwc-textfield label="Say something..." value="hi"></mwc-textfield>
+      <mwc-textfield icon="event" label="Say something..." value="hi"></mwc-textfield>
+      <mwc-textfield icon="mail" icon-trailing label="Say something..." value="hi"></mwc-textfield>
+    </div>
+
+    <h4>box</h4>
+    <div class="demo-group-spaced">
+      <mwc-textfield box></mwc-textfield>
+      <mwc-textfield box label="Say something..."></mwc-textfield>
+      <mwc-textfield box label="Say something..." value="hi"></mwc-textfield>
+      <mwc-textfield box icon="event" label="Say something..." value="hi"></mwc-textfield>
+      <mwc-textfield box icon="event" icon-trailing label="Say something..." value="hi"></mwc-textfield>
+
+    </div>
+
+    <h4>box - required</h4>
+    <div class="demo-group-spaced">
+      <mwc-textfield required box></mwc-textfield>
+      <mwc-textfield required box label="Say something..."></mwc-textfield>
+      <mwc-textfield required box label="Say something..." value="hi"></mwc-textfield>
+      <mwc-textfield required box icon="event" label="Say something..." value="hi"></mwc-textfield>
+      <mwc-textfield required box icon-trailing icon="event" label="Say something..." value="hi"></mwc-textfield>
+    </div>
+
+    <h4>outlined</h4>
+    <div class="demo-group-spaced">
+      <mwc-textfield outlined></mwc-textfield>
+      <mwc-textfield outlined label="Say something..."></mwc-textfield>
+      <mwc-textfield outlined label="Say something..." value="hi"></mwc-textfield>
+      <mwc-textfield outlined icon="event" label="Say something..." value="hi"></mwc-textfield>
+      <mwc-textfield outlined icon-trailing icon="event" label="Say something..." value="hi"></mwc-textfield>
+    </div>
+
+    <h4>outlined - required - email - helperText</h4>
+    <div class="demo-group-spaced">
+      <mwc-textfield outlined required type="email" helper-text="Make sure to include an @"></mwc-textfield>
+      <mwc-textfield outlined required type="email" label="Enter email..." helperText="Make sure to include an @">
+      </mwc-textfield>
+      <mwc-textfield outlined required type="email" label="Enter email..." value="hi"
+        helper-text="Make sure to include an @"></mwc-textfield>
+      <mwc-textfield outlined required type="email" icon="event" label="Say something..." value="hi"
+        helper-text="Make sure to include an @"></mwc-textfield>
+      <mwc-textfield outlined icon-trailing required type="email" icon="event" label="Say something..." value="hi"
+        helper-text="Make sure to include an @"></mwc-textfield>
+    </div>
+
+    <h4>box disabled</h4>
+    <div class="demo-group-spaced">
+      <mwc-textfield box disabled></mwc-textfield>
+      <mwc-textfield box disabled label="Say something..."></mwc-textfield>
+      <mwc-textfield box disabled label="Say something..." value="hi"></mwc-textfield>
+      <mwc-textfield box disabled icon="event" label="Say something..." value="hi"></mwc-textfield>
+      <mwc-textfield box disabled icon-railing icon="event" label="Say something..." value="hi"></mwc-textfield>
+    </div>
+
+    <h4>fullWidth</h4>
+    <mwc-textfield fullwidth></mwc-textfield>
+    <mwc-textfield fullwidth placeholder="Say something.."></mwc-textfield>
+    <mwc-textfield fullwidth label="Say something..."></mwc-textfield>
+    <mwc-textfield fullwidth label="Say something..." value="hi"></mwc-textfield>
+  </main>
+</body>
+
+</html>

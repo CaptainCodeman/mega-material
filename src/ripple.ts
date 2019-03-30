@@ -442,135 +442,30 @@ export class RippleElement extends LitElement {
     };
   }
 
-  private static get animationStyles_() {
-    return css`
-@-webkit-keyframes mdc-ripple-fg-radius-in {
-    from {
-        -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        -webkit-transform: translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1);
-                transform: translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1);
-    }
-    to {
-        -webkit-transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
-                transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
-    }
-}
-@keyframes mdc-ripple-fg-radius-in {
-    from {
-        -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        -webkit-transform: translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1);
-                transform: translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1);
-    }
-    to {
-        -webkit-transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
-                transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
-    }
-}
-@-webkit-keyframes mdc-ripple-fg-opacity-in {
-    from {
-        -webkit-animation-timing-function: linear;
-                animation-timing-function: linear;
-        opacity: 0;
-    }
-    to {
-        opacity: var(--mdc-ripple-fg-opacity, 0);
-    }
-}
-@keyframes mdc-ripple-fg-opacity-in {
-    from {
-        -webkit-animation-timing-function: linear;
-                animation-timing-function: linear;
-        opacity: 0;
-    }
-    to {
-        opacity: var(--mdc-ripple-fg-opacity, 0);
-    }
-}
-@-webkit-keyframes mdc-ripple-fg-opacity-out {
-    from {
-        -webkit-animation-timing-function: linear;
-                animation-timing-function: linear;
-        opacity: var(--mdc-ripple-fg-opacity, 0);
-    }
-    to {
-        opacity: 0;
-    }
-}
-@keyframes mdc-ripple-fg-opacity-out {
-    from {
-        -webkit-animation-timing-function: linear;
-                animation-timing-function: linear;
-        opacity: var(--mdc-ripple-fg-opacity, 0);
-    }
-    to {
-        opacity: 0;
-    }
-}`
-  }
-
   static get styles() {
     return [
       css`
-@-webkit-keyframes mdc-ripple-fg-radius-in {
-  from {
-    -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    -webkit-transform: translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1);
-            transform: translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1);
-  }
-  to {
-    -webkit-transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
-            transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
-  }
-}
 @keyframes mdc-ripple-fg-radius-in {
   from {
-    -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    -webkit-transform: translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1);
-            transform: translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1);
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1);
   }
   to {
-    -webkit-transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
-            transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
-  }
-}
-@-webkit-keyframes mdc-ripple-fg-opacity-in {
-  from {
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-    opacity: 0;
-  }
-  to {
-    opacity: var(--mdc-ripple-fg-opacity, 0);
+    transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
   }
 }
 @keyframes mdc-ripple-fg-opacity-in {
   from {
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
+    animation-timing-function: linear;
     opacity: 0;
   }
   to {
     opacity: var(--mdc-ripple-fg-opacity, 0);
-  }
-}
-@-webkit-keyframes mdc-ripple-fg-opacity-out {
-  from {
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-    opacity: var(--mdc-ripple-fg-opacity, 0);
-  }
-  to {
-    opacity: 0;
   }
 }
 @keyframes mdc-ripple-fg-opacity-out {
   from {
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
+    animation-timing-function: linear;
     opacity: var(--mdc-ripple-fg-opacity, 0);
   }
   to {
@@ -580,97 +475,88 @@ export class RippleElement extends LitElement {
       css`
 /* TODO: set variables in root to allow overriding per item ? */
 :host {
-    --mdc-ripple-fg-size: 0;
-    --mdc-ripple-left: 0;
-    --mdc-ripple-top: 0;
-    --mdc-ripple-fg-scale: 1;
-    --mdc-ripple-fg-translate-end: 0;
-    --mdc-ripple-fg-translate-start: 0;
-    --mdc-ripple-fg-opacity: 0.12;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    will-change: transform, opacity;
-    position: relative;
-    outline: none;
-    overflow: hidden;
-    box-sizing: border-box;
-    display: inline-block;
+  --mdc-ripple-fg-size: 0;
+  --mdc-ripple-left: 0;
+  --mdc-ripple-top: 0;
+  --mdc-ripple-fg-scale: 1;
+  --mdc-ripple-fg-translate-end: 0;
+  --mdc-ripple-fg-translate-start: 0;
+  --mdc-ripple-fg-opacity: 0.12;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  will-change: transform, opacity;
+  position: relative;
+  outline: none;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: inline-block;
 }
 div::before,
 div::after {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0;
-    pointer-events: none;
-    content: "";
-    /* border: 1px solid #f00; why? */
-    background-color: #000;
-    top: calc(50% - 100%);
-    left: calc(50% - 100%);
-    width: 200%;
-    height: 200%;
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  content: "";
+  /* border: 1px solid #f00; why? */
+  background-color: #000;
+  top: calc(50% - 100%);
+  left: calc(50% - 100%);
+  width: 200%;
+  height: 200%;
 }
 div::before {
-    transition: opacity 15ms linear, background-color 15ms linear;
-    z-index: 1;
-    -webkit-transform: scale(var(--mdc-ripple-fg-scale, 1));
-            transform: scale(var(--mdc-ripple-fg-scale, 1));
+  transition: opacity 15ms linear, background-color 15ms linear;
+  z-index: 1;
+  transform: scale(var(--mdc-ripple-fg-scale, 1));
 }
 div::after {
-    top: 0;
-    left: 0;
-    -webkit-transform: scale(0);
-            transform: scale(0);
-    -webkit-transform-origin: center center;
-            transform-origin: center center;
-    transition: opacity 150ms linear;
-    width: var(--mdc-ripple-fg-size, 100%);
-    height: var(--mdc-ripple-fg-size, 100%);
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  transform-origin: center center;
+  transition: opacity 150ms linear;
+  width: var(--mdc-ripple-fg-size, 100%);
+  height: var(--mdc-ripple-fg-size, 100%);
 }
 :host([foreground-activation]) div::after {
-    -webkit-animation: mdc-ripple-fg-radius-in 225ms forwards, mdc-ripple-fg-opacity-in 75ms forwards;
-            animation: mdc-ripple-fg-radius-in 225ms forwards, mdc-ripple-fg-opacity-in 75ms forwards;
+  animation: mdc-ripple-fg-radius-in 225ms forwards, mdc-ripple-fg-opacity-in 75ms forwards;
 }
 :host([foreground-deactivation]) div::after {
-    -webkit-animation: mdc-ripple-fg-opacity-out 150ms;
-            animation: mdc-ripple-fg-opacity-out 150ms;
-    -webkit-transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
-            transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
+  animation: mdc-ripple-fg-opacity-out 150ms;
+  transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
 }
 :host(:hover) div::before {
-    opacity: 0.04;
+  opacity: 0.04;
 }
 :host(:focus) div::before,
-:host([background-focused]) div::before {
-    transition-duration: 75ms;
-    opacity: 0.12;
-}
+:host([background-focused]) div::before,
 :host(:active) div::after {
-    transition-duration: 75ms;
-    opacity: 0.12;
+  transition-duration: 75ms;
+  opacity: 0.12;
 }
 :host([unbounded]) div {
-    overflow: visible;
+  overflow: visible;
 }
 :host([unbounded]) div::before,
 :host([unbounded]) div::after {
-    top: var(--mdc-ripple-top, 0);
-    left: var(--mdc-ripple-left, 0);
-    width: var(--mdc-ripple-fg-size, 100%);
-    height: var(--mdc-ripple-fg-size, 100%);
+  top: var(--mdc-ripple-top, 0);
+  left: var(--mdc-ripple-left, 0);
+  width: var(--mdc-ripple-fg-size, 100%);
+  height: var(--mdc-ripple-fg-size, 100%);
 }
 :host([unbounded]) div::after {
-    top: var(--mdc-ripple-top, 0);
-    left: var(--mdc-ripple-left, 0);
-    width: var(--mdc-ripple-fg-size, 100%);
-    height: var(--mdc-ripple-fg-size, 100%);
+  top: var(--mdc-ripple-top, 0);
+  left: var(--mdc-ripple-left, 0);
+  width: var(--mdc-ripple-fg-size, 100%);
+  height: var(--mdc-ripple-fg-size, 100%);
 }
 :host([primary]) div::before,
 :host([primary]) div::after {
-    background-color: #6200ee;
+  background-color: #6200ee;
 }
 :host([accent]) div::before,
 :host([accent]) div::after {
-    background-color: #018786;
+  background-color: #018786;
 }`
     ]
   }

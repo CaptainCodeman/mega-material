@@ -48,3 +48,11 @@ by the Android team to make the web look bad?
 
 Google, in future, don't hire react developers to build a web technology
 library, hire _web_ devlopers - there is a difference.
+
+## Plans
+
+Use PostCSS in Rollup to add prefixes
+Support RTL using `start` &amp; `end` when available (instead of left / right)
+Drop anything todo with IE / Edge
+Drop all CSS only styling (makes no sense if we're running Web Components)
+Drop style mixins - style and behavior for things like notched-outline should only exist once

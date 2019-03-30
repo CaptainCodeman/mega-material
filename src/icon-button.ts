@@ -54,10 +54,7 @@ button {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 ::slotted(svg),

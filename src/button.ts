@@ -69,10 +69,7 @@ button {
   outline: none;
 
   line-height: inherit;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   -webkit-appearance: none;
   overflow: hidden;
   vertical-align: middle;
@@ -230,7 +227,7 @@ svg {
   }
 
   render() {
-  const mdcButtonIcon = html`<mwc-icon>${this.icon}</mwc-icon>`
+    const mdcButtonIcon = html`<mwc-icon>${this.icon}</mwc-icon>`
     return html`
 <mwc-ripple>
   <button ?disabled=${this.disabled} aria-label=${this.label || this.icon}>

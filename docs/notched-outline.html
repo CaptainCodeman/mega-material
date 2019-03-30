@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>notched-outline</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    div {
+      position: relative;
+      width: 128px;
+      height: 48px;
+      margin: 16px;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.7/webcomponents-loader.js"></script>
+  <script src="./notched-outline.js" type="module"></script>
+</head>
+
+<body>
+  <div>
+    <mwc-notched-outline></mwc-notched-outline>
+  </div>
+  <div>
+    <mwc-notched-outline notch notch-width="50"><label slot="label"></label></mwc-notched-outline>
+  </div>
+</body>
+
+</html>
