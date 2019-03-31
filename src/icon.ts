@@ -1,4 +1,5 @@
 import { LitElement, html, customElement, css } from 'lit-element';
+import { hiddenStyle } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -19,6 +20,7 @@ document.head!.appendChild(el);
 export class IconElement extends LitElement {
   static get styles() {
     return [
+      hiddenStyle,
       css`
 :host {
   font-family: var(--mdc-icon-font, "Material Icons");

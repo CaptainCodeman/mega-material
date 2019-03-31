@@ -1,5 +1,6 @@
 import { matches, getNormalizedEventCoords, Point } from './utils';
 import { LitElement, customElement, property, css, html } from 'lit-element';
+import { hiddenStyle } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -444,6 +445,7 @@ export class RippleElement extends LitElement {
 
   static get styles() {
     return [
+      hiddenStyle,
       css`
 @keyframes mdc-ripple-fg-radius-in {
   from {
@@ -489,6 +491,7 @@ export class RippleElement extends LitElement {
   overflow: hidden;
   box-sizing: border-box;
   display: inline-block;
+  contain: content;
 }
 div::before,
 div::after {

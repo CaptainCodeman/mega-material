@@ -2,6 +2,7 @@ import { LitElement, html, customElement, css, property } from 'lit-element';
 
 import './icon'
 import './ripple'
+import { hiddenStyle } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -28,6 +29,7 @@ export class IconButtonElement extends LitElement {
 
   static get styles() {
     return [
+      hiddenStyle,
       css`
 :host {
   display: inline-block;

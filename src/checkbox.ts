@@ -1,6 +1,7 @@
 import { LitElement, html, customElement, css, property, query } from 'lit-element';
 
 import './ripple'
+import { hiddenStyle } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -39,6 +40,7 @@ export class CheckboxElement extends LitElement {
 
   static get styles() {
     return [
+      hiddenStyle,
       css`
 @keyframes mdc-checkbox-unchecked-checked-checkmark-path {
   0%, 50% {
