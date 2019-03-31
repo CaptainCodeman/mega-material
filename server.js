@@ -15,7 +15,7 @@ bs.init({
   server: 'docs',
   index: 'index.html',
   files: [
-    'docs/index.html',
+    'docs/*.html',
     'docs/*.js',
   ],
   ghostMode: false,
