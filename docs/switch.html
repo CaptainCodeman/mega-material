@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>switch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    mwc-switch { margin: 0 8px; }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.7/webcomponents-loader.js"></script>
+  <script src="./switch.js" type="module"></script>
+</head>
+
+<body>
+  <p>
+    <label onclick="this.firstChild.checked = !this.firstChild.checked"><mwc-switch checked></mwc-switch> Default On</label>
+  </p>
+  <p>
+    <label onclick="this.firstChild.checked = !this.firstChild.checked"><mwc-switch></mwc-switch> Default Off</label>
+  </p>
+</body>
+
+</html>
