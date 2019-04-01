@@ -35,12 +35,12 @@ export class DrawerElement extends LitElement {
   hasheader = false;  // TODO: calc from slots so it's automatic
 
   @query('aside')
-  private _drawerElement!: HTMLElement;
+  private drawerElement: HTMLElement;
 
   @query('[name="app-content"]')
-  private _appContentSlot!: HTMLSlotElement;
+  private appContentSlot: HTMLSlotElement;
 
-  private _animationFrame = 0;
+  private animationFrame_ = 0;
 
   connectedCallback() {
     super.connectedCallback()
@@ -48,21 +48,21 @@ export class DrawerElement extends LitElement {
 
   disconnectedCallback() {
     super.disconnectedCallback()
-    if (this._animationFrame) {
-      cancelAnimationFrame(this._animationFrame)
+    if (this.animationFrame_) {
+      cancelAnimationFrame(this.animationFrame_)
     }
   }
 
-  private _isOpening() {
+  private isOpening_() {
     return this.opening || this.animating
   }
 
-  private _isClosing() {
+  private isClosing_() {
     return this.closing
   }
 
   async open() {
-    if (this.opened || this._isOpening() || this._isClosing()) {
+    if (this.opened || this.isOpening_() || this.isClosing_()) {
       return
     }
 
@@ -72,21 +72,21 @@ export class DrawerElement extends LitElement {
     await this.updateComplete
 
     // Wait a frame once display is no longer "none", to establish basis for animation
-    this._drawerElement.getBoundingClientRect()
+    this.drawerElement.getBoundingClientRect()
     this.opening = true
 
-    // this._saveFocus();
+    // this.saveFocus_();
   }
 
   close() {
-    if (!this.opened || this._isOpening() || this._isClosing()) {
+    if (!this.opened || this.isOpening_() || this.isClosing_()) {
       return
     }
 
     this.closing = true
   }
 
-  private _handleKeydown(evt: KeyboardEvent) {
+  private handleKeydown_(evt: KeyboardEvent) {
     const { keyCode, key } = evt;
     const isEscape = key === 'Escape' || keyCode === 27;
     if (isEscape) {
@@ -94,14 +94,14 @@ export class DrawerElement extends LitElement {
     }
   }
 
-  private _handleTransitionEnd(evt: TransitionEvent) {
+  private handleTransitionEnd_(evt: TransitionEvent) {
     if (this.closing) {
       this.opened = false
-      // this._restoreFocus();
-      // this._notifyClose();
+      // this.restoreFocus_();
+      // this.notifyClose_();
     } else {
-      // this.focusActiveNavigationItem();
-      // this._notifyOpen();
+      // this.focusActiveNavigationItem_();
+      // this.notifyOpen_();
     }
 
     this.animating = false
@@ -111,12 +111,12 @@ export class DrawerElement extends LitElement {
 
   firstUpdated() {
     // TODO: move to common event constants
-    this._appContentSlot.addEventListener('MDCTopAppBar:nav', e => this._navigationIconClicked())
-    this._drawerElement.addEventListener('keydown', (e) => this._handleKeydown(e));
-    this._drawerElement.addEventListener('transitionend', (e) => this._handleTransitionEnd(e));
+    this.appContentSlot.addEventListener('MDCTopAppBar:nav', e => this.navigationIconClicked_())
+    this.drawerElement.addEventListener('keydown', (e) => this.handleKeydown_(e));
+    this.drawerElement.addEventListener('transitionend', (e) => this.handleTransitionEnd_(e));
   }
 
-  private _navigationIconClicked() {
+  private navigationIconClicked_() {
     if (this.opened) {
       this.close()
     } else {
@@ -124,7 +124,7 @@ export class DrawerElement extends LitElement {
     }
   }
 
-  private _handleScrimClick() {
+  private handleScrimClick_() {
     this.close()
   }
 
@@ -426,7 +426,7 @@ header {
   </header>
   <div class="content"><slot></slot></div>
 </aside>
-${this.modal ? html`<div class="scrim" @click=${this._handleScrimClick}></div>` : nothing}
+${this.modal ? html`<div class="scrim" @click=${this.handleScrimClick_}></div>` : nothing}
 <div class="app-content"><slot name="app-content"></slot></div>`
   }
 }

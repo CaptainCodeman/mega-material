@@ -30,7 +30,7 @@ export class CheckboxElement extends LitElement {
     return this.attachShadow({ mode: 'open', delegatesFocus: true });
   }
 
-  changeHandler_() {
+  private changeHandler_() {
     this.checked = this.formElement.checked;
     this.indeterminate = this.formElement.indeterminate;
   }
@@ -42,7 +42,7 @@ export class CheckboxElement extends LitElement {
     return [
       hiddenStyle,
       css`
-@keyframes mdc-checkbox-unchecked-checked-checkmark-path {
+@keyframes unchecked-checked-checkmark-path {
   0%, 50% {
     stroke-dashoffset: 29.7833385;
   }
@@ -53,7 +53,7 @@ export class CheckboxElement extends LitElement {
     stroke-dashoffset: 0;
   }
 }
-@keyframes mdc-checkbox-unchecked-indeterminate-mixedmark {
+@keyframes unchecked-indeterminate-mixedmark {
   0%, 68.2% {
     transform: scaleX(0);
   }
@@ -64,7 +64,7 @@ export class CheckboxElement extends LitElement {
     transform: scaleX(1);
   }
 }
-@keyframes mdc-checkbox-checked-unchecked-checkmark-path {
+@keyframes checked-unchecked-checkmark-path {
   from {
     animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
     opacity: 1;
@@ -75,7 +75,7 @@ export class CheckboxElement extends LitElement {
     stroke-dashoffset: -29.7833385;
   }
 }
-@keyframes mdc-checkbox-checked-indeterminate-checkmark {
+@keyframes checked-indeterminate-checkmark {
   from {
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
     transform: rotate(0deg);
@@ -86,7 +86,7 @@ export class CheckboxElement extends LitElement {
     opacity: 0;
   }
 }
-@keyframes mdc-checkbox-indeterminate-checked-checkmark {
+@keyframes indeterminate-checked-checkmark {
   from {
     animation-timing-function: cubic-bezier(0.14, 0, 0, 1);
     transform: rotate(45deg);
@@ -97,7 +97,7 @@ export class CheckboxElement extends LitElement {
     opacity: 1;
   }
 }
-@keyframes mdc-checkbox-checked-indeterminate-mixedmark {
+@keyframes checked-indeterminate-mixedmark {
   from {
     animation-timing-function: mdc-animation-deceleration-curve-timing-function;
     transform: rotate(-45deg);
@@ -108,7 +108,7 @@ export class CheckboxElement extends LitElement {
     opacity: 1;
   }
 }
-@keyframes mdc-checkbox-indeterminate-checked-mixedmark {
+@keyframes indeterminate-checked-mixedmark {
   from {
     animation-timing-function: cubic-bezier(0.14, 0, 0, 1);
     transform: rotate(0deg);
@@ -119,7 +119,7 @@ export class CheckboxElement extends LitElement {
     opacity: 0;
   }
 }
-@keyframes mdc-checkbox-indeterminate-unchecked-mixedmark {
+@keyframes indeterminate-unchecked-mixedmark {
   0% {
     animation-timing-function: linear;
     transform: scaleX(1);
@@ -157,7 +157,7 @@ input:enabled:indeterminate ~ .background {
   background-color: var(--mdc-theme-secondary, #018786);
 }
 
-@keyframes mdc-checkbox-fade-in-background-0 {
+@keyframes fade-in-background-0 {
   0% {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent;
@@ -167,7 +167,7 @@ input:enabled:indeterminate ~ .background {
     background-color: var(--mdc-theme-secondary, #018786);
   }
 }
-@keyframes mdc-checkbox-fade-out-background-0 {
+@keyframes fade-out-background-0 {
   0%, 80% {
     border-color: var(--mdc-theme-secondary, #018786);
     background-color: var(--mdc-theme-secondary, #018786);
@@ -178,10 +178,10 @@ input:enabled:indeterminate ~ .background {
   }
 }
 .mdc-checkbox--anim-unchecked-checked input:enabled ~ .background, :host([indeterminate]:not([checked])) input:enabled ~ .background {
-  animation-name: mdc-checkbox-fade-in-background-0;
+  animation-name: fade-in-background-0;
 }
 .mdc-checkbox--anim-checked-unchecked input:enabled ~ .background, :host(:not([checked])) input:enabled ~ .background {
-  animation-name: mdc-checkbox-fade-out-background-0;
+  animation-name: fade-out-background-0;
 }
 
 .checkmark {
@@ -286,35 +286,35 @@ path {
   animation-timing-function: linear;
 }
 .mdc-checkbox--anim-unchecked-checked path {
-  animation: mdc-checkbox-unchecked-checked-checkmark-path 180ms linear 0s;
+  animation: unchecked-checked-checkmark-path 180ms linear 0s;
   transition: none;
 }
 :host([indeterminate]:not([checked])) .mixedmark {
-  animation: mdc-checkbox-unchecked-indeterminate-mixedmark 90ms linear 0s;
+  animation: unchecked-indeterminate-mixedmark 90ms linear 0s;
   transition: none;
 }
 .mdc-checkbox--anim-checked-unchecked path {
-  animation: mdc-checkbox-checked-unchecked-checkmark-path 90ms linear 0s;
+  animation: checked-unchecked-checkmark-path 90ms linear 0s;
   transition: none;
 }
 :host([checked][indeterminate]) .checkmark {
-  animation: mdc-checkbox-checked-indeterminate-checkmark 90ms linear 0s;
+  animation: checked-indeterminate-checkmark 90ms linear 0s;
   transition: none;
 }
 :host([checked][indeterminate]) .mixedmark {
-  animation: mdc-checkbox-checked-indeterminate-mixedmark 90ms linear 0s;
+  animation: checked-indeterminate-mixedmark 90ms linear 0s;
   transition: none;
 }
 :host([checked]) .checkmark {
-  animation: mdc-checkbox-indeterminate-checked-checkmark 500ms linear 0s;
+  animation: indeterminate-checked-checkmark 500ms linear 0s;
   transition: none;
 }
 :host([checked]) .mixedmark {
-  animation: mdc-checkbox-indeterminate-checked-mixedmark 500ms linear 0s;
+  animation: indeterminate-checked-mixedmark 500ms linear 0s;
   transition: none;
 }
 :host(:not([checked])) .mixedmark {
-  animation: mdc-checkbox-indeterminate-unchecked-mixedmark 300ms linear 0s;
+  animation: indeterminate-unchecked-mixedmark 300ms linear 0s;
   transition: none;
 }
 

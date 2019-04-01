@@ -447,7 +447,7 @@ export class RippleElement extends LitElement {
     return [
       hiddenStyle,
       css`
-@keyframes mdc-ripple-fg-radius-in {
+@keyframes fg-radius-in {
   from {
     animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transform: translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1);
@@ -456,7 +456,7 @@ export class RippleElement extends LitElement {
     transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
   }
 }
-@keyframes mdc-ripple-fg-opacity-in {
+@keyframes fg-opacity-in {
   from {
     animation-timing-function: linear;
     opacity: 0;
@@ -465,7 +465,7 @@ export class RippleElement extends LitElement {
     opacity: var(--mdc-ripple-fg-opacity, 0);
   }
 }
-@keyframes mdc-ripple-fg-opacity-out {
+@keyframes fg-opacity-out {
   from {
     animation-timing-function: linear;
     opacity: var(--mdc-ripple-fg-opacity, 0);
@@ -522,10 +522,10 @@ div::after {
   height: var(--mdc-ripple-fg-size, 100%);
 }
 :host([foreground-activation]) div::after {
-  animation: mdc-ripple-fg-radius-in 225ms forwards, mdc-ripple-fg-opacity-in 75ms forwards;
+  animation: fg-radius-in 225ms forwards, fg-opacity-in 75ms forwards;
 }
 :host([foreground-deactivation]) div::after {
-  animation: mdc-ripple-fg-opacity-out 150ms;
+  animation: fg-opacity-out 150ms;
   transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
 }
 :host(:hover) div::before {

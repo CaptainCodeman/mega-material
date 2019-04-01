@@ -20,7 +20,7 @@ export class SwitchElement extends LitElement {
   @query('input')
   protected formElement!: HTMLInputElement;
 
-  changeHandler(e: Event) {
+  private changeHandler_(e: Event) {
     this.checked = this.formElement.checked;
   }
 
@@ -169,7 +169,7 @@ mwc-ripple {
 <div class="track"></div>
 <mwc-ripple unbounded>
   <div class="thumb">
-    <input type="checkbox" id="basic-switch" role="switch" ?checked=${this.checked} ?disabled=${this.disabled} @change=${this.changeHandler}>
+    <input type="checkbox" id="basic-switch" role="switch" ?checked=${this.checked} ?disabled=${this.disabled} @change=${this.changeHandler_}>
   </div>
 </mwc-ripple>`
   }

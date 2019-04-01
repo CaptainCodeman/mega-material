@@ -28,31 +28,28 @@ export class TopAppBarElement extends LitElement {
   centerTitle = false;
 
   @query('[name="navigationIcon"]')
-  private _navIconSlot!: HTMLSlotElement;
+  private navIconSlot: HTMLSlotElement;
 
-  @query('[name="actionItems"]')
-  private _actionItemsSlot!: HTMLSlotElement;
-
-  private _scrollTarget!: HTMLElement | Window;
+  private scrollTarget_: HTMLElement | Window;
 
   get scrollTarget() {
-    return this._scrollTarget || window as Window;
+    return this.scrollTarget_ || window as Window;
   }
 
   set scrollTarget(value) {
     const old = this.scrollTarget;
-    this._scrollTarget = value;
+    this.scrollTarget_ = value;
     // this.requestUpdate('scrollTarget', old);
   }
 
   firstUpdated() {
-    this._navIconSlot.addEventListener('click', e => this._notifyNavigationIconClicked())
+    this.navIconSlot.addEventListener('click', e => this.notifyNavigationIconClicked_())
 
     // this.mdcRoot.addEventListener('keydown', (e) => this.mdcFoundation.handleKeydown(e));
     // this.mdcRoot.addEventListener('transitionend', (e) => this.mdcFoundation.handleTransitionEnd(e));
   }
 
-  private _notifyNavigationIconClicked() {
+  private notifyNavigationIconClicked_() {
     this.dispatchEvent(new CustomEvent('MDCTopAppBar:nav', {
       bubbles: true,
       composed: true,
