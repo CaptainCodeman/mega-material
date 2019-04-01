@@ -20,6 +20,8 @@ export class DrawerElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   opened = false;
 
+  // TODO: opening, closing and animating don't need to be public on :host
+  // they should be applied to the aside drawer element only
   @property({ type: Boolean, reflect: true })
   opening = false;
 
@@ -59,7 +61,7 @@ export class DrawerElement extends LitElement {
     return this.closing
   }
 
-  open() {
+  async open() {
     if (this.opened || this._isOpening() || this._isClosing()) {
       return
     }
@@ -67,10 +69,11 @@ export class DrawerElement extends LitElement {
     this.opened = true
     this.animating = true
 
+    await this.updateComplete
+
     // Wait a frame once display is no longer "none", to establish basis for animation
-    this._animationFrame = requestAnimationFrame(() => {
-      this.opening = true
-    });
+    this._drawerElement.getBoundingClientRect()
+    this.opening = true
 
     // this._saveFocus();
   }
@@ -84,7 +87,7 @@ export class DrawerElement extends LitElement {
   }
 
   private _handleKeydown(evt: KeyboardEvent) {
-    const {keyCode, key} = evt;
+    const { keyCode, key } = evt;
     const isEscape = key === 'Escape' || keyCode === 27;
     if (isEscape) {
       this.close();
@@ -315,7 +318,7 @@ aside .mdc-list-item__graphic {
   transform: translateX(-100%);
   transition-duration: 200ms;
 }
-[dir=rtl] .:host([closing]) aside,
+[dir=rtl] :host([closing]) aside,
 :host([closing]) aside[dir=rtl] {
   transform: translateX(100%);
 }
