@@ -152,6 +152,7 @@ export class LinearProgressElement extends LitElement {
   transform: translateZ(0);
   transition: opacity 250ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
   overflow: hidden;
+  contain: content;
 }
 .bar {
   position: absolute;

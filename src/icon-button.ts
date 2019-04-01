@@ -33,6 +33,7 @@ export class IconButtonElement extends LitElement {
       css`
 :host {
   display: inline-block;
+  contain: content;
 }
 
 mwc-ripple {

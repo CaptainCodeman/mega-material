@@ -36,7 +36,8 @@ export class IconElement extends LitElement {
   word-wrap: normal;
   direction: ltr;
   -webkit-font-feature-settings: "liga";
-  -webkit-font-smoothing: antialiased
+  -webkit-font-smoothing: antialiased;
+  contain: content;
 }`
     ]
   }

@@ -144,6 +144,7 @@ export class CheckboxElement extends LitElement {
   cursor: pointer;
   vertical-align: bottom;
   outline: none;
+  contain: content;
 }
 
 input:enabled:not(:checked):not(:indeterminate) ~ .background {

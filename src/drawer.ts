@@ -138,6 +138,7 @@ export class DrawerElement extends LitElement {
 :host {
   display: flex;
   height: 100%;
+  contain: content;
 }
 
 aside {

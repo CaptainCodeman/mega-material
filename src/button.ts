@@ -48,6 +48,7 @@ export class ButtonElement extends LitElement {
 :host {
   display: inline-block;
   outline: none;
+  contain: content;
 }
 button {
   font-family: Roboto, sans-serif;

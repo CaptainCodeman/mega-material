@@ -35,6 +35,7 @@ export class NotchedOutlineElement extends LitElement {
   text-align: left;
   pointer-events: none;
   outline: none;
+  contain: content;
 }
 [dir=rtl] :host,
 :host([dir=rtl]) {

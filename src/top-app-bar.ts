@@ -70,6 +70,7 @@ export class TopAppBarElement extends LitElement {
   box-sizing: border-box;
   width: 100%;
   z-index: 4;
+  contain: content;
 }
 
 slot.icons::slotted(*) {

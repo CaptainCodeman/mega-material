@@ -33,6 +33,7 @@ export class SwitchElement extends LitElement {
   position: relative;
   outline: none;
   user-select: none;
+  contain: layout;
 }
 
 :host([checked]) .track {
