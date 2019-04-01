@@ -13,6 +13,7 @@ export default {
   input: [
     'src/button.ts',
     'src/checkbox.ts',
+    'src/drawer.ts',
     'src/icon.ts',
     'src/icon-button.ts',
     'src/linear-progress.ts',
