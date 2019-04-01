@@ -45,6 +45,20 @@ export class TopAppBarElement extends LitElement {
     // this.requestUpdate('scrollTarget', old);
   }
 
+  firstUpdated() {
+    this._navIconSlot.addEventListener('click', e => this._notifyNavigationIconClicked())
+
+    // this.mdcRoot.addEventListener('keydown', (e) => this.mdcFoundation.handleKeydown(e));
+    // this.mdcRoot.addEventListener('transitionend', (e) => this.mdcFoundation.handleTransitionEnd(e));
+  }
+
+  private _notifyNavigationIconClicked() {
+    this.dispatchEvent(new CustomEvent('MDCTopAppBar:nav', {
+      bubbles: true,
+      composed: true,
+    }))
+  }
+
   static get styles() {
     return [
       hiddenStyle,
