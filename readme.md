@@ -56,3 +56,4 @@ Support RTL using `start` &amp; `end` when available (instead of left / right)
 Drop anything todo with IE / Edge
 Drop all CSS only styling (makes no sense if we're running Web Components)
 Drop style mixins - style and behavior for things like notched-outline should only exist once
+Provide CSS variable equivalents of SASS mixins (e.g. for setting drawer width etc...)
