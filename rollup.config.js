@@ -12,6 +12,7 @@ const production = !process.env.ROLLUP_WATCH;
 export default {
   input: [
     'src/button.ts',
+    'src/card.ts',
     'src/checkbox.ts',
     'src/drawer.ts',
     'src/icon.ts',
