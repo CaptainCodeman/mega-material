@@ -232,7 +232,7 @@ svg {
   render() {
     const mdcButtonIcon = html`<mwc-icon>${this.icon}</mwc-icon>`
     return html`
-<mwc-ripple>
+<mwc-ripple primary>
   <button ?disabled=${this.disabled} aria-label=${this.label || this.icon}>
     ${this.icon && !this.trailingIcon ? mdcButtonIcon : nothing}
     <span class="label">${this.label}</span>
