@@ -141,18 +141,8 @@ slot[name="title"]::slotted(*) {
   overflow: hidden;
 }
 
-[dir=rtl] slot[name="title"]::slotted(*),
-slot[name="title"][dir=rtl]::slotted(*) {
-  padding-left: 0;
-  padding-right: 20px;
-}
-
 :host([short][collapsed]) {
   border-radius: 0 0 24px 0;
-}
-[dir=rtl] :host([short][collapsed]),
-:host([short][collapsed][dir=rtl]) {
-  border-radius: 0 0 0 24px;
 }
 
 :host([short]) {
@@ -162,11 +152,7 @@ slot[name="title"][dir=rtl]::slotted(*) {
   width: 100%;
   transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-[dir=rtl] :host([short]),
-:host([short][dir=rtl]) {
-  right: 0;
-  left: auto;
-}
+
 :host([short]) div {
   height: 56px;
 }
@@ -199,11 +185,6 @@ slot[name="title"][dir=rtl]::slotted(*) {
   padding-left: 0;
   padding-right: 12px;
 }
-[dir=rtl] :host([short][collapsed][has-action-item]) section[role="toolbar"],
-:host([short][collapsed][has-action-item]) section[role="toolbar"][dir=rtl] {
-  padding-left: 12px;
-  padding-right: 0;
-}
 
 :host([dense]) div {
   height: 48px;
@@ -214,11 +195,6 @@ slot[name="title"][dir=rtl]::slotted(*) {
 :host([dense]) slot[name="title"]::slotted(*) {
   padding-left: 12px;
   padding-right: 0;
-}
-[dir=rtl] :host([dense]) slot[name="title"]::slotted(*),
-:host([dense]) slot[name="title"]::slotted([dir=rtl]) {
-  padding-left: 0;
-  padding-right: 12px;
 }
 
 :host([prominent]) div {
@@ -253,11 +229,6 @@ slot[name="title"][dir=rtl]::slotted(*) {
   padding-left: 20px;
   padding-right: 0;
   padding-bottom: 9px;
-}
-[dir=rtl] :host([dense][prominent]) slot[name="title"]::slotted(*),
-:host([dense][prominent]) slot[name="title"]::slotted([dir=rtl]) {
-  padding-left: 0;
-  padding-right: 20px;
 }
 
 :host([fixed][adjust]) {
@@ -299,11 +270,6 @@ slot[name="title"][dir=rtl]::slotted(*) {
   :host([short][collapsed]) section[role="toolbar"] {
     padding-left: 0;
     padding-right: 12px;
-  }
-  [dir=rtl] :host([short][collapsed]) section[role="toolbar"],
-  :host([short][collapsed]) section[role="toolbar"][dir=rtl] {
-    padding-left: 12px;
-    padding-right: 0;
   }
 
   :host([prominent]) slot[name="title"]::slotted(*) {

@@ -107,11 +107,6 @@ mwc-icon {
   font-size: 18px;
   vertical-align: top;
 }
-[dir=rtl] mwc-icon,
-mwc-icon[dir=rtl] {
-  margin-left: 8px;
-  margin-right: 0;
-}
 :host(:not(:disabled)) button {
   color: #6200ee;
   color: var(--mdc-theme-primary, #6200ee);
@@ -120,11 +115,6 @@ mwc-icon[dir=rtl] {
 .label + mwc-icon {
   margin-left: 8px;
   margin-right: 0;
-}
-[dir=rtl] .label + mwc-icon,
-.label + mwc-icon[dir=rtl] {
-  margin-left: 0;
-  margin-right: 8px;
 }
 
 svg {
@@ -137,29 +127,11 @@ svg {
   margin-left: -4px;
   margin-right: 8px;
 }
-[dir=rtl] :host([raised]) mwc-icon,
-:hos(t[raised]) mwc-icon[dir=rtl],
-[dir=rtl] :host([unelevated]) mwc-icon,
-:host([unelevated]) mwc-icon[dir=rtl],
-[dir=rtl] :host([outlined]) mwc-icon,
-:host([outlined]) mwc-icon[dir=rtl] {
-  margin-left: 8px;
-  margin-right: -4px;
-}
 :host([raised]) .label + mwc-icon,
 :host([unelevated]) .label + mwc-icon,
 :host([outlined]) .label + mwc-icon {
   margin-left: 8px;
   margin-right: -4px;
-}
-[dir=rtl] :host([raised]) .label + mwc-icon,
-:host([raised]) .label + mwc-icon[dir=rtl],
-[dir=rtl] :host([unelevated]) .label + mwc-icon,
-:host([unelevated]) .label + mwc-icon[dir=rtl],
-[dir=rtl] :host([outlined]) .label + mwc-icon,
-:host([outlined]) .label + mwc-icon[dir=rtl] {
-  margin-left: -4px;
-  margin-right: 8px;
 }
 
 :host([raised]) button,

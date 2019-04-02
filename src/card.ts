@@ -147,12 +147,6 @@ slot[name="media"]::slotted(:last-child),
   margin-right: 0;
 }
 
-[dir="rtl"] .action-buttons + .action-icons,
-.action-buttons + .action-icons[dir="rtl"] {
-  margin-left: 0;
-  margin-right: 16px;
-}
-
 .action {
   display: inline-flex;
   flex-direction: row;
@@ -171,17 +165,7 @@ slot[name="media"]::slotted(:last-child),
   margin-right: 8px;
   padding: 0 8px;
 }
-[dir="rtl"] .action--button,
-.action--button[dir="rtl"] {
-  margin-left: 8px;
-  margin-right: 0;
-}
 .action--button:last-child {
-  margin-left: 0;
-  margin-right: 0;
-}
-[dir="rtl"] .action--button:last-child,
-.action--button:last-child[dir="rtl"] {
   margin-left: 0;
   margin-right: 0;
 }
@@ -195,10 +179,6 @@ slot[name="media"]::slotted(:last-child),
   margin: 0;
   padding: 8px 16px;
   text-align: left;
-}
-[dir="rtl"] .actions--full-bleed .action--button,
-.full-bleed .action--button[dir="rtl"] {
-  text-align: right;
 }
 
 .action--icon {

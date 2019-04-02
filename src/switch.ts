@@ -70,12 +70,6 @@ input {
   pointer-events: auto;
 }
 
-[dir=rtl] input,
-input[dir=rtl] {
-  left: initial;
-  right: 0;
-}
-
 .track {
   box-sizing: border-box;
   width: 32px;
@@ -103,11 +97,6 @@ mwc-ripple {
               background-color 90ms cubic-bezier(0.4, 0, 0.2, 1),
               border-color 90ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-[dir=rtl] mwc-ripple,
-mwc-ripple[dir=rtl] {
-  left: initial;
-  right: -18px;
-}
 
 .thumb {
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
@@ -125,16 +114,8 @@ mwc-ripple[dir=rtl] {
 :host([checked]) mwc-ripple {
   transform: translateX(20px);
 }
-[dir=rtl] :host([checked]) mwc-ripple,
-:host([checked]) mwc-ripple[dir=rtl] {
-  transform: translateX(-20px);
-}
 :host([checked]) input {
   transform: translateX(-20px);
-}
-[dir=rtl] :host([checked]) input,
-:host([checked]) input[dir=rtl] {
-  transform: translateX(20px);
 }
 
 :host([disabled]) {

@@ -37,10 +37,6 @@ export class NotchedOutlineElement extends LitElement {
   outline: none;
   contain: content;
 }
-[dir=rtl] :host,
-:host([dir=rtl]) {
-  text-align: right;
-}
 .leading, .notch, .trailing {
   box-sizing: border-box;
   height: 100%;
@@ -54,20 +50,10 @@ export class NotchedOutlineElement extends LitElement {
   border-right: none;
   width: 12px;
 }
-[dir=rtl] .leading,
-.leading[dir=rtl] {
-  border-left: none;
-  border-right: 1px solid;
-}
 .trailing {
   border-left: none;
   border-right: 1px solid;
   flex-grow: 1;
-}
-[dir=rtl] .trailing,
-.trailing[dir=rtl] {
-  border-left: 1px solid;
-  border-right: none;
 }
 .notch {
   flex: 0 0 auto;
@@ -92,12 +78,6 @@ export class NotchedOutlineElement extends LitElement {
   padding-left: 0;
   padding-right: 8px;
   border-top: none;
-}
-
-[dir=rtl] .notch,
-.notch[dir=rtl] {
-  padding-left: 8px;
-  padding-right: 0;
 }
 
 :host(:not([notch])) .notch {
@@ -128,17 +108,10 @@ export class NotchedOutlineElement extends LitElement {
 .leading {
   border-radius: 4px 0 0 4px;
 }
-[dir=rtl] .leading,
-.leading[dir=rtl] {
-  border-radius: 0 4px 4px 0;
-}
 .trailing {
   border-radius: 0 4px 4px 0;
 }
-[dir=rtl] .trailing,
-.trailing[dir=rtl] {
-  border-radius: 4px 0 0 4px;
-}
+
 .mdc-text-field--outlined .mdc-floating-label--float-above {
   transform: translateY(-144%) scale(1);
 }
@@ -182,11 +155,7 @@ export class NotchedOutlineElement extends LitElement {
 .mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
   transform: translateY(-130%) translateX(-32px) scale(0.75);
 }
-[dir=rtl] .mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above, .mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above[dir=rtl],
-[dir=rtl] .mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above,
-.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above[dir=rtl] {
-  transform: translateY(-130%) translateX(32px) scale(0.75);
-}
+
 .mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,
 .mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
   font-size: 1rem;
@@ -196,11 +165,7 @@ export class NotchedOutlineElement extends LitElement {
 .mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-text-field--dense .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
   transform: translateY(-120%) translateX(-21px) scale(0.8);
 }
-[dir=rtl] .mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-text-field--dense.mdc-notched-outline--upgraded .mdc-floating-label--float-above, .mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-text-field--dense.mdc-notched-outline--upgraded .mdc-floating-label--float-above[dir=rtl],
-[dir=rtl] .mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-text-field--dense .mdc-notched-outline--upgraded .mdc-floating-label--float-above,
-.mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-text-field--dense .mdc-notched-outline--upgraded .mdc-floating-label--float-above[dir=rtl] {
-  transform: translateY(-120%) translateX(21px) scale(0.8);
-}
+
 .mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-text-field--dense.mdc-notched-outline--upgraded .mdc-floating-label--float-above,
 .mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-text-field--dense .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
   font-size: 1rem;

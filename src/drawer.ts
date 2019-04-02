@@ -218,10 +218,6 @@ h6 {
 }
 */
 
-[dir=rtl] aside,
-aside[dir=rtl] {
-  border-radius: 0 0 0 0;
-}
 aside .mdc-list-item {
   border-radius: 4px;
 }
@@ -229,18 +225,6 @@ aside .mdc-list-item {
 :host([opened]:not([closing]):not([modal])) .app-content {
   margin-left: 256px;
   margin-right: 0;
-}
-[dir=rtl] :host([opened]:not([closing]):not([modal])) .app-content,
-:host([opened]:not([closing]):not([modal])) .app-content[dir=rtl] {
-  margin-left: 0;
-  margin-right: 256px;
-}
-[dir=rtl] aside,
-aside[dir=rtl] {
-  border-right-width: 0;
-  border-left-width: 1px;
-  border-right-style: none;
-  border-left-style: solid;
 }
 
 /*
@@ -301,27 +285,14 @@ aside .mdc-list-item__graphic {
 :host([animating]) aside  {
   transform: translateX(-100%);
 }
-[dir=rtl] :host([animating]) aside,
-:host([animating]) aside[dir=rtl] {
-  transform: translateX(100%);
-}
-
 :host([opening]) aside {
   transform: translateX(0);
   transition-duration: 250ms;
-}
-[dir=rtl] :host([opening]) aside,
-:host([opening]) aside[dir=rtl] {
-  transform: translateX(0);
 }
 
 :host([closing]) aside {
   transform: translateX(-100%);
   transition-duration: 200ms;
-}
-[dir=rtl] :host([closing]) aside,
-:host([closing]) aside[dir=rtl] {
-  transform: translateX(100%);
 }
 
 header {
@@ -343,11 +314,6 @@ header {
   display: none;
   position: absolute;
 }
-[dir=rtl] :host([dismissible]) aside,
-  :host([dismissible]) aside[dir=rtl] {
-  left: initial;
-  right: 0;
-}
 :host([dismissible][opened]) aside {
   display: flex;
 }
@@ -361,12 +327,6 @@ header {
   position: relative;
 }
 
-[dir=rtl] .app-content,
-.app-content[dir=rtl] {
-  margin-left: 0;
-  margin-right: 0;
-}
-
 :host([modal]) aside {
   box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2),
               0px 16px 24px 2px rgba(0, 0, 0, 0.14),
@@ -378,11 +338,6 @@ header {
 }
 :host([modal]) .scrim {
   background-color: rgba(0, 0, 0, 0.32);
-}
-[dir=rtl] :host([modal]) aside,
-:host([modal]) aside[dir=rtl] {
-  left: initial;
-  right: 0;
 }
 :host([modal][opened]) aside {
   display: flex;

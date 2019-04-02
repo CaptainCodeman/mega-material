@@ -237,10 +237,6 @@ input:disabled:indeterminate ~ .background {
   transition: background-color 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),
               border-color 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
 }
-.mdc-checkbox[dir=rtl] .background, [dir=rtl] .mdc-checkbox .background {
-  left: initial;
-  right: 11px;
-}
 
 .checkmark {
   position: absolute;
