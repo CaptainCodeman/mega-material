@@ -21,6 +21,7 @@ export default {
     'src/notched-outline.ts',
     'src/ripple.ts',
     'src/switch.ts',
+    'src/snackbar.ts',
     'src/textfield.ts',
     'src/top-app-bar.ts',
   ],

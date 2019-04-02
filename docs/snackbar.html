@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>snackbar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    mwc-button {
+      margin: 12px;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.7/webcomponents-loader.js"></script>
+  <script src="./button.js" type="module"></script>
+  <script src="./snackbar.js" type="module"></script>
+</head>
+
+<body>
+  <mwc-button onclick="baseline()" unelevated>Baseline</mwc-button>
+  <mwc-button onclick="leading()" unelevated>Leading</mwc-button>
+  <mwc-button onclick="stacked()" unelevated>Stacked</mwc-button>
+
+  <mwc-snackbar id="el" dismissable>
+    <span>Can't send photo. Retry in 5 seconds.</span>
+    <mwc-button slot="action">Retry</mwc-button>
+  </mwc-snackbar>
+
+  <script>
+    function baseline() {
+      open(false, false)
+    }
+
+    function leading() {
+      open(true, false)
+    }
+
+    function stacked() {
+      open(false, true)
+    }
+
+    function open(leading, stacked) {
+      el.leading = leading
+      el.stacked = stacked
+      el.open()
+    }
+  </script>
+</body>
+
+</html>

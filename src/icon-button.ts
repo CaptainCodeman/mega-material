@@ -34,19 +34,19 @@ export class IconButtonElement extends LitElement {
 :host {
   display: inline-block;
   contain: content;
+  line-height: 0;
 }
 
 mwc-ripple {
-  width: 48px;
-  height: 48px;
+  width: 100%;
+  height: 100%;
 }
 
 button {
   will-change: transform, opacity;
-  width: 48px;
-  height: 48px;
-  padding: 12px;
-  font-size: 24px;
+  width: 100%;
+  height: 100%;
+  padding: var(--mdc-icon-padding, 12px);
   display: inline-block;
   position: relative;
   box-sizing: border-box;

@@ -49,6 +49,7 @@ export class ButtonElement extends LitElement {
   display: inline-block;
   outline: none;
   contain: content;
+  line-height: 0;
 }
 button {
   font-family: Roboto, sans-serif;
@@ -108,7 +109,6 @@ mwc-icon {
   vertical-align: top;
 }
 :host(:not(:disabled)) button {
-  color: #6200ee;
   color: var(--mdc-theme-primary, #6200ee);
 }
 
