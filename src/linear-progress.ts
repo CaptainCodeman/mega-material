@@ -227,7 +227,6 @@ span {
 }
 
 span {
-  background-color: #6200ee;
   background-color: var(--mdc-theme-primary, #6200ee);
 }
 

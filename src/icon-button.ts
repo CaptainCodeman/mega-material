@@ -76,7 +76,6 @@ button {
 }
 
 :host:disabled {
-  color: rgba(0, 0, 0, 0.38);
   color: var(--mdc-theme-text-disabled-on-light, rgba(0, 0, 0, 0.38));
   cursor: default;
   pointer-events: none;

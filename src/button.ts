@@ -150,7 +150,6 @@ svg {
 }
 :host([raised]:not(:disabled)) button,
 :host([unelevated]:not(:disabled)) button {
-  color: #fff;
   color: var(--mdc-theme-on-primary, #fff);
 }
 
@@ -186,7 +185,6 @@ svg {
   border-color: rgba(0, 0, 0, 0.37);
 }
 :host([outlined]:not(:disabled)) button {
-  border-color: #6200ee;
   border-color: var(--mdc-theme-primary, #6200ee);
 }
 
