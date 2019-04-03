@@ -132,14 +132,13 @@ export class CheckboxElement extends LitElement {
 }
 
 :host {
-  display: inline-block;
+  display: inline-flex;
   position: relative;
   flex: 0 0 18px;
   box-sizing: content-box;
   width: 18px;
   height: 18px;
   padding: 11px;
-  line-height: 0;
   white-space: nowrap;
   cursor: pointer;
   vertical-align: bottom;

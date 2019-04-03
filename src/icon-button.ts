@@ -32,21 +32,20 @@ export class IconButtonElement extends LitElement {
       hiddenStyle,
       css`
 :host {
-  display: inline-block;
+  display: inline-flex;
   contain: content;
-  line-height: 0;
 }
 
 mwc-ripple {
-  width: 100%;
-  height: 100%;
+  width: var(--mdc-icon-button-size, 48px);
+  height: var(--mdc-icon-button-size, 48px);
 }
 
 button {
   will-change: transform, opacity;
   width: 100%;
   height: 100%;
-  padding: var(--mdc-icon-padding, 12px);
+  padding: var(--mdc-icon-button-padding, 12px);
   display: inline-block;
   position: relative;
   box-sizing: border-box;
@@ -63,8 +62,8 @@ button {
 ::slotted(svg),
 ::slotted(img)
 ::slotted(mwc-icon), {
-  width: 24px;
-  height: 24px;
+  width: var(--mdc-icon-size, 24px);
+  height: var(--mdc-icon-size, 24px);
   display: inline-block;
 }
 

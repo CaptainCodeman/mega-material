@@ -46,11 +46,12 @@ export class ButtonElement extends LitElement {
       hiddenStyle,
       css`
 :host {
-  display: inline-block;
+  display: inline-flex;
   outline: none;
   contain: content;
-  line-height: 0;
+  border-radius: var(--mdc-button-border-radius, 4px);
 }
+
 button {
   font-family: Roboto, sans-serif;
   -moz-osx-font-smoothing: grayscale;
@@ -153,24 +154,24 @@ svg {
   color: var(--mdc-theme-on-primary, #fff);
 }
 
-:host([raised]) button {
+:host([raised])  {
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
               0px 2px 2px 0px rgba(0, 0, 0, 0.14),
               0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-:host([raised]:hover) button ,
-:host([raised]) button:focus {
+:host([raised]:hover),
+:host([raised]:focus) {
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
               0px 4px 5px 0px rgba(0, 0, 0, 0.14),
               0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
-:host([raised]:active) button {
+:host([raised]:active) {
   box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
               0px 8px 10px 1px rgba(0, 0, 0, 0.14),
               0px 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
-:host([raised]:disabled) button {
+:host([raised]:disabled) {
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2),
               0px 0px 0px 0px rgba(0, 0, 0, 0.14),
               0px 0px 0px 0px rgba(0, 0, 0, 0.12);

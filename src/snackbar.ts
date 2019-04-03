@@ -237,10 +237,9 @@ dismiss icon ripple
 mwc-icon-button {
   margin-left: 8px;
   margin-right: 0;
-  width: 36px;
-  height: 36px;
+  --mdc-icon-button-size: 36px;
   --mdc-icon-size: 18px;
-  --mdc-icon-padding: 9px;
+  --mdc-icon-button-padding: 9px;
 }
 :host(:not([dismissable])) mwc-icon-button {
   display: none;
