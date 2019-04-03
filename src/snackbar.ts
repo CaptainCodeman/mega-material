@@ -34,10 +34,7 @@ export class SnackbarElement extends LitElement {
   private timer_: number
 
   firstUpdated() {
-    this.surface.addEventListener('transitionend', e => {
-      console.log(e)
-      this.closing = false
-    })
+    this.surface.addEventListener('transitionend', e => this.closing = false)
   }
 
   async open() {
