@@ -30,11 +30,11 @@ export class SnackbarElement extends LitElement {
   leading = false;
 
   @query('.surface')
-  private surface_: HTMLDivElement
+  private surface: HTMLDivElement
   private timer_: number
 
   firstUpdated() {
-    this.surface_.addEventListener('transitionend', e => {
+    this.surface.addEventListener('transitionend', e => {
       console.log(e)
       this.closing = false
     })
@@ -43,7 +43,7 @@ export class SnackbarElement extends LitElement {
   async open() {
     this.opening = true
     await this.updateComplete
-    this.surface_.getBoundingClientRect()
+    this.surface.getBoundingClientRect()
     this.opening = false
     this.opened = true
     this.timer_ = window.setTimeout(() => this.close(), 5000)
