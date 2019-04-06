@@ -201,7 +201,7 @@ mwc-icon {
 
   render() {
     return html`
-<mwc-ripple>
+<mwc-ripple ?unbounded=${!this.label}>
   <button aria-label=${this.label || this.icon}>
     <mwc-icon ?hidden=${!this.icon}>${this.icon}</mwc-icon>
     <span>${this.label}</span>
