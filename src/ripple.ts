@@ -500,10 +500,9 @@ div::after {
   opacity: 0;
   pointer-events: none;
   content: "";
-  /* border: 1px solid #f00; why? */
   background-color: var(--mdc-ripple-bg-color, #000);
-  top: calc(50% - 100%);
-  left: calc(50% - 100%);
+  top: -50%;
+  left: -50%;
   width: 200%;
   height: 200%;
 }
@@ -547,11 +546,6 @@ div::after {
   width: var(--mdc-ripple-fg-size, 100%);
   height: var(--mdc-ripple-fg-size, 100%);
 }
-:host([unbounded]) div::after {
-  top: var(--mdc-ripple-top, 0);
-  left: var(--mdc-ripple-left, 0);
-  width: var(--mdc-ripple-fg-size, 100%);
-  height: var(--mdc-ripple-fg-size, 100%);
 }
 :host([primary]) div::before,
 :host([primary]) div::after {
