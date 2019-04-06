@@ -8,8 +8,26 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
   <link rel="stylesheet" href="./styles.css">
   <style>
+    mwc-fab {
+      margin-right: 16px;
+    }
+
+    .light {
+      --mdc-theme-on-primary: black;
+      --mdc-theme-primary: white;
+      --mdc-theme-on-secondary: black;
+      --mdc-theme-secondary: white;
+    }
+
+    .pink {
+      --mdc-theme-on-primary: white;
+      --mdc-theme-primary: #e9437a;
+      --mdc-theme-on-secondary: white;
+      --mdc-theme-secondary: #e9437a;
+    }
+
     .shaped {
-      margin-right: 12px;
+      margin-right: 16px;
     }
     .shaped-1 {
       border-radius: 50% 0;
@@ -27,6 +45,12 @@
 </head>
 
 <body>
+  <mwc-fab icon="explore" title="Explore the world. (This is an example label.)"></mwc-fab>
+  <mwc-fab class="light" icon="code" title="Show me the code. (This is an example label.)"></mwc-fab>
+  <mwc-fab icon="feedback" title="Provide feedback. (This is an example label.)"></mwc-fab>
+  <mwc-fab class="pink" icon="gavel" mini></mwc-fab>
+  <mwc-fab icon="fingerprint"></mwc-fab>
+
   <p>Standard Floating Action Button</p>
   <mwc-fab icon="favorite_border"></mwc-fab>
   <p>Standard Floating Action Button</p>

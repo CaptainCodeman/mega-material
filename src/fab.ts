@@ -56,7 +56,7 @@ export class FABElement extends LitElement {
   -moz-appearance: none;
   -webkit-appearance: none;
   overflow: hidden;
-  background-color: #018786;
+  background-color: var(--mdc-theme-secondary, #018786);
   color: var(--mdc-theme-on-secondary, #fff);
 }
 
@@ -64,7 +64,7 @@ mwc-ripple {
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  --mdc-ripple-bg-color: #fff;
+  --mdc-ripple-bg-color: var(--mdc-theme-on-secondary, #fff);
 }
 
 button {
