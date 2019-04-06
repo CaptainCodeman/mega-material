@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>fab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    .shaped {
+      margin-right: 12px;
+    }
+    .shaped-1 {
+      border-radius: 50% 0;
+    }
+    .shaped-2 {
+      border-radius: 8px;
+    }
+    .shaped-3 {
+      border-radius: 12px;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.7/webcomponents-loader.js"></script>
+  <script src="./fab.js" type="module"></script>
+  <script src="./icon.js" type="module"></script>
+</head>
+
+<body>
+  <p>Standard Floating Action Button</p>
+  <mwc-fab icon="favorite_border"></mwc-fab>
+  <p>Standard Floating Action Button</p>
+  <mwc-fab icon="favorite_border" mini></mwc-fab>
+  <p>Extended FAB</p>
+  <mwc-fab icon="add" label="Create"></mwc-fab>
+  <p>Extended FAB (Text label followed by icon)</p>
+  <mwc-fab icon="add" label="Create" trailing-icon></mwc-fab>
+  <p>Extended FAB (without icon)</p>
+  <mwc-fab label="Create"></mwc-fab>
+  <p>FAB (shaped</p>
+  <mwc-fab class="shaped shaped-1" icon="favorite_border"></mwc-fab>
+  <mwc-fab class="shaped shaped-2" icon="favorite_border"></mwc-fab>
+  <mwc-fab class="shaped shaped-3" icon="add" label="Create"></mwc-fab>
+</body>
+
+</html>

@@ -28,7 +28,7 @@ export class ButtonElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   disabled = false;
 
-  @property({ type: Boolean })
+  @property({ type: Boolean, attribute: 'trailing-icon' })
   trailingIcon = false;
 
   @property({ type: String })

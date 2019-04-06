@@ -501,7 +501,7 @@ div::after {
   pointer-events: none;
   content: "";
   /* border: 1px solid #f00; why? */
-  background-color: #000;
+  background-color: var(--mdc-ripple-bg-color, #000);
   top: calc(50% - 100%);
   left: calc(50% - 100%);
   width: 200%;
@@ -555,11 +555,11 @@ div::after {
 }
 :host([primary]) div::before,
 :host([primary]) div::after {
-  background-color: #6200ee;
+  background-color: var(--mdc-theme-primary, #6200ee);
 }
 :host([accent]) div::before,
 :host([accent]) div::after {
-  background-color: #018786;
+  background-color:var(--mdc-theme-accent, #018786);
 }`
     ]
   }

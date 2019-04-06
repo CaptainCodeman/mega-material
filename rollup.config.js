@@ -15,6 +15,7 @@ export default {
     'src/card.ts',
     'src/checkbox.ts',
     'src/drawer.ts',
+    'src/fab.ts',
     'src/icon.ts',
     'src/icon-button.ts',
     'src/linear-progress.ts',
