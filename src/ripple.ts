@@ -507,7 +507,8 @@ div::after {
   height: 200%;
 }
 div::before {
-  transition: opacity 15ms linear, background-color 15ms linear;
+  transition: opacity 15ms linear,
+              background-color 15ms linear;
   z-index: 1;
   transform: scale(var(--mdc-ripple-fg-scale, 1));
 }
@@ -521,7 +522,8 @@ div::after {
   height: var(--mdc-ripple-fg-size, 100%);
 }
 :host([foreground-activation]) div::after {
-  animation: fg-radius-in 225ms forwards, fg-opacity-in 75ms forwards;
+  animation: fg-radius-in 225ms forwards,
+             fg-opacity-in 75ms forwards;
 }
 :host([foreground-deactivation]) div::after {
   animation: fg-opacity-out 150ms;
@@ -545,7 +547,6 @@ div::after {
   left: var(--mdc-ripple-left, 0);
   width: var(--mdc-ripple-fg-size, 100%);
   height: var(--mdc-ripple-fg-size, 100%);
-}
 }
 :host([primary]) div::before,
 :host([primary]) div::after {
