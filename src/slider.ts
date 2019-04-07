@@ -105,7 +105,7 @@ export class SliderElement extends LitElement {
     this.addEventListener('blur', this.blurHandler_);
     window.addEventListener('resize', this.resizeHandler_);
 
-    this.layout()
+    this.layout_()
   }
 
   disconnectedCallback() {
@@ -197,7 +197,7 @@ export class SliderElement extends LitElement {
   }
 
   private resizeHandler_(e: Event) {
-    this.layout()
+    this.layout_()
   }
 
   private getKeyId_(kbdEvt: KeyboardEvent): string {
@@ -295,16 +295,16 @@ export class SliderElement extends LitElement {
     if (shouldFireInput) {
       this.notifyInput();
       if (this.discrete) {
-        this.setMarkerValue(value);
+        this.setMarkerValue_(value);
       }
     }
   }
 
-  setMarkerValue(value: number) {
+  setMarkerValue_(value: number) {
 
   }
 
-  layout() {
+  private layout_() {
     this.rect_ = this.getBoundingClientRect()
     this.updateUIForCurrentValue_();
   }
