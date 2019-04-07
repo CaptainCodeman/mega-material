@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>tabs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.7/webcomponents-loader.js"></script>
+  <script src="./tabs.js" type="module"></script>
+</head>
+
+<body>
+  <p>Tabs with icons next to labels</p>
+  <mwc-tab-bar>
+    <mwc-tab icon="access_time" selected>Recents</mwc-tab>
+    <mwc-tab icon="near_me">Nearby</mwc-tab>
+    <mwc-tab icon="favorite">Favorites</mwc-tab>
+  </mwc-tab-bar>
+
+  <p>Tabs with icons above labels and indicators restricted to content</p>
+  <mwc-tab-bar content>
+    <mwc-tab stacked icon="access_time">Recents</mwc-tab>
+    <mwc-tab stacked icon="near_me" selected>Nearby</mwc-tab>
+    <mwc-tab stacked icon="favorite">Favorites</mwc-tab>
+  </mwc-tab-bar>
+
+  <p>Scrolling tabs</p>
+  <mwc-tab-bar>
+    <mwc-tab>Tab One</mwc-tab>
+    <mwc-tab>Tab Two</mwc-tab>
+    <mwc-tab selected>Tab Three</mwc-tab>
+    <mwc-tab>Tab Four</mwc-tab>
+    <mwc-tab>Tab Five</mwc-tab>
+    <mwc-tab>Tab Six</mwc-tab>
+    <mwc-tab>Tab Seven</mwc-tab>
+    <mwc-tab>Tab Eight</mwc-tab>
+    <mwc-tab>Tab Nine</mwc-tab>
+    <mwc-tab>Tab Ten</mwc-tab>
+    <mwc-tab>Tab Eleven</mwc-tab>
+    <mwc-tab>Tab Twelve</mwc-tab>
+  </mwc-tab-bar>
+</body>
+
+</html>

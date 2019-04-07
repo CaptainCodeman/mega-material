@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>list</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    mwc-list {
+      border: 1px solid #ccc;
+      width: 600px;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.7/webcomponents-loader.js"></script>
+  <script src="./list.js" type="module"></script>
+</head>
+
+<body>
+  <p>Single-Line</p>
+  <mwc-list>
+    <mwc-list-item>Line item</mwc-list-item>
+    <mwc-list-item>Line item</mwc-list-item>
+    <mwc-list-item>Line item</mwc-list-item>
+  </mwc-list>
+
+  <p>Two-Line</p>
+  <mwc-list>
+    <mwc-list-item>Line item Secondary text</mwc-list-item>
+    <mwc-list-item>Line item Secondary text</mwc-list-item>
+    <mwc-list-item>Line item Secondary text</mwc-list-item>
+  </mwc-list>
+
+  <p>Leading Icon</p>
+  <mwc-list>
+    <mwc-list-item icon="wifi">Line item</mwc-list-item>
+    <mwc-list-item icon="bluetooth">Line item</mwc-list-item>
+    <mwc-list-item icon="data_usage">Line item</mwc-list-item>
+  </mwc-list>
+
+  <p>List with activated item</p>
+  <mwc-list>
+    <mwc-list-item icon="inbox">Inbox</mwc-list-item>
+    <mwc-list-item icon="star">Star</mwc-list-item>
+    <mwc-list-item icon="send">Send</mwc-list-item>
+    <mwc-list-item icon="drafts">Drafts</mwc-list-item>
+  </mwc-list>
+
+  <p>List with shaped activated item</p>
+  <mwc-list>
+    <mwc-list-item icon="inbox">Inbox</mwc-list-item>
+    <mwc-list-item icon="star">Star</mwc-list-item>
+    <mwc-list-item icon="send">Send</mwc-list-item>
+    <mwc-list-item icon="drafts">Drafts</mwc-list-item>
+  </mwc-list>
+
+  <p>Trailing Icon</p>
+  <mwc-list>
+    <mwc-list-item trailing-icon="info">Line item</mwc-list-item>
+    <mwc-list-item trailing-icon="info">Line item</mwc-list-item>
+    <mwc-list-item trailing-icon="info">Line item</mwc-list-item>
+  </mwc-list>
+
+  <p>Two-Line with Leading and Trailing Icon and Divider</p>
+  <mwc-list>
+    <mwc-list-item icon="folder" trailing-icon="info">Dog Photos 9 Jan 2018</mwc-list-item>
+    <mwc-list-item icon="folder" trailing-icon="info">Cat Photos 22 Dec 2017</mwc-list-item>
+    <mwc-list-divider></mwc-list-divider>
+    <mwc-list-item icon="folder" trailing-icon="info">Potatoes 30 Nov 2017</mwc-list-item>
+    <mwc-list-item icon="folder" trailing-icon="info">Carrots 17 Oct 2017</mwc-list-item>
+  </mwc-list>
+
+  <p>List with Trailing Checkboxes</p>
+  <mwc-list>
+    <mwc-list-item type="checkbox">Dog Photos</mwc-list-item>
+    <mwc-list-item type="checkbox" checked>Cat Photos</mwc-list-item>
+    <mwc-list-divider></mwc-list-divider>
+    <mwc-list-item type="checkbox" checked>Potatoes</mwc-list-item>
+    <mwc-list-item type="checkbox">Carrots</mwc-list-item>
+  </mwc-list>
+
+  <p>List with Trailing Radio Buttons</p>
+  <mwc-list>
+    <mwc-list-item type="radio">Dog Photos</mwc-list-item>
+    <mwc-list-item type="radio" checked>Cat Photos</mwc-list-item>
+    <mwc-list-divider></mwc-list-divider>
+    <mwc-list-item type="radio">Potatoes</mwc-list-item>
+    <mwc-list-item type="radio">Carrots</mwc-list-item>
+  </mwc-list>
+</body>
+
+</html>

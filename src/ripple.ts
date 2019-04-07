@@ -492,6 +492,7 @@ export class RippleElement extends LitElement {
   box-sizing: border-box;
   display: inline-block;
   contain: content;
+  user-select: none;
 }
 div::before,
 div::after {
