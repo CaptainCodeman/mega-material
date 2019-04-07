@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>slider</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.7/webcomponents-loader.js"></script>
+  <script src="./slider.js" type="module"></script>
+</head>
+
+<body>
+  <p>Continuous</p>
+  <mwc-slider min="0" max="50" value="25"></mwc-slider>
+
+  <p>Discrete</p>
+  <mwc-slider min="0" max="50" value="25" step="1" discrete></mwc-slider>
+
+  <p>Discrete with Tick Marks</p>
+  <mwc-slider min="0" max="50" value="25" step="1" discrete markers></mwc-slider>
+</body>
+
+</html>

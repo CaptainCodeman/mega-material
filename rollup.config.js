@@ -21,6 +21,7 @@ export default {
     'src/linear-progress.ts',
     'src/notched-outline.ts',
     'src/ripple.ts',
+    'src/slider.ts',
     'src/switch.ts',
     'src/snackbar.ts',
     'src/textfield.ts',
