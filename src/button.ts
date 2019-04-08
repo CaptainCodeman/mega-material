@@ -146,7 +146,7 @@ svg {
 }
 :host([raised]:not(:disabled)) button,
 :host([unelevated]:not(:disabled)) button {
-  background-color: #6200ee;
+  background-color: var(--mdc-theme-primary, #6200ee);
 }
 :host([raised]:not(:disabled)) button,
 :host([unelevated]:not(:disabled)) button {
