@@ -29,6 +29,8 @@ export default {
     'src/tabs.ts',
     'src/textfield.ts',
     'src/top-app-bar.ts',
+    // for simplified testing things out:
+    'src/scratch.ts',
   ],
   output: {
     dir: 'docs',

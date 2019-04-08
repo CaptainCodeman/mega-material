@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>scratch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.7/webcomponents-loader.js"></script>
+  <script src="./scratch.js" type="module"></script>
+</head>
+
+<body>
+  <p>Short Text Only</p>
+  <mwc-scratch>Some Text</mwc-scratch>
+
+  <p>Long Text Only</p>
+  <mwc-scratch>Some Text that is very long</mwc-scratch>
+
+  <p>Icon Attribute</p>
+  <mwc-scratch icon="favorite"></mwc-scratch>
+
+  <p>Icon Slot</p>
+  <mwc-scratch primary>
+    <mwc-icon slot="icon">favorite</mwc-icon>
+  </mwc-scratch>
+
+  <p>Icon Attribute &amp; Short Text</p>
+  <mwc-scratch icon="favorite">Some Text</mwc-scratch>
+
+  <p>Icon Slot &amp; Short Text</p>
+  <mwc-scratch>
+    <mwc-icon slot="icon">favorite</mwc-icon>
+    Some Text
+  </mwc-scratch>
+
+  <p>Icon Attribute &amp; Long Text</p>
+  <mwc-scratch right icon="favorite">Some Text that is very long</mwc-scratch>
+
+  <p>Icon Slot &amp; Long Text</p>
+  <mwc-scratch>
+    <mwc-icon slot="icon">favorite</mwc-icon>
+    Some Text that is very long
+  </mwc-scratch>
+</body>
+
+</html>
