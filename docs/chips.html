@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>chips</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.7/webcomponents-loader.js"></script>
+  <script src="./chips.js" type="module"></script>
+</head>
+
+<body>
+  <p>Choice Chips</p>
+  <mwc-chip-set type="choice">
+    <mwc-chip>Extra Small</mwc-chip>
+    <mwc-chip>Small</mwc-chip>
+    <mwc-chip selected>Medium</mwc-chip>
+    <mwc-chip>Large</mwc-chip>
+    <mwc-chip>Extra Large</mwc-chip>
+  </mwc-chip-set>
+
+  <p>Choice Chips</p>
+  <mwc-chip-set type="filter">
+    <mwc-chip>Tops</mwc-chip>
+    <mwc-chip selected>Bottoms</mwc-chip>
+    <mwc-chip>Shoes</mwc-chip>
+    <mwc-chip selected>Accessories</mwc-chip>
+  </mwc-chip-set>
+
+  <p>With Leading Icon</p>
+  <mwc-chip-set type="filter">
+    <mwc-chip icon="face" selected>Tops</mwc-chip>
+    <mwc-chip icon="face">Bottoms</mwc-chip>
+    <mwc-chip icon="face" selected>Shoes</mwc-chip>
+    <mwc-chip icon="face">Accessories</mwc-chip>
+  </mwc-chip-set>
+
+  <p>Action Chips</p>
+  <mwc-chip-set>
+    <mwc-chip icon="event">Add to calendar</mwc-chip>
+    <mwc-chip icon="bookmark">Bookmark</mwc-chip>
+    <mwc-chip icon="alarm">Set Alarm</mwc-chip>
+    <mwc-chip icon="directions">Get Directions</mwc-chip>
+  </mwc-chip-set>
+
+  <p>Shaped Chips</p>
+  <mwc-chip-set>
+    <mwc-chip>Bookcase</mwc-chip>
+    <mwc-chip>TV Stand</mwc-chip>
+    <mwc-chip>Sofas</mwc-chip>
+    <mwc-chip>Office chairs</mwc-chip>
+  </mwc-chip-set>
+</body>
+
+</html>

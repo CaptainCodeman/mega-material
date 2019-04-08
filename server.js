@@ -12,12 +12,23 @@ app.use(compression({ level: 9 }))
 // app.use(transformMiddleware())
 
 bs.init({
-  server: 'docs',
+  server: {
+    baseDir: 'docs',
+    routes: {
+      '/example': 'example/index.html',
+    },
+  },
   index: 'index.html',
   files: [
     'docs/*.html',
     'docs/*.js',
+    'example/*',
   ],
   ghostMode: false,
-  middleware: [app]
+  injectChanges: false,
+  notify: false,
+  middleware: [app],
+  snippetOptions: {
+    ignorePaths: '/example',
+  },
 })
