@@ -556,7 +556,15 @@ div::after {
 :host([accent]) div::before,
 :host([accent]) div::after {
   background-color:var(--mdc-theme-accent, #018786);
-}`
+}
+
+:host([activated]) div::before,
+:host([activated]) div::after {
+  background-color: var(--mdc-theme-primary, #6200ee);
+  opacity: 0.12;
+}
+
+`
     ]
   }
 

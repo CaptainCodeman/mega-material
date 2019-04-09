@@ -46,6 +46,7 @@ export class ListElement extends LitElement {
     this.updateItems_()
   }
 
+  // or should these just go on the items anyway? they are really of no concern to the list
   private updateItems_() {
     this.listItems_.forEach(node => {
       const el = <HTMLElement>node
@@ -174,6 +175,9 @@ export class ListItemElement extends LitElement {
 
   @property({ type: String, attribute: 'trailing-icon' })
   trailingIcon: string
+
+  @property({ type: Boolean, reflect: true })
+  activated: boolean = false
 
   firstUpdated() {
     this.setAttribute('role', 'listitem')
@@ -326,7 +330,7 @@ a.mdc-list-item {
 
   render() {
     return html`
-<mwc-ripple></mwc-ripple>
+<mwc-ripple ?activated=${this.activated}></mwc-ripple>
 <slot name="icon">${ this.icon ? html`<mwc-icon>${this.icon}</mwc-icon>` : nothing }</slot>
 <span class="text">
   <span class="primary"><slot>${this.label}</slot></span>

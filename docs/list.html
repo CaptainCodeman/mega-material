@@ -12,6 +12,10 @@
       border: 1px solid #ccc;
       width: 600px;
     }
+
+    mwc-list[shaped] mwc-list-item {
+      border-radius: 0 32px 32px 0;
+    }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.7/webcomponents-loader.js"></script>
   <script src="./list.js" type="module"></script>
@@ -49,15 +53,15 @@
   <p>List with activated item</p>
   <mwc-list>
     <mwc-list-item icon="inbox">Inbox</mwc-list-item>
-    <mwc-list-item icon="star">Star</mwc-list-item>
+    <mwc-list-item icon="star" activated>Star</mwc-list-item>
     <mwc-list-item icon="send">Send</mwc-list-item>
     <mwc-list-item icon="drafts">Drafts</mwc-list-item>
   </mwc-list>
 
   <p>List with shaped activated item</p>
-  <mwc-list>
+  <mwc-list shaped>
     <mwc-list-item icon="inbox">Inbox</mwc-list-item>
-    <mwc-list-item icon="star">Star</mwc-list-item>
+    <mwc-list-item icon="star" activated>Star</mwc-list-item>
     <mwc-list-item icon="send">Send</mwc-list-item>
     <mwc-list-item icon="drafts">Drafts</mwc-list-item>
   </mwc-list>
