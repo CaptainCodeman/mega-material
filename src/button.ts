@@ -3,7 +3,7 @@ import { nothing } from 'lit-html';
 
 import './icon'
 import './ripple'
-import { hiddenStyle } from './styles';
+import { hiddenStyle, elevationStyle } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -44,12 +44,14 @@ export class ButtonElement extends LitElement {
   static get styles() {
     return [
       hiddenStyle,
+      elevationStyle,
       css`
 :host {
   display: inline-flex;
   outline: none;
   contain: content;
   border-radius: var(--mdc-button-border-radius, 4px);
+  will-change: box-shadow;
 }
 
 button {
@@ -154,26 +156,18 @@ svg {
 }
 
 :host([raised])  {
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-              0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-              0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--elevation-02);
+  transition: var(--elevation-transition);
 }
 :host([raised]:hover),
 :host([raised]:focus) {
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-              0px 4px 5px 0px rgba(0, 0, 0, 0.14),
-              0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--elevation-04);
 }
 :host([raised]:active) {
-  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
-              0px 8px 10px 1px rgba(0, 0, 0, 0.14),
-              0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--elevation-02);
 }
 :host([raised]:disabled) {
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2),
-              0px 0px 0px 0px rgba(0, 0, 0, 0.14),
-              0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--elevation-00);
 }
 
 :host([outlined]) button {

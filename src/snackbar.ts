@@ -1,7 +1,7 @@
 import { LitElement, html, customElement, css, property, query } from 'lit-element';
 
 import './icon-button'
-import { hiddenStyle } from './styles';
+import { hiddenStyle, elevationStyle } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -66,6 +66,7 @@ export class SnackbarElement extends LitElement {
   static get styles() {
     return [
       hiddenStyle,
+      elevationStyle,
       css`
 :host {
   z-index: 8;
@@ -86,9 +87,7 @@ export class SnackbarElement extends LitElement {
   min-width: 344px;
   max-width: 672px;
   background-color: #333333;
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-              0px 6px 10px 0px rgba(0, 0, 0, 0.14),
-              0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--elevation-06);
   border-radius: 4px;}
 
 .label {

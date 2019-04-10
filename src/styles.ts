@@ -22,10 +22,7 @@ mwc-ripple {
 
 export const elevationStyle = css`
 :host {
-  transition: box-shadow cubic-bezier(0.4, 0, 0.2, 1));
-  transition-duration: var(--elevation-transition-duration, 280ms);
-  box-shadow: var(--elevation, none);
-  will-change: box-shadow;
+  --elevation-transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
 
   --elevation-00: 0px 0px 0px 0px rgba(0, 0, 0, 0.2),
                   0px 0px 0px 0px rgba(0, 0, 0, 0.14),

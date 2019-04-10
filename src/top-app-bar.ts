@@ -1,5 +1,5 @@
 import { LitElement, html, customElement, css, property, query } from 'lit-element';
-import { hiddenStyle } from './styles';
+import { hiddenStyle, elevationStyle } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -59,6 +59,7 @@ export class TopAppBarElement extends LitElement {
   static get styles() {
     return [
       hiddenStyle,
+      elevationStyle,
       css`
 :host {
   background-color: var(--mdc-theme-primary, #6200ee);
@@ -165,9 +166,7 @@ slot[name="title"]::slotted(*) {
 }
 
 :host([short][collapsed]) {
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-              0px 4px 5px 0px rgba(0, 0, 0, 0.14),
-              0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--elevation-04);
   width: 56px;
   transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -213,9 +212,18 @@ slot[name="title"]::slotted(*) {
 }
 
 :host([fixed][scrolled]) {
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-              0px 4px 5px 0px rgba(0, 0, 0, 0.14),
-              0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  /* TODO: define elevation to use as a property
+    (what would be overridden if desired) then set
+    elevated state using that. i.e.
+    :host {
+      --top-app-bar-elevation: var(--elevation-04)
+    }
+
+    :host([elevated-state]) {
+      box-shadow: var(--top-app-bar-elevation);
+    }
+  */
+  box-shadow: var(--elevation-04);
   transition: box-shadow 200ms linear;
 }
 

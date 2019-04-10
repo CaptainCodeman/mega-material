@@ -3,7 +3,7 @@ import { nothing } from 'lit-html';
 
 import './icon'
 import './ripple'
-import { hiddenStyle } from './styles';
+import { hiddenStyle, elevationStyle } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -31,12 +31,11 @@ export class FABElement extends LitElement {
   static get styles() {
     return [
       hiddenStyle,
+      elevationStyle,
       css`
 :host {
   will-change: transform, opacity;
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-              0px 6px 10px 0px rgba(0, 0, 0, 0.14),
-              0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--elevation-06);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +43,7 @@ export class FABElement extends LitElement {
   width: 56px;
   height: 56px;
   padding: 0;
-  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition: var(--elevation-transition),
               opacity 15ms linear 30ms,
               transform 270ms 0ms cubic-bezier(0, 0, 0.2, 1);
   border: none;
@@ -104,14 +103,10 @@ button {
 }
 :host:hover,
 :host:focus {
-  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
-              0px 8px 10px 1px rgba(0, 0, 0, 0.14),
-              0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--elevation-08);
 }
 :host:active {
-  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),
-              0px 12px 17px 2px rgba(0, 0, 0, 0.14),
-              0px 5px 22px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--elevation-12);
 }
 :host:active,
 :host:focus {

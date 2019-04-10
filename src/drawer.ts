@@ -1,7 +1,7 @@
 import { LitElement, html, customElement, css, property, query } from 'lit-element';
 import { nothing } from 'lit-html';
 
-import { hiddenStyle } from './styles';
+import { hiddenStyle, elevationStyle } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -134,6 +134,7 @@ export class DrawerElement extends LitElement {
   static get styles() {
     return [
       hiddenStyle,
+      elevationStyle,
       css`
 :host {
   display: flex;
@@ -328,9 +329,7 @@ header {
 }
 
 :host([modal]) aside {
-  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2),
-              0px 16px 24px 2px rgba(0, 0, 0, 0.14),
-              0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--elevation-16);
   left: 0;
   right: initial;
   display: none;

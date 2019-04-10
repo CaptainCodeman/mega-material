@@ -1,7 +1,7 @@
 import { LitElement, html, customElement, css, property, query } from 'lit-element';
 
 import './ripple'
-import { hiddenStyle } from './styles';
+import { hiddenStyle, elevationStyle } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -17,23 +17,20 @@ export class CardElement extends LitElement {
   static get styles() {
     return [
       hiddenStyle,
+      elevationStyle,
       css`
 :host {
   display: block;
   background-color: var(--mdc-theme-surface, #fff);
   border-radius: 2px;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-              0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-              0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--elevation-02);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
 }
 
 :host([outlined]) {
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2),
-              0px 0px 0px 0px rgba(0, 0, 0, 0.14),
-              0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--elevation-00);
   border: 1px solid #e0e0e0;
 }
 

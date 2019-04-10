@@ -1,7 +1,7 @@
 import { LitElement, html, customElement, css, property, query } from 'lit-element';
 
 import './ripple'
-import { hiddenStyle } from './styles';
+import { hiddenStyle, elevationStyle } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -33,6 +33,7 @@ export class RadioElement extends LitElement {
   static get styles() {
     return [
       hiddenStyle,
+      elevationStyle,
       css`
 :host {
   display: inline-block;
@@ -115,9 +116,7 @@ mwc-ripple[dir=rtl] {
 }
 
 .thumb {
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-              0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-              0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--elevation-02);
   box-sizing: border-box;
   width: 20px;
   height: 20px;
