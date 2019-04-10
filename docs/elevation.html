@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>elevation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    body {
+      background-color: #f7f7f7;
+    }
+
+    mwc-surface {
+      display: inline-flex;
+      justify-content: space-around;
+      min-height: 100px;
+      min-width: 200px;
+      margin: 32px;
+      align-items: center;
+      background-color: #fff;
+      user-select: none;
+
+      --elevation-transition-duration: 120ms;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.7/webcomponents-loader.js"></script>
+  <script src="./surface.js" type="module"></script>
+</head>
+
+<body>
+  <mwc-surface style="--elevation: var(--elevation-00)">0dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-01)">1dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-02)">2dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-03)">3dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-04)">4dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-05)">5dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-06)">6dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-07)">7dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-08)">8dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-09)">9dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-10)"0>10dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-11)"1>11dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-12)"2>12dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-13)"3>13dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-14)"4>14dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-15)"5>15dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-16)"6>16dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-17)"7>17dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-18)"8>18dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-19)"9>19dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-20)"0>20dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-21)"1>21dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-22)"2>22dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-23)"3>23dp</mwc-surface>
+  <mwc-surface style="--elevation: var(--elevation-24)"4>24dp</mwc-surface>
+  <script>
+    const unelevated = 'var(--elevation-00)'
+    document.addEventListener('click', e => {
+      e.composedPath().filter(el => {
+        if (el.tagName === 'MWC-SURFACE') {
+          let elevation = el.style.getPropertyValue('--elevation');
+          if (el.elevationSaved === undefined) {
+            el.elevationSaved = elevation;
+          }
+          elevation = elevation === unelevated
+            ? el.elevationSaved
+            : unelevated
+
+          el.style.setProperty('--elevation', elevation);
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>
