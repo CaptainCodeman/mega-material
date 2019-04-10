@@ -1,0 +1,59 @@
+import { directive, PropertyPart, noChange, NodePart, templateFactory } from 'lit-html';
+import { isLightBackground } from './colors';
+
+/*
+		      Light	Dark
+
+Enabled		none	none
+Hover		  0.04	0.08
+Focus		  0.12	0.24
+Selected	0.08	0.16
+Activated	0.12	0.24
+Pressed		0.16	0.32
+Dragged		0.08	0.16
+*/
+
+export interface RippleOptions {
+  interactionNode?: HTMLElement;
+  unbounded?: boolean;
+  disabled?: boolean;
+  active?: boolean;
+  selected?: boolean;
+}
+
+const rippleInteractionNodes = new WeakMap();
+
+export const ripple = directive((options: RippleOptions = {}) => (part: PropertyPart) => {
+  const surfaceNode = part.committer.element as HTMLElement;
+  const interactionNode = options.interactionNode || surfaceNode;
+  let rippleFoundation = (part.value as any);
+
+  // if the interaction node changes, destroy and invalidate the foundation.
+  const existingInteractionNode = rippleInteractionNodes.get(rippleFoundation);
+  if (existingInteractionNode !== undefined && existingInteractionNode !== interactionNode) {
+    rippleFoundation.destroy();
+    rippleFoundation = noChange;
+  }
+
+  // make the ripple, if needed
+  if (rippleFoundation === noChange) {
+    rippleFoundation = rippleNode(Object.assign({}, options, {surfaceNode}));
+    rippleInteractionNodes.set(rippleFoundation, interactionNode);
+    part.setValue(rippleFoundation);
+  }
+  // otherwise update settings as needed.
+  else {
+    if (options.unbounded !== undefined) {
+      rippleFoundation.setUnbounded(options.unbounded);
+    }
+    if (options.disabled !== undefined) {
+      rippleFoundation.setUnbounded(options.disabled);
+    }
+  }
+
+  if (options.active === true) {
+    rippleFoundation.activate();
+  } else if (options.active === false) {
+    rippleFoundation.deactivate();
+  }
+});

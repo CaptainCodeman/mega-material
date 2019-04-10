@@ -1,11 +1,19 @@
 {
-  "name": "material-lit",
-  "version": "1.0.0",
+  "name": "@mega-material/elements",
+  "version": "1.0.0-alpha.1",
   "description": "Material Lit Elements",
-  "main": "index.js",
+  "main": "index.cjs.js",
+  "browser": "maga-material.min.js",
+  "esnext": "index.js",
+  "types": "index.d.ts",
+  "unpkg": "maga-material.min.js",
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
+    "typescript": "tsc --emitDeclarationOnly",
+    "build:dist": "OUTPUT_DIR=dist npm run build",
+    "mypublish:pre": "npm run typescript && npm run build:dist && cp readme.md package.json dist",
+    "mypublish": "npm run mypublish:pre && npm publish dist --tag latest --access=public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Simon Green <simon@captaincodeman.com> (https://github.com/captaincodeman)",

@@ -177,6 +177,9 @@ export class ListItemElement extends LitElement {
   trailingIcon: string
 
   @property({ type: Boolean, reflect: true })
+  selected: boolean = false
+
+  @property({ type: Boolean, reflect: true })
   activated: boolean = false
 
   firstUpdated() {
@@ -330,7 +333,7 @@ a.mdc-list-item {
 
   render() {
     return html`
-<mwc-ripple ?activated=${this.activated}></mwc-ripple>
+<mwc-ripple ?selected=${this.selected} ?activated=${this.activated}></mwc-ripple>
 <slot name="icon">${ this.icon ? html`<mwc-icon>${this.icon}</mwc-icon>` : nothing }</slot>
 <span class="text">
   <span class="primary"><slot>${this.label}</slot></span>

@@ -7,11 +7,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
   <link rel="stylesheet" href="./styles.css">
+  <style>
+  :root {
+    --mwc-primary: #6200EE;
+    --mwc-primary-on: #FFFFFF;
+    --mwc-primary-dark: #3700B3;
+    --mwc-primary-light: #BB86FC;
+
+    --mwc-secondary: #03DAC6;
+    --mwc-secondary-on: #000000;
+    --mwc-secondary-dark: #018786;
+    --mwc-secondary-light: #4edee8;
+
+    --mwc-background: #FFFFFF;
+    --mwc-background-on: #000000;
+
+    --mwc-surface: #FFFFFF;
+    --mwc-surface-on: #000000;
+
+    --mwc-error: #B00020;
+    --mwc-error-on: #FFFFFF;
+  }
+  mwc-scratch-color {
+    margin: 12px;
+  }
+  </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.7/webcomponents-loader.js"></script>
   <script src="./scratch.js" type="module"></script>
 </head>
 
 <body>
+  <mwc-scratch-color>No Theme</mwc-scratch-color>
+  <mwc-scratch-color style="color:darkslategrey;background-color:#eee;">Styled Light</mwc-scratch-color>
+  <mwc-scratch-color style="color:snow;background-color:firebrick;">Styled Dark</mwc-scratch-color>
+  <br>
+  <mwc-scratch-color theme="primary">Primary</mwc-scratch-color>
+  <mwc-scratch-color theme="primary-light">Primary Light</mwc-scratch-color>
+  <mwc-scratch-color theme="primary-dark">Primary Dark</mwc-scratch-color>
+  <br>
+  <mwc-scratch-color theme="secondary">Secondary</mwc-scratch-color>
+  <mwc-scratch-color theme="secondary-light">Secondary Light</mwc-scratch-color>
+  <mwc-scratch-color theme="secondary-dark">Secondary Dark</mwc-scratch-color>
+  <br>
+  <mwc-scratch-color bg theme="primary">BG Primary</mwc-scratch-color>
+  <mwc-scratch-color bg theme="primary-light">BG Primary Light</mwc-scratch-color>
+  <mwc-scratch-color bg theme="primary-dark">BG Primary Dark</mwc-scratch-color>
+  <br>
+  <mwc-scratch-color bg theme="secondary">BG Secondary</mwc-scratch-color>
+  <mwc-scratch-color bg theme="secondary-light">BG Secondary Light</mwc-scratch-color>
+  <mwc-scratch-color bg theme="secondary-dark">BG Secondary Dark</mwc-scratch-color>
+  <br>
+  <mwc-scratch-color theme="background">Background</mwc-scratch-color>
+  <mwc-scratch-color theme="surface">Surface</mwc-scratch-color>
+  <mwc-scratch-color theme="error">Error</mwc-scratch-color>
+  <br>
+  <mwc-scratch-color bg theme="background">BG Background</mwc-scratch-color>
+  <mwc-scratch-color bg theme="surface">BG Surface</mwc-scratch-color>
+  <mwc-scratch-color bg theme="error">BG Error</mwc-scratch-color>
+  <br>
+  <mwc-scratch-color theme="primary">Primary</mwc-scratch-color>
+  <mwc-scratch-color theme="primary" disabled>Primary Disabled</mwc-scratch-color>
+  <mwc-scratch-color theme="primary" selected>Primary Selected</mwc-scratch-color>
+  <mwc-scratch-color theme="primary" activated>Primary Activated</mwc-scratch-color>
+  <br>
+  <mwc-scratch-color bg theme="primary">BG Primary</mwc-scratch-color>
+  <mwc-scratch-color bg theme="primary" disabled>BG Primary Disabled</mwc-scratch-color>
+  <mwc-scratch-color bg theme="primary" selected>BG Primary Selected</mwc-scratch-color>
+  <mwc-scratch-color bg theme="primary" activated>BG Primary Activated</mwc-scratch-color>
+
   <p>Short Text Only</p>
   <mwc-scratch>Some Text</mwc-scratch>
 
