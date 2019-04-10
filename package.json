@@ -2,7 +2,7 @@
   "name": "@mega-material/elements",
   "version": "1.0.0-alpha.1",
   "description": "Material Lit Elements",
-  "main": "index.cjs.js",
+  "main": "index.js",
   "browser": "maga-material.min.js",
   "esnext": "index.js",
   "types": "index.d.ts",
@@ -10,16 +10,18 @@
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
-    "typescript": "tsc --emitDeclarationOnly",
-    "build:dist": "OUTPUT_DIR=dist npm run build",
-    "mypublish:pre": "npm run typescript && npm run build:dist && cp readme.md package.json dist",
+    "mypublish:pre": "npm run build && cp readme.md package.json dist",
     "mypublish": "npm run mypublish:pre && npm publish dist --tag latest --access=public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Simon Green <simon@captaincodeman.com> (https://github.com/captaincodeman)",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/captaincodeman/mega-material"
+  },
   "dependencies": {
-    "@webcomponents/webcomponentsjs": "^2.2.7",
+    "@webcomponents/webcomponentsjs": "^2.2.8",
     "lit-element": "^2.1.0",
     "lit-html": "^1.0.0",
     "tslib": "^1.9.3"
