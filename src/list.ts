@@ -2,7 +2,7 @@ import { LitElement, html, customElement, css, property, query, PropertyValues }
 
 import './icon'
 import './ripple'
-import { hiddenStyle } from './styles';
+import { defaultCSS } from './styles';
 import { nothing } from 'lit-html';
 
 declare global {
@@ -61,7 +61,7 @@ export class ListElement extends LitElement {
 
   static get styles() {
     return [
-      hiddenStyle,
+      defaultCSS,
       css`
 :host {
   display: flex;
@@ -128,7 +128,7 @@ a.mdc-list-item {
 export class ListDividerElement extends LitElement {
   static get styles() {
     return [
-      hiddenStyle,
+      defaultCSS,
       css`
 :host {
   height: 0;
@@ -188,7 +188,7 @@ export class ListItemElement extends LitElement {
 
   static get styles() {
     return [
-      hiddenStyle,
+      defaultCSS,
       css`
 :host {
   box-sizing: border-box;

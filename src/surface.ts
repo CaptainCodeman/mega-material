@@ -1,5 +1,5 @@
 import { LitElement, html, customElement } from 'lit-element';
-import { elevationStyle } from './styles';
+import { defaultCSS, elevationCSS, typographyCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -7,12 +7,13 @@ declare global {
   }
 }
 
-
 @customElement('mwc-surface')
 export class SurfaceElement extends LitElement {
   static get styles() {
     return [
-      elevationStyle
+      defaultCSS,
+      elevationCSS,
+      typographyCSS,
     ]
   }
 

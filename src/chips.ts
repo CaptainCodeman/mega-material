@@ -2,7 +2,7 @@ import { LitElement, html, customElement, css, property, query } from 'lit-eleme
 
 import './icon'
 import './ripple'
-import { hiddenStyle } from './styles';
+import { defaultCSS } from './styles';
 import { nothing } from 'lit-html';
 
 declare global {
@@ -18,7 +18,7 @@ export class ChipSetElement extends LitElement {
 
   static get styles() {
     return [
-      hiddenStyle,
+      defaultCSS,
       css`
 :host {
   padding: 4px;
@@ -62,7 +62,7 @@ export class ChipElement extends LitElement {
 
   static get styles() {
     return [
-      hiddenStyle,
+      defaultCSS,
       css`
 @keyframes mdc-ripple-fg-radius-in {
   from {

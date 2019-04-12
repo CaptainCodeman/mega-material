@@ -2,7 +2,7 @@ import { LitElement, html, customElement, css, property } from 'lit-element';
 import { nothing } from 'lit-html';
 
 import './icon'
-import { hiddenStyle } from './styles';
+import { defaultCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -69,7 +69,7 @@ export class TextFieldElement extends LitElement {
 
   static get styles() {
     return [
-      hiddenStyle,
+      defaultCSS,
       css`
 label {
   font-family: Roboto, sans-serif;

@@ -2,7 +2,7 @@ import { LitElement, html, customElement, css, property, query } from 'lit-eleme
 
 import './icon'
 import './ripple'
-import { hiddenStyle } from './styles';
+import { defaultCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -21,7 +21,7 @@ export class BottomNavigationElement extends LitElement {
 
   static get styles() {
     return [
-      hiddenStyle,
+      defaultCSS,
       css`
 :host {
   z-index: 8;

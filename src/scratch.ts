@@ -3,7 +3,7 @@ import { nothing } from 'lit-html';
 
 import './icon'
 import './ripple'
-import { hiddenStyle, rippleStyle } from './styles';
+import { defaultCSS, rippleCSS } from './styles';
 import { isLightBackground } from './colors';
 
 declare global {
@@ -55,8 +55,8 @@ export class ScratchElement extends LitElement {
 
   static get styles() {
     return [
-      hiddenStyle,
-      rippleStyle,
+      defaultCSS,
+      rippleCSS,
       css`
 :host {
   position: relative;
@@ -130,7 +130,7 @@ export class ScratchColorElement extends LitElement {
 
   static get styles() {
     return [
-      hiddenStyle,
+      defaultCSS,
       css`
 :host {
   position: relative;

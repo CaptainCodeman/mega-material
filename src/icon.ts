@@ -1,11 +1,34 @@
 import { LitElement, html, customElement, css } from 'lit-element';
-import { hiddenStyle } from './styles';
+import { defaultCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
     'mwc-icon': IconElement;
   }
 }
+
+// TODO: allow loading icons as SVG files (to avoid downloading an icon font)
+// https://unpkg.com/material-design-icons@3.0.1/maps/svg/production/ic_add_location_24px.svg
+/*
+const ICON_CATEGORIES = [
+  'action',
+  'alert',
+  'av',
+  'communication',
+  'content',
+  'device',
+  'editor',
+  'file',
+  'hardware',
+  'image',
+  'maps',
+  'navigation',
+  'notification',
+  'places',
+  'social',
+  'toggle',
+]
+*/
 
 // TODO: make lazy and check for --mdc-icon-font being set to something else
 // use css font loading api to hide icons until font has loaded or something like
@@ -20,7 +43,7 @@ document.head!.appendChild(el);
 export class IconElement extends LitElement {
   static get styles() {
     return [
-      hiddenStyle,
+      defaultCSS,
       css`
 :host {
   font-family: var(--mdc-icon-font, "Material Icons");
@@ -46,3 +69,19 @@ export class IconElement extends LitElement {
     return html`<slot></slot>`
   }
 }
+
+/*
+// Rules for sizing the icon.
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+// Rules for using icons as black on a light background.
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+// Rules for using icons as white on a dark background.
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+*/

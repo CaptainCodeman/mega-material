@@ -1,5 +1,5 @@
 import { LitElement, html, customElement, css, property, query } from 'lit-element';
-import { hiddenStyle, elevationStyle } from './styles';
+import { defaultCSS, elevationCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -58,8 +58,8 @@ export class TopAppBarElement extends LitElement {
 
   static get styles() {
     return [
-      hiddenStyle,
-      elevationStyle,
+      defaultCSS,
+      elevationCSS,
       css`
 :host {
   background-color: var(--mdc-theme-primary, #6200ee);

@@ -1,6 +1,6 @@
 import { matches, getNormalizedEventCoords, Point } from './utils';
 import { LitElement, customElement, property, css, html } from 'lit-element';
-import { hiddenStyle } from './styles';
+import { defaultCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -445,7 +445,7 @@ export class RippleElement extends LitElement {
 
   static get styles() {
     return [
-      hiddenStyle,
+      defaultCSS,
       css`
 @keyframes fg-radius-in {
   from {

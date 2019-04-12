@@ -1,6 +1,6 @@
 import { LitElement, html, customElement, css, property } from 'lit-element';
 import { nothing } from 'lit-html';
-import { hiddenStyle } from './styles';
+import { defaultCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -21,7 +21,7 @@ export class NotchedOutlineElement extends LitElement {
 
   static get styles() {
     return [
-      hiddenStyle,
+      defaultCSS,
       css`
 :host {
   display: flex;

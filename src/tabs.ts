@@ -2,7 +2,7 @@ import { LitElement, html, customElement, css, property, query } from 'lit-eleme
 
 import './icon'
 import './ripple'
-import { hiddenStyle } from './styles';
+import { defaultCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -38,7 +38,7 @@ export class TabElement extends LitElement {
 
   static get styles() {
     return [
-      hiddenStyle,
+      defaultCSS,
       css`
 button {
   position: relative;
@@ -179,7 +179,7 @@ export class TabBarElement extends LitElement {
 
   static get styles() {
     return [
-      hiddenStyle,
+      defaultCSS,
       css`
 :host {
   width: 100%;
@@ -199,7 +199,7 @@ export class TabBarElement extends LitElement {
 export class TabIndicatorElement extends LitElement {
   static get styles() {
     return [
-      hiddenStyle,
+      defaultCSS,
       css`
 .mdc-tab-indicator {
   display: flex;
@@ -280,7 +280,7 @@ export class TabScrollerElement extends LitElement {
 
   static get styles() {
     return [
-      hiddenStyle,
+      defaultCSS,
       css`
 :host {
   overflow-y: hidden;

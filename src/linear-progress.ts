@@ -1,6 +1,6 @@
 import { LitElement, html, customElement, css, property } from 'lit-element';
 import { styleMap } from 'lit-html/directives/style-map';
-import { hiddenStyle } from './styles';
+import { defaultCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -27,7 +27,7 @@ export class LinearProgressElement extends LitElement {
 
   static get styles() {
     return [
-      hiddenStyle,
+      defaultCSS,
       css`
 @keyframes primary-indeterminate-translate {
   0% {

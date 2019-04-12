@@ -3,7 +3,7 @@ import { nothing } from 'lit-html';
 
 import './icon'
 import './ripple'
-import { hiddenStyle, elevationStyle } from './styles';
+import { defaultCSS, elevationCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -43,8 +43,8 @@ export class ButtonElement extends LitElement {
 
   static get styles() {
     return [
-      hiddenStyle,
-      elevationStyle,
+      defaultCSS,
+      elevationCSS,
       css`
 :host {
   display: inline-flex;

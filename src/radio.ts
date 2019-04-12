@@ -1,7 +1,7 @@
 import { LitElement, html, customElement, css, property, query } from 'lit-element';
 
 import './ripple'
-import { hiddenStyle, elevationStyle } from './styles';
+import { defaultCSS, elevationCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -32,8 +32,8 @@ export class RadioElement extends LitElement {
 
   static get styles() {
     return [
-      hiddenStyle,
-      elevationStyle,
+      defaultCSS,
+      elevationCSS,
       css`
 :host {
   display: inline-block;
