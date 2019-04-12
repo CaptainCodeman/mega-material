@@ -22,8 +22,8 @@ type MoveEventMap = {
 type MouseLikeEvent = MouseEvent | PointerEvent | TouchEvent;
 
 const PAGE_FACTOR = 4,
-      DOWN_EVENTS = ['mousedown', 'pointerdown', 'touchstart'],
-      UP_EVENTS = ['mouseup', 'pointerup', 'touchend'],
+      DOWN_EVENTS: DownEventType[] = ['mousedown', 'pointerdown', 'touchstart'],
+      UP_EVENTS: UpEventType[] = ['mouseup', 'pointerup', 'touchend'],
       MOVE_EVENT_MAP: MoveEventMap = {
         mousedown: 'mousemove',
         pointerdown: 'pointermove',
@@ -428,7 +428,7 @@ export class SliderElement extends LitElement {
   display: flex;
   margin-right: 0;
   margin-left: -1px;
-  xvisibility: hidden;
+  visibility: hidden;
 }
 
 .track-marker-container::after {
@@ -477,6 +477,7 @@ export class SliderElement extends LitElement {
   border-radius: 50%;
   opacity: 0;
 }
+
 .pin {
   display: flex;
   position: absolute;
@@ -493,6 +494,7 @@ export class SliderElement extends LitElement {
   border-radius: 50% 50% 50% 0%;
   z-index: 1;
 }
+
 .pin-value-marker {
   font-family: Roboto, sans-serif;
   -moz-osx-font-smoothing: grayscale;
@@ -524,8 +526,8 @@ export class SliderElement extends LitElement {
 
 :host([in-transit]) .thumb-container,
 :host([in-transit]) .track,
-:host([focus]:not([active]) .thumb-container,
-:host([focus]:not([active]) .track {
+:host([focus]:not([active])) .thumb-container,
+:host([focus]:not([active])) .track {
   transition: transform 80ms ease;
 }
 
