@@ -33,3 +33,7 @@ export function getNormalizedEventCoords(evt: Event | undefined, pageOffset: Poi
 
     return { x: normalizedX, y: normalizedY };
 }
+
+export function isScrollable(el: HTMLElement | null): boolean {
+  return el ? el.scrollHeight > el.offsetHeight : false;
+}
