@@ -1,12 +1,15 @@
 import { LitElement, html, customElement, css, property, query, PropertyValues } from 'lit-element';
 
 import { defaultCSS, elevationCSS } from './styles';
-import { isScrollable } from './utils';
 
 declare global {
   interface HTMLElementTagNameMap {
     'mwc-dialog': DialogElement;
   }
+}
+
+function isScrollable(el: HTMLElement | null): boolean {
+  return el ? el.scrollHeight > el.offsetHeight : false;
 }
 
 const DIALOG_ANIMATION_CLOSE_TIME_MS = 75,
