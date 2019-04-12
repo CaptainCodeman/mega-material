@@ -57,7 +57,7 @@ export class IconElement extends LitElement {
   display: inline-block;
   white-space: nowrap;
   word-wrap: normal;
-  direction: ltr;
+  pointer-events: none;
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
   contain: content;
