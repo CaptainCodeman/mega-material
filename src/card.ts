@@ -9,8 +9,12 @@ declare global {
   }
 }
 
+export type CardType = 'basic' | 'basic-text'
 @customElement('mwc-card')
 export class CardElement extends LitElement {
+  @property({ type: Boolean, reflect: true })
+  outlined = false;
+
   @property({ type: Boolean, reflect: true })
   disabled = false;
 
@@ -80,12 +84,6 @@ slot[name="media"]::slotted(:last-child),
 }
 
 .primary-action {
-  --mdc-ripple-fg-size: 0;
-  --mdc-ripple-left: 0;
-  --mdc-ripple-top: 0;
-  --mdc-ripple-fg-scale: 1;
-  --mdc-ripple-fg-translate-end: 0;
-  --mdc-ripple-fg-translate-start: 0;
   -webkit-tap-highlight-color: transparent;
   will-change: transform, opacity;
   display: flex;
@@ -121,7 +119,7 @@ slot[name="media"]::slotted(:last-child),
   padding: 8px;
 }
 
-.actions slot[name="actions"]::slotted([full-bleed]) {
+:host([full-bleed]) .actions {
   padding: 0;
 }
 
@@ -167,20 +165,19 @@ slot[name="media"]::slotted(:last-child),
   margin-right: 0;
 }
 
-.actions--full-bleed
-.action--button {
+:host([full-bleed]) slot[name="action"]::slotted(*) {
   justify-content: space-between;
   width: 100%;
   height: auto;
   max-height: none;
   margin: 0;
-  padding: 8px 16px;
   text-align: left;
+  --button-padding: 8px 16px;
 }
 
+slot[name="action-icon"]::slotted(*),
 .action--icon {
   margin: -6px 0;
-  padding: 12px;
 }
 
 .action--icon:not(:disabled) {
@@ -193,23 +190,21 @@ slot[name="media"]::slotted(:last-child),
   render() {
     return html`
 <div class="primary-action">
+  <slot name="header"></slot>
   <mwc-ripple>
-    <slot name="primary-action">
+    <slot name="primary-action" tabindex="0">
       <div class="media">
-        <slot name="media"></slot>
+        <slot name="media"><slot name="media-content"></slot></slot>
       </div>
     </slot>
     <slot name="primary"></slot>
+    <slot name="secondary"></slot>
   </mwc-ripple>
 </div>
 <div class="actions">
-  <slot name="actions">
-    <div class="action-buttons">
-      <slot name="action-buttons"></slot>
-    </div>
-    <div class="action-icons">
-      <slot name="action-icons"></slot>
-    </div>
+  <slot name="action">
+    <div class="action-buttons"><slot name="action-button"></slot></div>
+    <div class="action-icons"><slot name="action-icon"></slot></div>
   </slot>
 </div>`
   }

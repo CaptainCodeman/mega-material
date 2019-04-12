@@ -64,7 +64,7 @@ button {
   letter-spacing: 0.0892857143em;
   text-decoration: none;
   text-transform: uppercase;
-  padding: 0 8px 0 8px;
+  padding: var(--button-padding, 0 8px);
   display: inline-flex;
   position: relative;
   align-items: center;

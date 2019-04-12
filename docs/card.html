@@ -13,145 +13,201 @@
       margin: 48px 0;
       border-radius: 4px;
     }
+
+    mwc-surface[slot="header"],
+    mwc-surface[slot="primary"] {
+      margin: 1rem;
+    }
+    mwc-surface[slot="secondary"] {
+      margin: 1rem 0 0 0;
+    }
+
+    mwc-surface h2,
+    mwc-surface h3,
+    mwc-surface p {
+      margin: 0;
+    }
+    mwc-surface h3 {
+      color: var(--mdc-theme-text-secondary-on-background,rgba(0,0,0,.54));
+    }
+    mwc-surface p {
+      padding: 0 1rem 8px;
+      color: var(--mdc-theme-text-secondary-on-background,rgba(0,0,0,.54));
+    }
+
+    div[slot="media"] {
+      position: relative;
+    }
+    div[slot="media"] mwc-surface {
+      position: absolute;
+      color: #fff;
+      margin: 1rem;
+      bottom: 0;
+      --mdc-theme-text-secondary-on-background: #fff;
+    }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.7/webcomponents-loader.js"></script>
   <script src="./button.js" type="module"></script>
   <script src="./card.js" type="module"></script>
   <script src="./icon-button.js" type="module"></script>
+  <script src="./surface.js" type="module"></script>
 </head>
 
 <body>
   <h2>basic</h2>
 
   <mwc-card>
-    <div class="mdc-card__primary-action demo-card__primary-action" tabindex="0">
-      <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);"></div>
-      <div class="demo-card__primary">
-        <h2 class="demo-card__title mdc-typography mdc-typography--headline6">Our Changing Planet</h2>
-        <h3 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2">by Kurt Wagner</h3>
-      </div>
-      <div class="demo-card__secondary mdc-typography mdc-typography--body2">Visit ten places on our planet that are undergoing the biggest changes today.</div>
-    </div>
-
     <div slot="media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);--aspect-ratio: 16/9;"></div>
 
-    <div slot="primary">
-      <h2>Our Changing Planet</h2>
-      <h3>by Kurt Wagner</h3>
-    </div>
+    <mwc-surface slot="primary">
+      <h2 class="typography headline6">Our Changing Planet</h2>
+      <h3 class="typography subtitle2">by Kurt Wagner</h3>
+    </mwc-surface>
 
-    <mwc-button slot="action-buttons" primary>Read</mwc-button>
-    <mwc-button slot="action-buttons" primary>Bookmark</mwc-button>
-    <mwc-icon-button slot="action-icons" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
-    <mwc-icon-button slot="action-icons" icon="share"></mwc-icon-button>
-    <mwc-icon-button slot="action-icons" icon="more_vert"></mwc-icon-button>
+    <mwc-surface slot="secondary">
+      <p class="typography body2">
+        Visit ten places on our planet that are undergoing the biggest changes today.
+      </p>
+    </mwc-surface>
+
+    <mwc-button slot="action-button" primary>Read</mwc-button>
+    <mwc-button slot="action-button" primary>Bookmark</mwc-button>
+
+    <mwc-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
+    <mwc-icon-button slot="action-icon" icon="share"></mwc-icon-button>
+    <mwc-icon-button slot="action-icon" icon="more_vert"></mwc-icon-button>
   </mwc-card>
 
   <h2>basic + text over media</h2>
 
   <mwc-card>
-    <div class="mdc-card__primary-action demo-card__primary-action" tabindex="0">
-      <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);">
-        <div class="mdc-card__media-content demo-card__media-content">
-          <div class="demo-card__primary">
-            <h2 class="demo-card__title mdc-typography mdc-typography--headline6">Our Changing Planet</h2>
-            <h3 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2">by Kurt Wagner</h3>
-          </div>
-        </div>
-      </div>
-      <div class="demo-card__secondary mdc-typography mdc-typography--body2">Visit ten places on our planet that are undergoing the biggest changes today.</div>
+    <div slot="media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);--aspect-ratio: 16/9;">
+      <mwc-surface>
+        <h2 class="typography headline6">Our Changing Planet</h2>
+        <h3 class="typography subtitle2">by Kurt Wagner</h3>
+      </mwc-surface>
     </div>
 
-    <div slot="media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);--aspect-ratio: 16/9;"></div>
+    <mwc-surface slot="secondary">
+      <p class="typography body2">
+        Visit ten places on our planet that are undergoing the biggest changes today.
+      </p>
+    </mwc-surface>
 
-    <mwc-button slot="action-buttons" primary>Read</mwc-button>
-    <mwc-button slot="action-buttons" primary>Bookmark</mwc-button>
-    <mwc-icon-button slot="action-icons" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
-    <mwc-icon-button slot="action-icons" icon="share"></mwc-icon-button>
-    <mwc-icon-button slot="action-icons" icon="more_vert"></mwc-icon-button>
+    <mwc-button slot="action-button" primary>Read</mwc-button>
+    <mwc-button slot="action-button" primary>Bookmark</mwc-button>
+
+    <mwc-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
+    <mwc-icon-button slot="action-icon" icon="share"></mwc-icon-button>
+    <mwc-icon-button slot="action-icon" icon="more_vert"></mwc-icon-button>
   </mwc-card>
 
   <h2>basic + header</h2>
 
   <mwc-card>
-    <div class="demo-card__primary">
-      <h2 class="demo-card__title mdc-typography mdc-typography--headline6">Our Changing Planet</h2>
-      <h3 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2">by Kurt Wagner</h3>
-    </div>
-    <div class="mdc-card__primary-action demo-card__primary-action" tabindex="0">
-      <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);"></div>
-      <div class="demo-card__secondary mdc-typography mdc-typography--body2">Visit ten places on our planet that are undergoing the biggest changes today.</div>
-    </div>
-
     <div slot="media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);--aspect-ratio: 16/9;"></div>
 
-    <mwc-button slot="action-buttons" primary>Read</mwc-button>
-    <mwc-button slot="action-buttons" primary>Bookmark</mwc-button>
-    <mwc-icon-button slot="action-icons" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
-    <mwc-icon-button slot="action-icons" icon="share"></mwc-icon-button>
-    <mwc-icon-button slot="action-icons" icon="more_vert"></mwc-icon-button>
+    <mwc-surface slot="header">
+      <h2 class="typography headline6">Our Changing Planet</h2>
+      <h3 class="typography subtitle2">by Kurt Wagner</h3>
+    </mwc-surface>
+
+    <mwc-surface slot="secondary">
+      <p class="typography body2">
+        Visit ten places on our planet that are undergoing the biggest changes today.
+      </p>
+    </mwc-surface>
+
+    <mwc-button slot="action-button" primary>Read</mwc-button>
+    <mwc-button slot="action-button" primary>Bookmark</mwc-button>
+
+    <mwc-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
+    <mwc-icon-button slot="action-icon" icon="share"></mwc-icon-button>
+    <mwc-icon-button slot="action-icon" icon="more_vert"></mwc-icon-button>
   </mwc-card>
 
   <h2>basic only buttons</h2>
 
   <mwc-card>
-    <div class="mdc-card__primary-action demo-card__primary-action" tabindex="0">
-      <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);"></div>
-      <div class="demo-card__primary">
-        <h2 class="demo-card__title mdc-typography mdc-typography--headline6">Our Changing Planet</h2>
-        <h3 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2">by Kurt Wagner</h3>
-      </div>
-      <div class="demo-card__secondary mdc-typography mdc-typography--body2">Visit ten places on our planet that are undergoing the biggest changes today.</div>
-    </div>
-
     <div slot="media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);--aspect-ratio: 16/9;"></div>
 
-    <mwc-button slot="action-buttons" primary>Read</mwc-button>
-    <mwc-button slot="action-buttons" primary>Bookmark</mwc-button>
-    <mwc-icon-button slot="action-icons" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
-    <mwc-icon-button slot="action-icons" icon="share"></mwc-icon-button>
-    <mwc-icon-button slot="action-icons" icon="more_vert"></mwc-icon-button>
+    <mwc-surface slot="primary">
+      <h2 class="typography headline6">Our Changing Planet</h2>
+      <h3 class="typography subtitle2">by Kurt Wagner</h3>
+    </mwc-surface>
+
+    <mwc-button slot="action-button" primary>Read</mwc-button>
+    <mwc-button slot="action-button" primary>Bookmark</mwc-button>
   </mwc-card>
 
   <h2>basic only icons</h2>
 
   <mwc-card>
-    <div class="mdc-card__primary-action demo-card__primary-action" tabindex="0">
-      <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);"></div>
-      <div class="demo-card__primary">
-        <h2 class="demo-card__title mdc-typography mdc-typography--headline6">Our Changing Planet</h2>
-        <h3 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2">by Kurt Wagner</h3>
-      </div>
-      <div class="demo-card__secondary mdc-typography mdc-typography--body2">Visit ten places on our planet that are undergoing the biggest changes today.</div>
-    </div>
-
     <div slot="media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);--aspect-ratio: 16/9;"></div>
 
-    <mwc-button slot="action-buttons" primary>Read</mwc-button>
-    <mwc-button slot="action-buttons" primary>Bookmark</mwc-button>
-    <mwc-icon-button slot="action-icons" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
-    <mwc-icon-button slot="action-icons" icon="share"></mwc-icon-button>
-    <mwc-icon-button slot="action-icons" icon="more_vert"></mwc-icon-button>
+    <mwc-surface slot="primary">
+      <h2 class="typography headline6">Our Changing Planet</h2>
+      <h3 class="typography subtitle2">by Kurt Wagner</h3>
+    </mwc-surface>
+
+    <mwc-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
+    <mwc-icon-button slot="action-icon" icon="share"></mwc-icon-button>
+    <mwc-icon-button slot="action-icon" icon="more_vert"></mwc-icon-button>
   </mwc-card>
 
   <h2>horizontal image + text</h2>
 
   <mwc-card>
-    <div class="mdc-card__primary-action demo-card__primary-action" tabindex="0">
-      <div class="mdc-card__media mdc-card__media--square demo-card__media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);"></div>
-      <div class="demo-card__primary">
-        <h2 class="demo-card__title mdc-typography mdc-typography--headline6">Our Changing Planet</h2>
-        <h3 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2">by Kurt Wagner</h3>
-      </div>
-    </div>
-
     <div slot="media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);--aspect-ratio: 16/9;"></div>
 
-    <mwc-button slot="action-buttons" primary>Read</mwc-button>
-    <mwc-button slot="action-buttons" primary>Bookmark</mwc-button>
-    <mwc-icon-button slot="action-icons" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
-    <mwc-icon-button slot="action-icons" icon="share"></mwc-icon-button>
-    <mwc-icon-button slot="action-icons" icon="more_vert"></mwc-icon-button>
+    <mwc-surface slot="primary">
+      <h2 class="typography headline6">Our Changing Planet</h2>
+      <h3 class="typography subtitle2">by Kurt Wagner</h3>
+    </mwc-surface>
+
+    <mwc-surface slot="secondary">
+      <p class="typography body2">
+        Visit ten places on our planet that are undergoing the biggest changes today.
+      </p>
+    </mwc-surface>
+
+    <mwc-button slot="action-button" primary>Read</mwc-button>
+    <mwc-button slot="action-button" primary>Bookmark</mwc-button>
+
+    <mwc-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
+    <mwc-icon-button slot="action-icon" icon="share"></mwc-icon-button>
+    <mwc-icon-button slot="action-icon" icon="more_vert"></mwc-icon-button>
+  </mwc-card>
+
+  <h2>full-bleed action</h2>
+
+  <mwc-card full-bleed>
+    <div slot="media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);--aspect-ratio: 16/9;"></div>
+
+    <mwc-surface slot="primary">
+      <h2 class="typography headline6">Our Changing Planet</h2>
+      <h3 class="typography subtitle2">by Kurt Wagner</h3>
+    </mwc-surface>
+
+    <mwc-button slot="action" primary>Single Action</mwc-button>
+  </mwc-card>
+
+  <h2>outlined</h2>
+
+  <mwc-card outlined>
+    <div slot="media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);--aspect-ratio: 16/9;"></div>
+
+    <mwc-surface slot="primary">
+      <h2 class="typography headline6">Our Changing Planet</h2>
+      <h3 class="typography subtitle2">by Kurt Wagner</h3>
+    </mwc-surface>
+
+    <mwc-button slot="action-button" primary>Read</mwc-button>
+    <mwc-button slot="action-button" primary>Bookmark</mwc-button>
+
+    <mwc-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
+    <mwc-icon-button slot="action-icon" icon="share"></mwc-icon-button>
+    <mwc-icon-button slot="action-icon" icon="more_vert"></mwc-icon-button>
   </mwc-card>
 </body>
 
