@@ -1,59 +1,107 @@
 # mega-material
 
-Making Elements Great Again, Material Style
+Making Elements Great Again, Material Style!
+
+[Demo](https://captaincodeman.github.io/mega-material/)
 
 ## Summary
 
-An attempt at making a web-component based library of, well, components
-for the web. Specifically, components that implement Google's Material
-Design look and feel as lightweight as possible.
+A lightweight set of Web Components (using custom elements and ShadowDOM)
+implementing Google's [Material Design System](https://material.io/) that
+should be compatible with any web-framwork on modern ever-green browsers.
+
+Fast, efficient, easy to consume and easily themeable.
+
+## Status
+
+The following components have been implemented or are in progress:
+
+* [-] Bottom Navigation
+* [X] Button
+* [X] Card
+* [X] Checkbox
+* [-] Chips
+* [X] Dialog
+* [X] Drawer
+* [X] FAB
+* [X] Icon
+* [X] Icon Button
+* [X] Linear Progress
+* [X] List
+* [-] Radio Button
+* [X] Slider
+* [X] Snackbar
+* [X] Switch
+* [-] Tabs
+* [ ] TextField
+* [X] Top-App-Bar
+
+More work needs to be done on theming, events and tidying up the components.
 
 ## Background
 
-Material design, what a cruel master you are. After years of pushing the
-boundaries with things like paper-elements we finally have Web Components
-available in all browsers (that matter) and we even have a new lightweight
-templating system called lit-html with a useful lit-element base class.
+Google already provide an official Material Design web implementation:
 
-Now all that's missing is the revamped, slick, small, fast web component
-implementations of Material Design that we were promised!
+[https://github.com/material-components/material-components-web](https://github.com/material-components/material-components-web)
 
-[insert screetching halt sound here]
+This is designed to be used directly or act as a foundation that can be used
+to implement any framework-specific set of Material Design components by the
+creation of adaptor classes and re-use of the provided global BEM styles.
 
-Yeah, it's not happening. Instead, we're getting the Material Design Web
-version with wrappers around them. That means all the bloated BEM styles
-that are completely unecessary when you have style isolation provided by
-ShadowDOM, plus the "we built our own component lifycycle" approach that
-probably makes sense if you're using React or Angular or some other "living
-in the past" framework but again - we have a component lifecycle model all
-built into browsers now. Can't we use that? Why do we have to ship more
-bytes?!
+So a set of Material Design components for React, another for Angular, one for
+Vue, and so on with all the other web-frameworks.
 
-So two things: the MWC components have taken an age. It's literally been
-years and there seems to be very little progress and no desire for them
-to accept help or merge any pull requests but their own. I'm not convinced
-they will ever see the light of day. When or if they do, they are going to
-be much larger than they need to be because of the issues above.
+Unfortunately, there are several issues with this approach:
 
-WTF is wrong with Google? They have people selling one future and then
-another undermining it. Done properly, there would only need to be one set
-of components developed. No foundation classes or framework adaptors or
-other "hello-world enterprise edition" over engineering to ship a bloated
-set of components. Seriously, the full thing is 473Kb of JS and 266Kb of
-CSS ... and those are both minified!
+The extra code to make it adaptable to multiple frameworks means there is more
+code than necessary for whichever framework you are using. The contributes to
+the JavaScript payload being larger than it needs to be - the full minified JS
+payload is 473Kb.
 
-Now in "React world", that may be acceptable. But seriously, c'mon ...
-even the demo pages load 2.9Mb to show a few buttons. Was this sponsored
-by the Android team to make the web look bad?
+Because styles are global they need to be unique and the approach to this is
+to use BEM style classes. Lots of SASS templating allow customization but at
+the cost of bloat - the full set of minified CSS is 266Kb.
 
-Google, in future, don't hire react developers to build a web technology
-library, hire _web_ devlopers - there is a difference.
+Implementing any elements in your app directly requires correctly matching up
+large blocks of HTML and CSS classes. While the framework-specific versions can
+create easier to consume components (at the cost of additional code) all design
+and implementation is then tied heavily to that framework.
+
+It relies on abstractions and most abstractions are leaky. In this case there
+is an assumption that all HTML and styling is global to the page. So it doesn't
+work nicely with ShadowDOM.
+
+Work has been progressing on a Web Component version, the snapily named:
+
+[https://github.com/material-components/material-components-web-components](https://github.com/material-components/material-components-web-components)
+
+But progress seems to be slow and there are challenges trying to adapt a system
+that has been fundamentally designed under the an assumption that global styling
+will be available into an implementation that actively prevents global styling.
+
+This seems to be a real missed opportunity given that a single, web-component
+based implementation could be the _only_ version required. It could be re-used
+by _any_ framework without extra JavaScript and with less bloated styling (due
+to the isolation that ShadowDOM provides). By encapsulating the internal HTML
+and styling the components should provide a simpler and easier-to-consume API
+that would be consistent across frameworks.
 
 ## Plans
 
-Use PostCSS in Rollup to add prefixes
-Support RTL using `start` &amp; `end` when available (instead of left / right)
-Drop anything todo with IE / Edge
-Drop all CSS only styling (makes no sense if we're running Web Components)
-Drop style mixins - style and behavior for things like notched-outline should only exist once
-Provide CSS variable equivalents of SASS mixins (e.g. for setting drawer width etc...)
+In fairness, Google are trying to support more browsers than I am but I don't
+think it's worth compromising the components for IE and with Edge switching to
+use the Blink engine, all modern browsers will fully support Web Components.
+
+RTL support using the `dir` attribute is old school and should be implemented
+using newer `start` &amp; `end` styles (when available). RTL support is lower
+priority for me though.
+
+JavaScript needs to be enabled to use Web Components so it makes no sense to
+recreate the CSS-only styling of the offical implementation.
+
+SASS makes creating styles easy which maybe why it makes it easy to create _too
+many_ styles. Instead of applying the same style properties to different classes
+(SASS mixins) we want to re-use elements internally to avoid repetition.
+
+Customization and theming should be done using CSS variables although the new
+`part` feature may be useful for this in future.
