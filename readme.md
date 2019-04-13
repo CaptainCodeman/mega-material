@@ -16,11 +16,11 @@ Fast, efficient, easy to consume and easily themeable.
 
 The following components have been implemented or are in progress:
 
-* [-] Bottom Navigation
+* [ ] Bottom Navigation
 * [X] Button
 * [X] Card
 * [X] Checkbox
-* [-] Chips
+* [ ] Chips
 * [X] Dialog
 * [X] Drawer
 * [X] FAB
@@ -28,11 +28,11 @@ The following components have been implemented or are in progress:
 * [X] Icon Button
 * [X] Linear Progress
 * [X] List
-* [-] Radio Button
+* [ ] Radio Button
 * [X] Slider
 * [X] Snackbar
 * [X] Switch
-* [-] Tabs
+* [ ] Tabs
 * [ ] TextField
 * [X] Top-App-Bar
 
