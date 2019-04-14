@@ -1,4 +1,4 @@
-import { LitElement, html, customElement, css, property, query } from 'lit-element';
+import { LitElement, html, customElement, css, property, query, PropertyValues } from 'lit-element';
 
 import './icon'
 import './ripple'
@@ -191,6 +191,33 @@ export class TabBarElement extends LitElement {
   @property({ type: String, reflect: true })
   align: TabAlign = 'center'
 
+  @property({ type: Number, reflect: true, attribute: 'active-index' })
+  activeIndex: number
+
+  @query('slot')
+  slotElement: HTMLSlotElement
+
+  private tabItems_: Node[] = []
+
+  firstUpdated(changedProperties: PropertyValues) {
+    this.slotElement.addEventListener('slotchange', e => this.slotChanged_(e))
+  }
+
+  updated(changedProperties: PropertyValues) {
+    if (changedProperties.has('activeIndex')) {
+      this.updateActive_()
+    }
+  }
+
+  private slotChanged_(e: Event) {
+    this.tabItems_ = this.slotElement.assignedNodes().filter(node => node.nodeType === 1)
+    this.updateActive_()
+  }
+
+  private updateActive_() {
+    this.tabItems_.forEach((tab: TabElement, i) => tab.active = i === this.activeIndex)
+  }
+
   static get styles() {
     return [
       defaultCSS,
@@ -209,6 +236,9 @@ export class TabBarElement extends LitElement {
 
 @customElement('mwc-tab-indicator')
 export class TabIndicatorElement extends LitElement {
+  @property({ type: String })
+  icon = '';
+
   @property({ type: Boolean, reflect: true })
   active = false;
 
@@ -238,12 +268,13 @@ export class TabIndicatorElement extends LitElement {
   font-size: 34px;
 }
 
+:host,
 .mdc-tab-indicator__content {
   transform-origin: left;
   opacity: 0;
 }
 
-.mdc-tab-indicator__content--underline {
+#underline {
   align-self: flex-end;
   width: 100%;
 }
@@ -253,6 +284,7 @@ export class TabIndicatorElement extends LitElement {
   margin: 0 auto;
 }
 
+:host([active]),
 .mdc-tab-indicator--active > .mdc-tab-indicator__content {
   opacity: 1;
 }
@@ -269,7 +301,7 @@ export class TabIndicatorElement extends LitElement {
   transition: 150ms opacity linear;
 }
 
-.mdc-tab-indicator--active.mdc-tab-indicator--fade > .mdc-tab-indicator__content {
+:host([active]) .mdc-tab-indicator--fade > .mdc-tab-indicator__content {
   transition-delay: 100ms;
 }
 `
@@ -277,7 +309,9 @@ export class TabIndicatorElement extends LitElement {
   }
 
   render() {
-    return html``
+    return html`
+<slot name="icon">${this.icon ? html`<mwc-icon>${this.icon}</mwc-icon>` : nothing }</slot>
+<span id="underline"></span>`
   }
 }
 

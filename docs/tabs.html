@@ -15,24 +15,24 @@
 
 <body>
   <p>Tabs with icons next to labels</p>
-  <mwc-tab-bar>
-    <mwc-tab icon="access_time" active>Recents</mwc-tab>
+  <mwc-tab-bar active-index="0">
+    <mwc-tab icon="access_time">Recents</mwc-tab>
     <mwc-tab icon="near_me">Nearby</mwc-tab>
     <mwc-tab icon="favorite">Favorites</mwc-tab>
   </mwc-tab-bar>
 
   <p>Tabs with icons above labels and indicators restricted to content</p>
-  <mwc-tab-bar content>
+  <mwc-tab-bar content active-index="1">
     <mwc-tab stacked icon="access_time">Recents</mwc-tab>
-    <mwc-tab stacked icon="near_me" active>Nearby</mwc-tab>
+    <mwc-tab stacked icon="near_me">Nearby</mwc-tab>
     <mwc-tab stacked icon="favorite">Favorites</mwc-tab>
   </mwc-tab-bar>
 
   <p>Scrolling tabs</p>
-  <mwc-tab-bar>
+  <mwc-tab-bar active-index="2">
     <mwc-tab>Tab One</mwc-tab>
     <mwc-tab>Tab Two</mwc-tab>
-    <mwc-tab active>Tab Three</mwc-tab>
+    <mwc-tab>Tab Three</mwc-tab>
     <mwc-tab>Tab Four</mwc-tab>
     <mwc-tab>Tab Five</mwc-tab>
     <mwc-tab>Tab Six</mwc-tab>
@@ -45,6 +45,7 @@
   </mwc-tab-bar>
 
   <script>
+    // TODO update active-index instead of setting active on tab
     document.querySelectorAll('mwc-tab-bar').forEach(tabBar => {
       tabBar.addEventListener('click', e => {
         const el = e.target
