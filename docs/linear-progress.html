@@ -26,19 +26,19 @@
 
 <body>
   <mwc-button id="toggle" raised ripple label="Toggle"></mwc-button>
-  <mwc-linear-progress id="progress"></mwc-linear-progress>
+  <mwc-linear-progress indeterminate id="progress"></mwc-linear-progress>
 
-  <h3>linear-progress: reverse</h3>
-  <mwc-linear-progress reverse class="demo-progress-bar"></mwc-linear-progress>
+  <h3>linear-progress: reverse + styled</h3>
+  <mwc-linear-progress indeterminate reverse class="demo-progress-bar"></mwc-linear-progress>
 
   <h3>linear-progress: determinate</h3>
-  <mwc-linear-progress determinate progress="0.5" buffer="1"></mwc-linear-progress>
+  <mwc-linear-progress progress="0.5" buffer="1"></mwc-linear-progress>
 
-  <h3>linear-progress: determinate buffer</h3>
-  <mwc-linear-progress determinate progress="0.3" buffer="0.7" class="demo-progress-bar"></mwc-linear-progress>
+  <h3>linear-progress: determinate buffer + styled</h3>
+  <mwc-linear-progress progress="0.3" buffer="0.7" class="demo-progress-bar"></mwc-linear-progress>
 
   <h3>linear-progress: determinate buffer reverse</h3>
-  <mwc-linear-progress determinate reverse progress="0.2" buffer="0.6"></mwc-linear-progress>
+  <mwc-linear-progress reverse progress="0.2" buffer="0.6"></mwc-linear-progress>
 
   <script>
     toggle.onclick = () => progress.closed = !progress.closed

@@ -1,5 +1,4 @@
 import { LitElement, html, customElement, css, property } from 'lit-element';
-import { styleMap } from 'lit-html/directives/style-map';
 import { defaultCSS } from './styles';
 
 declare global {
@@ -11,7 +10,7 @@ declare global {
 @customElement('mwc-linear-progress')
 export class LinearProgressElement extends LitElement {
   @property({ type: Boolean, reflect: true })
-  determinate = false;
+  indeterminate = false;
 
   @property({ type: Number, reflect: true })
   progress = 1;
@@ -29,7 +28,7 @@ export class LinearProgressElement extends LitElement {
     return [
       defaultCSS,
       css`
-@keyframes primary-indeterminate-translate {
+@keyframes primary-translate {
   0% {
     transform: translateX(0);
   }
@@ -45,7 +44,7 @@ export class LinearProgressElement extends LitElement {
     transform: translateX(200.611057%);
   }
 }
-@keyframes primary-indeterminate-scale {
+@keyframes primary-scale {
   0% {
     transform: scaleX(0.08);
   }
@@ -62,7 +61,7 @@ export class LinearProgressElement extends LitElement {
   }
 }
 
-@keyframes secondary-indeterminate-translate {
+@keyframes secondary-translate {
   0% {
     animation-timing-function: cubic-bezier(0.15, 0, 0.515058, 0.409685);
     transform: translateX(0);
@@ -80,7 +79,7 @@ export class LinearProgressElement extends LitElement {
   }
 }
 
-@keyframes secondary-indeterminate-scale {
+@keyframes secondary-scale {
   0% {
     animation-timing-function: cubic-bezier(0.205028, 0.057051, 0.57661, 0.453971);
     transform: scaleX(0.08);
@@ -104,7 +103,7 @@ export class LinearProgressElement extends LitElement {
   }
 }
 
-@keyframes primary-indeterminate-translate-reverse {
+@keyframes primary-translate-reverse {
   0% {
     transform: translateX(0);
   }
@@ -121,7 +120,7 @@ export class LinearProgressElement extends LitElement {
   }
 }
 
-@keyframes secondary-indeterminate-translate-reverse {
+@keyframes secondary-translate-reverse {
   0% {
     animation-timing-function: cubic-bezier(0.15, 0, 0.515058, 0.409685);
     transform: translateX(0);
@@ -154,7 +153,8 @@ export class LinearProgressElement extends LitElement {
   overflow: hidden;
   contain: content;
 }
-.bar {
+#primary,
+#secondary {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -169,7 +169,7 @@ span {
   height: 100%;
   animation: none;
 }
-.dots {
+#dots {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -177,49 +177,52 @@ span {
   background-repeat: repeat-x;
   background-size: 10px 4px;
 }
-.buffer {
+#buffer {
   position: absolute;
   width: 100%;
   height: 100%;
   transform-origin: top left;
   transition: transform 250ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
+  transform: scaleX(var(--mwc-linear-buffer, 0));
 }
-.primary {
-  transform: scaleX(0);
+#primary {
+  transform: scaleX(var(--mwc-linear-progress, 0));
 }
-.secondary {
+#secondary {
   visibility: hidden;
 }
-:host([indeterminate]) .bar {
+:host([indeterminate]) #primary,
+:host([indeterminate]) #secondary {
   transition: none;
 }
-:host([indeterminate]) .primary {
+:host([indeterminate]) #primary {
   left: -145.166611%;
-  animation: primary-indeterminate-translate 2s infinite linear;
+  animation: primary-translate 2s infinite linear;
 }
-:host([indeterminate]) .primary > span {
-  animation: primary-indeterminate-scale 2s infinite linear;
+:host([indeterminate]) #primary > span {
+  animation: primary-scale 2s infinite linear;
 }
-:host([indeterminate]) .secondary {
+:host([indeterminate]) #secondary {
   left: -54.888891%;
-  animation: secondary-indeterminate-translate 2s infinite linear;
+  animation: secondary-translate 2s infinite linear;
   visibility: visible;
 }
-:host([indeterminate]) .secondary > span {
-  animation: secondary-indeterminate-scale 2s infinite linear;
+:host([indeterminate]) #secondary > span {
+  animation: secondary-scale 2s infinite linear;
 }
-:host([reverse]) .bar,
-:host([reverse]) .buffer {
+:host([reverse]) #primary,
+:host([reverse]) #secondary,
+:host([reverse]) #buffer {
   right: 0;
   transform-origin: center right;
 }
-:host([reverse]) .primary {
-  animation-name: primary-indeterminate-translate-reverse;
+:host([reverse]) #primary {
+  animation-name: primary-translate-reverse;
 }
-:host([reverse]) .secondary {
-  animation-name: secondary-indeterminate-translate-reverse;
+:host([reverse]) #secondary {
+  animation-name: secondary-translate-reverse;
 }
-:host([reverse]) .dots {
+:host([reverse]) #dots {
   animation: buffering-reverse 250ms infinite linear;
 }
 :host([closed]) {
@@ -230,19 +233,19 @@ span {
   background-color: var(--mdc-theme-primary, #6200ee);
 }
 
-.dots {
-  background-image: var(--mdc-linear-progress-buffering-dots-image, url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' enable-background='new 0 0 5 2' xml:space='preserve' viewBox='0 0 5 2' preserveAspectRatio='none slice'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23e6e6e6'/%3E%3C/svg%3E"));
+#dots {
+  background-image: var(--mdc-linear-progress-buffering-dots-image, url('data:image/svg+xml,%3Csvg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" enable-background="new 0 0 5 2" xml:space="preserve" viewBox="0 0 5 2" preserveAspectRatio="none slice"%3E%3Ccircle cx="1" cy="1" r="1" fill="%23e6e6e6"/%3E%3C/svg%3E'));
 }
 
-.buffer {
+#buffer {
   background-color: var(--mdc-theme-secondary, #e6e6e6);
 }
 
-:host([indeterminate][reverse]) .primary {
+:host([indeterminate][reverse]) #primary {
   right: -145.166611%;
   left: auto;
 }
-:host([indeterminate][reverse]) .secondary {
+:host([indeterminate][reverse]) #secondary {
   right: -54.888891%;
   left: auto;
 }`
@@ -250,17 +253,12 @@ span {
   }
 
   render() {
-    // TODO: change styles to use :not([determinate]) so we don't need this attrib
-    if (this.determinate) {
-      this.removeAttribute('indeterminate')
-    } else {
-      this.setAttribute('indeterminate', '')
-    }
-
+    this.style.setProperty('--mwc-linear-buffer', this.buffer.toFixed(2))
+    this.style.setProperty('--mwc-linear-progress', this.progress.toFixed(2))
     return html`
-<div class="dots"></div>
-<div class="buffer" style=${styleMap({ transform: `scaleX(${this.buffer.toFixed(2)})` })}></div>
-<div class="bar primary" style=${styleMap({ transform: `scaleX(${this.progress.toFixed(2)})` })}><span></span></div>
-<div class="bar secondary"><span></span></div>`
+<div id="dots"></div>
+<div id="buffer"></div>
+<div id="primary"><span></span></div>
+<div id="secondary"><span></span></div>`
   }
 }
