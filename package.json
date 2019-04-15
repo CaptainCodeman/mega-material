@@ -1,5 +1,5 @@
 {
-  "name": "@mega-material/elements",
+  "name": "mega-material",
   "version": "1.0.0-alpha.1",
   "description": "Material Lit Elements",
   "main": "index.js",
@@ -8,9 +8,10 @@
   "types": "index.d.ts",
   "unpkg": "maga-material.min.js",
   "scripts": {
+    "dec": "tsc --emitDeclarationOnly",
     "dev": "rollup -c -w",
     "build": "rollup -c",
-    "mypublish:pre": "npm run build && cp readme.md package.json dist",
+    "mypublish:pre": "npm run dec && npm run build && cp readme.md package.json dist",
     "mypublish": "npm run mypublish:pre && npm publish dist --tag latest --access=public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,8 +21,30 @@
     "type": "git",
     "url": "https://github.com/captaincodeman/mega-material"
   },
+  "keywords": [
+    "web-components",
+    "custom-elements",
+    "material components",
+    "material design",
+    "material style",
+    "button",
+    "card",
+    "checkbox",
+    "dialog",
+    "drawer",
+    "fab",
+    "icon",
+    "radio",
+    "slider",
+    "snackbar",
+    "toast",
+    "switch",
+    "tabs",
+    "textfield",
+    "input",
+    "top-app-bar"
+  ],
   "dependencies": {
-    "@webcomponents/webcomponentsjs": "^2.2.8",
     "lit-element": "^2.1.0",
     "lit-html": "^1.0.0",
     "tslib": "^1.9.3"
