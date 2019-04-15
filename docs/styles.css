@@ -20,3 +20,7 @@ main {
 .demo-group > *, .demo-group-spaced > * {
   margin: 0 8px;
 }
+
+:not(:defined) {
+  visibility: hidden;
+}
