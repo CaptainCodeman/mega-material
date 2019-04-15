@@ -13,6 +13,10 @@
       height: 100vh;
     }
 
+    :not(:defined) {
+      visibility: hidden;
+    }
+
     .main-content {
       padding: 0 15px 15px 10px;
     }
@@ -26,19 +30,10 @@
       max-width: 200px;
     }
 
-    /*
-    mwc-button {
-      --mdc-theme-primary: #fff;
-      --mdc-theme-on-primary: #666;
-      --mdc-ripple-bg-color: #000;
-    }
-    */
-
     mwc-linear-progress {
       margin: 15px 0;
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.7/webcomponents-loader.js"></script>
   <script src="./button.js" type="module"></script>
   <script src="./drawer.js" type="module"></script>
   <script src="./icon-button.js" type="module"></script>
@@ -65,11 +60,10 @@
         <div slot="title">Example App</div>
       </mwc-top-app-bar>
       <div class="main-content">
-        <p>Text</p>
         <mwc-icon-button icon="favorite"></mwc-icon-button>
         <mwc-slider min="0" max="10" step="1" value="3" discrete markers></mwc-slider>
         <mwc-button primary raised label="Submit"></mwc-button>
-        <mwc-linear-progress></mwc-linear-progress>
+        <mwc-linear-progress indeterminate></mwc-linear-progress>
       </div>
     </div>
   </mwc-drawer>
