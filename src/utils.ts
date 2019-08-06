@@ -20,7 +20,6 @@ export function matches(element: Element, selector: string): boolean {
     return nativeMatches.call(element, selector);
 }
 
-
 export interface Point {
     x: number;
     y: number;
