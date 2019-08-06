@@ -7,11 +7,11 @@ import { defaultCSS, elevationCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-fab': FABElement;
+    'mega-fab': FABElement;
   }
 }
 
-@customElement('mwc-fab')
+@customElement('mega-fab')
 export class FABElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   mini = false;
@@ -53,15 +53,15 @@ export class FABElement extends LitElement {
   -moz-appearance: none;
   -webkit-appearance: none;
   overflow: hidden;
-  background-color: var(--mdc-theme-secondary, #018786);
-  color: var(--mdc-theme-on-secondary, #fff);
+  background-color: var(--mega-theme-secondary, #018786);
+  color: var(--mega-theme-on-secondary, #fff);
 }
 
-mwc-ripple {
+mega-ripple {
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  --mdc-ripple-bg-color: var(--mdc-theme-on-secondary, #fff);
+  --mega-ripple-bg-color: var(--mega-theme-on-secondary, #fff);
 }
 
 button {
@@ -118,7 +118,7 @@ button {
 svg {
   width: 100%;
 }
-mwc-icon {
+mega-icon {
   width: 24px;
   height: 24px;
   font-size: 24px;
@@ -149,11 +149,11 @@ mwc-icon {
   text-transform: uppercase;
   padding: 0 20px;
 }
-:host([label]) mwc-icon {
+:host([label]) mega-icon {
   margin-left: -8px;
   margin-right: 12px;
 }
-:host([label][trailing-icon]) mwc-icon {
+:host([label][trailing-icon]) mega-icon {
   margin-left: 12px;
   margin-right: -8px;
 }
@@ -165,7 +165,7 @@ span {
   overflow: hidden;
 }
 
-mwc-icon {
+mega-icon {
   transition: transform 180ms 90ms cubic-bezier(0, 0, 0.2, 1);
   fill: currentColor;
   will-change: transform;
@@ -180,7 +180,7 @@ mwc-icon {
               transform 180ms 0ms cubic-bezier(0.4, 0, 1, 1);
   opacity: 0;
 }
-:host([exited]) mwc-icon {
+:host([exited]) mega-icon {
   transform: scale(0);
   transition: transform 135ms 0ms cubic-bezier(0.4, 0, 1, 1);
 }
@@ -194,11 +194,11 @@ mwc-icon {
 
   render() {
     return html`
-<mwc-ripple ?unbounded=${!this.label}>
+<mega-ripple ?unbounded=${!this.label}>
   <button aria-label=${this.label || this.icon}>
-    <mwc-icon ?hidden=${!this.icon}>${this.icon}</mwc-icon>
+    <mega-icon ?hidden=${!this.icon}>${this.icon}</mega-icon>
     <span>${this.label}</span>
   </button>
-</mwc-ripple>`
+</mega-ripple>`
   }
 }

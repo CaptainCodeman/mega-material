@@ -3,7 +3,7 @@ import { defaultCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-icon': IconElement;
+    'mega-icon': IconElement;
   }
 }
 
@@ -30,7 +30,7 @@ const ICON_CATEGORIES = [
 ]
 */
 
-// TODO: make lazy and check for --mdc-icon-font being set to something else
+// TODO: make lazy and check for --mega-icon-font being set to something else
 // use css font loading api to hide icons until font has loaded or something like
 // https://github.com/bramstein/fontfaceobserver to fade them in when they are
 // https://github.com/typekit/webfontloader
@@ -39,25 +39,24 @@ el.rel = 'stylesheet';
 el.href = 'https://fonts.googleapis.com/icon?family=Material+Icons';
 document.head!.appendChild(el);
 
-@customElement('mwc-icon')
+@customElement('mega-icon')
 export class IconElement extends LitElement {
   static get styles() {
     return [
       defaultCSS,
       css`
 :host {
-  font-family: var(--mdc-icon-font, "Material Icons");
+  font-family: var(--mega-icon-font, "Material Icons");
   font-display: block;
   font-weight: normal;
   font-style: normal;
-  font-size: var(--mdc-icon-size, 24px);
+  font-size: var(--mega-icon-size, 24px);
   line-height: 1;
   letter-spacing: normal;
   text-transform: none;
   display: inline-block;
   white-space: nowrap;
   word-wrap: normal;
-  pointer-events: none;
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
   contain: content;

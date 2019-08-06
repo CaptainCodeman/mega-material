@@ -4,7 +4,7 @@ import { defaultCSS, elevationCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-dialog': DialogElement;
+    'mega-dialog': DialogElement;
   }
 }
 
@@ -15,7 +15,7 @@ function isScrollable(el: HTMLElement | null): boolean {
 const DIALOG_ANIMATION_CLOSE_TIME_MS = 75,
       DIALOG_ANIMATION_OPEN_TIME_MS = 150
 
-@customElement('mwc-dialog')
+@customElement('mega-dialog')
 export class DialogElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   opening = false;
@@ -148,7 +148,7 @@ export class DialogElement extends LitElement {
   min-width: 280px;
   max-height: calc(100vh - 32px);
   border-radius: 4px;
-  background-color: var(--mdc-theme-surface, #fff);
+  background-color: var(--mega-theme-surface, #fff);
 }
 
 #title {
@@ -224,11 +224,11 @@ export class DialogElement extends LitElement {
 }
 
 /*
-#content .mdc-list:first-child:last-child {
+#content .mega-list:first-child:last-child {
   padding: 6px 0 0;
 }
 
-:host([scrollable]) #content .mdc-list:first-child:last-child {
+:host([scrollable]) #content .mega-list:first-child:last-child {
   padding: 0;
 }
 */

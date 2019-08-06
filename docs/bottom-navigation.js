@@ -34,8 +34,8 @@ let BottomNavigationElement = class BottomNavigationElement extends LitElement {
   margin: 8px 12px 12px 12px;
   min-width: 80px;
   max-width: 168px;
-  --mdc-icon-size: 24px;
-  --mdc-theme-primary: #ccc;
+  --mega-icon-size: 24px;
+  --mega-theme-primary: #ccc;
 }
 `
         ];
@@ -49,7 +49,7 @@ __decorate([
     property({ type: Number, reflect: true })
 ], BottomNavigationElement.prototype, "selected", void 0);
 BottomNavigationElement = __decorate([
-    customElement('mwc-bottom-navigation')
+    customElement('mega-bottom-navigation')
 ], BottomNavigationElement);
 
 export { BottomNavigationElement };

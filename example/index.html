@@ -25,12 +25,12 @@
       margin: 10px 0;
     }
 
-    mwc-slider,
-    mwc-linear-progress {
+    mega-slider,
+    mega-linear-progress {
       max-width: 200px;
     }
 
-    mwc-linear-progress {
+    mega-linear-progress {
       margin: 15px 0;
     }
   </style>
@@ -44,29 +44,29 @@
 </head>
 
 <body>
-  <mwc-drawer hasheader modal>
+  <mega-drawer hasheader modal>
     <span slot="title">Example</span>
     <span slot="subtitle">application</span>
     <div class="drawer-content">
-      <mwc-list>
-        <mwc-list-item>One</mwc-list-item>
-        <mwc-list-item>Two</mwc-list-item>
-        <mwc-list-item>Three</mwc-list-item>
-      </mwc-list>
+      <mega-list>
+        <mega-list-item>One</mega-list-item>
+        <mega-list-item>Two</mega-list-item>
+        <mega-list-item>Three</mega-list-item>
+      </mega-list>
     </div>
     <div slot="app-content">
-      <mwc-top-app-bar>
-        <mwc-icon-button icon="menu" slot="navigationIcon"></mwc-icon-button>
+      <mega-top-app-bar>
+        <mega-icon-button icon="menu" slot="navigationIcon"></mega-icon-button>
         <div slot="title">Example App</div>
-      </mwc-top-app-bar>
+      </mega-top-app-bar>
       <div class="main-content">
-        <mwc-icon-button icon="favorite"></mwc-icon-button>
-        <mwc-slider min="0" max="10" step="1" value="3" discrete markers></mwc-slider>
-        <mwc-button primary raised label="Submit"></mwc-button>
-        <mwc-linear-progress indeterminate></mwc-linear-progress>
+        <mega-icon-button icon="favorite"></mega-icon-button>
+        <mega-slider min="0" max="10" step="1" value="3" discrete markers></mega-slider>
+        <mega-button primary raised label="Submit"></mega-button>
+        <mega-linear-progress indeterminate></mega-linear-progress>
       </div>
     </div>
-  </mwc-drawer>
+  </mega-drawer>
 </body>
 
 </html>

@@ -8,42 +8,42 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
   <link rel="stylesheet" href="./styles.css">
   <style>
-    mwc-card {
+    mega-card {
       width: 350px;
       margin: 48px 0;
       border-radius: 4px;
     }
 
-    mwc-surface[slot="header"],
-    mwc-surface[slot="primary"] {
+    mega-surface[slot="header"],
+    mega-surface[slot="primary"] {
       margin: 1rem;
     }
-    mwc-surface[slot="secondary"] {
+    mega-surface[slot="secondary"] {
       margin: 1rem 0 0 0;
     }
 
-    mwc-surface h2,
-    mwc-surface h3,
-    mwc-surface p {
+    mega-surface h2,
+    mega-surface h3,
+    mega-surface p {
       margin: 0;
     }
-    mwc-surface h3 {
-      color: var(--mdc-theme-text-secondary-on-background,rgba(0,0,0,.54));
+    mega-surface h3 {
+      color: var(--mega-theme-text-secondary-on-background,rgba(0,0,0,.54));
     }
-    mwc-surface p {
+    mega-surface p {
       padding: 0 1rem 8px;
-      color: var(--mdc-theme-text-secondary-on-background,rgba(0,0,0,.54));
+      color: var(--mega-theme-text-secondary-on-background,rgba(0,0,0,.54));
     }
 
     div[slot="media"] {
       position: relative;
     }
-    div[slot="media"] mwc-surface {
+    div[slot="media"] mega-surface {
       position: absolute;
       color: #fff;
       margin: 1rem;
       bottom: 0;
-      --mdc-theme-text-secondary-on-background: #fff;
+      --mega-theme-text-secondary-on-background: #fff;
     }
   </style>
   <script src="./button.js" type="module"></script>
@@ -55,159 +55,159 @@
 <body>
   <h2>basic</h2>
 
-  <mwc-card>
+  <mega-card>
     <div slot="media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);--aspect-ratio: 16/9;"></div>
 
-    <mwc-surface slot="primary">
+    <mega-surface slot="primary">
       <h2 class="typography headline6">Our Changing Planet</h2>
       <h3 class="typography subtitle2">by Kurt Wagner</h3>
-    </mwc-surface>
+    </mega-surface>
 
-    <mwc-surface slot="secondary">
+    <mega-surface slot="secondary">
       <p class="typography body2">
         Visit ten places on our planet that are undergoing the biggest changes today.
       </p>
-    </mwc-surface>
+    </mega-surface>
 
-    <mwc-button slot="action-button" primary>Read</mwc-button>
-    <mwc-button slot="action-button" primary>Bookmark</mwc-button>
+    <mega-button slot="action-button" primary>Read</mega-button>
+    <mega-button slot="action-button" primary>Bookmark</mega-button>
 
-    <mwc-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
-    <mwc-icon-button slot="action-icon" icon="share"></mwc-icon-button>
-    <mwc-icon-button slot="action-icon" icon="more_vert"></mwc-icon-button>
-  </mwc-card>
+    <mega-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mega-icon-button>
+    <mega-icon-button slot="action-icon" icon="share"></mega-icon-button>
+    <mega-icon-button slot="action-icon" icon="more_vert"></mega-icon-button>
+  </mega-card>
 
   <h2>basic + text over media</h2>
 
-  <mwc-card>
+  <mega-card>
     <div slot="media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);--aspect-ratio: 16/9;">
-      <mwc-surface>
+      <mega-surface>
         <h2 class="typography headline6">Our Changing Planet</h2>
         <h3 class="typography subtitle2">by Kurt Wagner</h3>
-      </mwc-surface>
+      </mega-surface>
     </div>
 
-    <mwc-surface slot="secondary">
+    <mega-surface slot="secondary">
       <p class="typography body2">
         Visit ten places on our planet that are undergoing the biggest changes today.
       </p>
-    </mwc-surface>
+    </mega-surface>
 
-    <mwc-button slot="action-button" primary>Read</mwc-button>
-    <mwc-button slot="action-button" primary>Bookmark</mwc-button>
+    <mega-button slot="action-button" primary>Read</mega-button>
+    <mega-button slot="action-button" primary>Bookmark</mega-button>
 
-    <mwc-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
-    <mwc-icon-button slot="action-icon" icon="share"></mwc-icon-button>
-    <mwc-icon-button slot="action-icon" icon="more_vert"></mwc-icon-button>
-  </mwc-card>
+    <mega-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mega-icon-button>
+    <mega-icon-button slot="action-icon" icon="share"></mega-icon-button>
+    <mega-icon-button slot="action-icon" icon="more_vert"></mega-icon-button>
+  </mega-card>
 
   <h2>basic + header</h2>
 
-  <mwc-card>
+  <mega-card>
     <div slot="media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);--aspect-ratio: 16/9;"></div>
 
-    <mwc-surface slot="header">
+    <mega-surface slot="header">
       <h2 class="typography headline6">Our Changing Planet</h2>
       <h3 class="typography subtitle2">by Kurt Wagner</h3>
-    </mwc-surface>
+    </mega-surface>
 
-    <mwc-surface slot="secondary">
+    <mega-surface slot="secondary">
       <p class="typography body2">
         Visit ten places on our planet that are undergoing the biggest changes today.
       </p>
-    </mwc-surface>
+    </mega-surface>
 
-    <mwc-button slot="action-button" primary>Read</mwc-button>
-    <mwc-button slot="action-button" primary>Bookmark</mwc-button>
+    <mega-button slot="action-button" primary>Read</mega-button>
+    <mega-button slot="action-button" primary>Bookmark</mega-button>
 
-    <mwc-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
-    <mwc-icon-button slot="action-icon" icon="share"></mwc-icon-button>
-    <mwc-icon-button slot="action-icon" icon="more_vert"></mwc-icon-button>
-  </mwc-card>
+    <mega-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mega-icon-button>
+    <mega-icon-button slot="action-icon" icon="share"></mega-icon-button>
+    <mega-icon-button slot="action-icon" icon="more_vert"></mega-icon-button>
+  </mega-card>
 
   <h2>basic only buttons</h2>
 
-  <mwc-card>
+  <mega-card>
     <div slot="media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);--aspect-ratio: 16/9;"></div>
 
-    <mwc-surface slot="primary">
+    <mega-surface slot="primary">
       <h2 class="typography headline6">Our Changing Planet</h2>
       <h3 class="typography subtitle2">by Kurt Wagner</h3>
-    </mwc-surface>
+    </mega-surface>
 
-    <mwc-button slot="action-button" primary>Read</mwc-button>
-    <mwc-button slot="action-button" primary>Bookmark</mwc-button>
-  </mwc-card>
+    <mega-button slot="action-button" primary>Read</mega-button>
+    <mega-button slot="action-button" primary>Bookmark</mega-button>
+  </mega-card>
 
   <h2>basic only icons</h2>
 
-  <mwc-card>
+  <mega-card>
     <div slot="media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);--aspect-ratio: 16/9;"></div>
 
-    <mwc-surface slot="primary">
+    <mega-surface slot="primary">
       <h2 class="typography headline6">Our Changing Planet</h2>
       <h3 class="typography subtitle2">by Kurt Wagner</h3>
-    </mwc-surface>
+    </mega-surface>
 
-    <mwc-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
-    <mwc-icon-button slot="action-icon" icon="share"></mwc-icon-button>
-    <mwc-icon-button slot="action-icon" icon="more_vert"></mwc-icon-button>
-  </mwc-card>
+    <mega-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mega-icon-button>
+    <mega-icon-button slot="action-icon" icon="share"></mega-icon-button>
+    <mega-icon-button slot="action-icon" icon="more_vert"></mega-icon-button>
+  </mega-card>
 
   <h2>horizontal image + text</h2>
 
-  <mwc-card>
+  <mega-card>
     <div slot="media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);--aspect-ratio: 16/9;"></div>
 
-    <mwc-surface slot="primary">
+    <mega-surface slot="primary">
       <h2 class="typography headline6">Our Changing Planet</h2>
       <h3 class="typography subtitle2">by Kurt Wagner</h3>
-    </mwc-surface>
+    </mega-surface>
 
-    <mwc-surface slot="secondary">
+    <mega-surface slot="secondary">
       <p class="typography body2">
         Visit ten places on our planet that are undergoing the biggest changes today.
       </p>
-    </mwc-surface>
+    </mega-surface>
 
-    <mwc-button slot="action-button" primary>Read</mwc-button>
-    <mwc-button slot="action-button" primary>Bookmark</mwc-button>
+    <mega-button slot="action-button" primary>Read</mega-button>
+    <mega-button slot="action-button" primary>Bookmark</mega-button>
 
-    <mwc-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
-    <mwc-icon-button slot="action-icon" icon="share"></mwc-icon-button>
-    <mwc-icon-button slot="action-icon" icon="more_vert"></mwc-icon-button>
-  </mwc-card>
+    <mega-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mega-icon-button>
+    <mega-icon-button slot="action-icon" icon="share"></mega-icon-button>
+    <mega-icon-button slot="action-icon" icon="more_vert"></mega-icon-button>
+  </mega-card>
 
   <h2>full-bleed action</h2>
 
-  <mwc-card full-bleed>
+  <mega-card full-bleed>
     <div slot="media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);--aspect-ratio: 16/9;"></div>
 
-    <mwc-surface slot="primary">
+    <mega-surface slot="primary">
       <h2 class="typography headline6">Our Changing Planet</h2>
       <h3 class="typography subtitle2">by Kurt Wagner</h3>
-    </mwc-surface>
+    </mega-surface>
 
-    <mwc-button slot="action" primary>Single Action</mwc-button>
-  </mwc-card>
+    <mega-button slot="action" primary>Single Action</mega-button>
+  </mega-card>
 
   <h2>outlined</h2>
 
-  <mwc-card outlined>
+  <mega-card outlined>
     <div slot="media" style="background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg);--aspect-ratio: 16/9;"></div>
 
-    <mwc-surface slot="primary">
+    <mega-surface slot="primary">
       <h2 class="typography headline6">Our Changing Planet</h2>
       <h3 class="typography subtitle2">by Kurt Wagner</h3>
-    </mwc-surface>
+    </mega-surface>
 
-    <mwc-button slot="action-button" primary>Read</mwc-button>
-    <mwc-button slot="action-button" primary>Bookmark</mwc-button>
+    <mega-button slot="action-button" primary>Read</mega-button>
+    <mega-button slot="action-button" primary>Bookmark</mega-button>
 
-    <mwc-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mwc-icon-button>
-    <mwc-icon-button slot="action-icon" icon="share"></mwc-icon-button>
-    <mwc-icon-button slot="action-icon" icon="more_vert"></mwc-icon-button>
-  </mwc-card>
+    <mega-icon-button slot="action-icon" icon="favorite_border" icon-on="favorite"></mega-icon-button>
+    <mega-icon-button slot="action-icon" icon="share"></mega-icon-button>
+    <mega-icon-button slot="action-icon" icon="more_vert"></mega-icon-button>
+  </mega-card>
 </body>
 
 </html>

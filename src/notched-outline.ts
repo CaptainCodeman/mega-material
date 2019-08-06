@@ -4,11 +4,11 @@ import { defaultCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-notched-outline': NotchedOutlineElement;
+    'mega-notched-outline': NotchedOutlineElement;
   }
 }
 
-@customElement('mwc-notched-outline')
+@customElement('mega-notched-outline')
 export class NotchedOutlineElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   notch: boolean
@@ -99,11 +99,11 @@ export class NotchedOutlineElement extends LitElement {
 :host(:not(:disabled):focus) .leading,
 :host(:not(:disabled):focus) .notch,
 :host(:not(:disabled):focus) .trailing {
-  border-color: var(--mdc-theme-primary, #6200ee);
+  border-color: var(--mega-theme-primary, #6200ee);
 }
 
-.mdc-text-field--outlined .mdc-floating-label--shake {
-  animation: mdc-floating-label-shake-float-above-text-field-outlined 250ms 1;
+.mega-text-field--outlined .mega-floating-label--shake {
+  animation: mega-floating-label-shake-float-above-text-field-outlined 250ms 1;
 }
 .leading {
   border-radius: 4px 0 0 4px;
@@ -112,18 +112,18 @@ export class NotchedOutlineElement extends LitElement {
   border-radius: 0 4px 4px 0;
 }
 
-.mdc-text-field--outlined .mdc-floating-label--float-above {
+.mega-text-field--outlined .mega-floating-label--float-above {
   transform: translateY(-144%) scale(1);
 }
-.mdc-text-field--outlined .mdc-floating-label--float-above {
+.mega-text-field--outlined .mega-floating-label--float-above {
   font-size: 0.75rem;
 }
-.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,
-.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+.mega-text-field--outlined.mega-notched-outline--upgraded .mega-floating-label--float-above,
+.mega-text-field--outlined .mega-notched-outline--upgraded .mega-floating-label--float-above {
   transform: translateY(-130%) scale(0.75);
 }
-.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,
-.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+.mega-text-field--outlined.mega-notched-outline--upgraded .mega-floating-label--float-above,
+.mega-text-field--outlined .mega-notched-outline--upgraded .mega-floating-label--float-above {
   font-size: 1rem;
 }
 
@@ -142,32 +142,32 @@ export class NotchedOutlineElement extends LitElement {
   border-color: rgba(0, 0, 0, 0.06);
 }
 
-.mdc-text-field--outlined.mdc-text-field--dense.mdc-notched-outline--upgraded .mdc-floating-label--float-above,
-.mdc-text-field--outlined.mdc-text-field--dense .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+.mega-text-field--outlined.mega-text-field--dense.mega-notched-outline--upgraded .mega-floating-label--float-above,
+.mega-text-field--outlined.mega-text-field--dense .mega-notched-outline--upgraded .mega-floating-label--float-above {
   transform: translateY(-120%) scale(0.8);
 }
-.mdc-text-field--outlined.mdc-text-field--dense.mdc-notched-outline--upgraded .mdc-floating-label--float-above,
-.mdc-text-field--outlined.mdc-text-field--dense .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+.mega-text-field--outlined.mega-text-field--dense.mega-notched-outline--upgraded .mega-floating-label--float-above,
+.mega-text-field--outlined.mega-text-field--dense .mega-notched-outline--upgraded .mega-floating-label--float-above {
   font-size: 1rem;
 }
 
-.mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,
-.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+.mega-text-field--with-leading-icon.mega-text-field--outlined.mega-notched-outline--upgraded .mega-floating-label--float-above,
+.mega-text-field--with-leading-icon.mega-text-field--outlined .mega-notched-outline--upgraded .mega-floating-label--float-above {
   transform: translateY(-130%) translateX(-32px) scale(0.75);
 }
 
-.mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above,
-.mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+.mega-text-field--with-leading-icon.mega-text-field--outlined.mega-notched-outline--upgraded .mega-floating-label--float-above,
+.mega-text-field--with-leading-icon.mega-text-field--outlined .mega-notched-outline--upgraded .mega-floating-label--float-above {
   font-size: 1rem;
 }
 
-.mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-text-field--dense.mdc-notched-outline--upgraded .mdc-floating-label--float-above,
-.mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-text-field--dense .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+.mega-text-field--with-leading-icon.mega-text-field--outlined.mega-text-field--dense.mega-notched-outline--upgraded .mega-floating-label--float-above,
+.mega-text-field--with-leading-icon.mega-text-field--outlined.mega-text-field--dense .mega-notched-outline--upgraded .mega-floating-label--float-above {
   transform: translateY(-120%) translateX(-21px) scale(0.8);
 }
 
-.mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-text-field--dense.mdc-notched-outline--upgraded .mdc-floating-label--float-above,
-.mdc-text-field--with-leading-icon.mdc-text-field--outlined.mdc-text-field--dense .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+.mega-text-field--with-leading-icon.mega-text-field--outlined.mega-text-field--dense.mega-notched-outline--upgraded .mega-floating-label--float-above,
+.mega-text-field--with-leading-icon.mega-text-field--outlined.mega-text-field--dense .mega-notched-outline--upgraded .mega-floating-label--float-above {
   font-size: 1rem;
 }
 

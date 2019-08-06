@@ -7,11 +7,11 @@ import { nothing } from 'lit-html';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-chip-set': ChipSetElement;
+    'mega-chip-set': ChipSetElement;
   }
 }
 
-@customElement('mwc-chip-set')
+@customElement('mega-chip-set')
 export class ChipSetElement extends LitElement {
   @property({ type: String, reflect: true })
   type = '';  // choice | filter | input
@@ -27,12 +27,12 @@ export class ChipSetElement extends LitElement {
   box-sizing: border-box;
 }
 
-::slotted(mdc-chip) {
+::slotted(mega-chip) {
   margin: 4px;
 }
 
-:host([type="input"]) ::slotted(mdc-chip) {
-  animation: mdc-chip-entry 100ms cubic-bezier(0, 0, 0.2, 1);
+:host([type="input"]) ::slotted(mega-chip) {
+  animation: mega-chip-entry 100ms cubic-bezier(0, 0, 0.2, 1);
 }
 `
     ]
@@ -43,7 +43,7 @@ export class ChipSetElement extends LitElement {
   }
 }
 
-@customElement('mwc-chip')
+@customElement('mega-chip')
 export class ChipElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   selected = false;
@@ -64,41 +64,41 @@ export class ChipElement extends LitElement {
     return [
       defaultCSS,
       css`
-@keyframes mdc-ripple-fg-radius-in {
+@keyframes mega-ripple-fg-radius-in {
   from {
     animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transform: translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1);
+    transform: translate(var(--mega-ripple-fg-translate-start, 0)) scale(1);
   }
   to {
-    transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
+    transform: translate(var(--mega-ripple-fg-translate-end, 0)) scale(var(--mega-ripple-fg-scale, 1));
   }
 }
 
-@keyframes mdc-ripple-fg-opacity-in {
+@keyframes mega-ripple-fg-opacity-in {
   from {
     animation-timing-function: linear;
     opacity: 0; }
   to {
-    opacity: var(--mdc-ripple-fg-opacity, 0);
+    opacity: var(--mega-ripple-fg-opacity, 0);
   }
 }
 
-@keyframes mdc-ripple-fg-opacity-out {
+@keyframes mega-ripple-fg-opacity-out {
   from {
     animation-timing-function: linear;
-    opacity: var(--mdc-ripple-fg-opacity, 0); }
+    opacity: var(--mega-ripple-fg-opacity, 0); }
   to {
     opacity: 0;
   }
 }
 
 :host {
-  --mdc-ripple-fg-size: 0;
-  --mdc-ripple-left: 0;
-  --mdc-ripple-top: 0;
-  --mdc-ripple-fg-scale: 1;
-  --mdc-ripple-fg-translate-end: 0;
-  --mdc-ripple-fg-translate-start: 0;
+  --mega-ripple-fg-size: 0;
+  --mega-ripple-left: 0;
+  --mega-ripple-top: 0;
+  --mega-ripple-fg-scale: 1;
+  --mega-ripple-fg-translate-end: 0;
+  --mega-ripple-fg-translate-start: 0;
   -webkit-tap-highlight-color: transparent;
   will-change: transform, opacity;
   border-radius: 16px;
@@ -121,7 +121,7 @@ export class ChipElement extends LitElement {
   overflow: hidden;
 }
 
-mwc-ripple {
+mega-ripple {
   width: 100%;
   height: 100%;
   border-radius: inherit;
@@ -135,15 +135,15 @@ mwc-ripple {
 }
 
 :host([selected]) {
-  color: var(--mdc-theme-primary, #6200ee);
+  color: var(--mega-theme-primary, #6200ee);
 }
 
 :host([selected]):hover {
-  color: var(--mdc-theme-primary, #6200ee);
+  color: var(--mega-theme-primary, #6200ee);
 }
 
 path {
-  stroke: var(--mdc-theme-primary, #6200ee);
+  stroke: var(--mega-theme-primary, #6200ee);
 }
 
 slot[name="icon"]::slotted(*) {
@@ -158,23 +158,23 @@ slot[name="icon"]::slotted(*) {
   color: rgba(0, 0, 0, 0.87);
 }
 
-.mdc-chip .mdc-chip__icon.mdc-chip__icon--leading:not(.mdc-chip__icon--leading-hidden) {
+.mega-chip .mega-chip__icon.mega-chip__icon--leading:not(.mega-chip__icon--leading-hidden) {
   width: 20px;
   height: 20px;
   font-size: 20px;
 }
 
-.mdc-chip .mdc-chip__icon.mdc-chip__icon--trailing {
+.mega-chip .mega-chip__icon.mega-chip__icon--trailing {
   width: 18px;
   height: 18px;
   font-size: 18px;
 }
 
 :host:hover {
-  color: var(--mdc-theme-on-surface, #000);
+  color: var(--mega-theme-on-surface, #000);
 }
 
-.mdc-chip--exit {
+.mega-chip--exit {
   transition: opacity 75ms cubic-bezier(0.4, 0, 0.2, 1),
               width 150ms cubic-bezier(0, 0, 0.2, 1),
               padding 100ms linear,
@@ -183,7 +183,7 @@ slot[name="icon"]::slotted(*) {
 }
 
 :host([selected]) {
-  background-color: var(--mdc-theme-surface, #fff);
+  background-color: var(--mega-theme-surface, #fff);
 }
 
 slot[name="checkmark"] {
@@ -192,7 +192,7 @@ slot[name="checkmark"] {
   vertical-align: middle;
 }
 
-.mdc-chip__icon--trailing {
+.mega-chip__icon--trailing {
   margin: 0 -4px 0 4px;
 }
 
@@ -223,39 +223,39 @@ svg {
   width: 20px;
 }
 
-.mdc-chip__icon--leading {
+.mega-chip__icon--leading {
   transition: opacity 75ms linear;
   opacity: 1;
 }
 
-.mdc-chip__icon--leading + slot[name="checkmark"] {
+.mega-chip__icon--leading + slot[name="checkmark"] {
   transition: opacity 75ms linear;
   opacity: 0;
 }
 
-.mdc-chip__icon--leading + slot[name="checkmark"]::slotted(*) {
+.mega-chip__icon--leading + slot[name="checkmark"]::slotted(*) {
   transition: width 0ms;
 }
 
-:host([selected]) .mdc-chip__icon--leading {
+:host([selected]) .mega-chip__icon--leading {
   opacity: 0;
 }
 
-:host([selected]) .mdc-chip__icon--leading + slot[name="checkmark"] {
+:host([selected]) .mega-chip__icon--leading + slot[name="checkmark"] {
   width: 0;
   opacity: 1;
 }
 
-.mdc-chip__icon--leading-hidden.mdc-chip__icon--leading {
+.mega-chip__icon--leading-hidden.mega-chip__icon--leading {
   width: 0;
   opacity: 0;
 }
 
-.mdc-chip__icon--leading-hidden.mdc-chip__icon--leading + slot[name="checkmark"] {
+.mega-chip__icon--leading-hidden.mega-chip__icon--leading + slot[name="checkmark"] {
   width: 20px;
 }
 
-@keyframes mdc-chip-entry {
+@keyframes mega-chip-entry {
   from {
     transform: scale(0.8);
     opacity: .4;
@@ -270,15 +270,15 @@ svg {
 
   render() {
     return html`
-<mwc-ripple>
-  <slot name="icon"><mwc-icon>${this.icon}</mwc-icon></slot>
+<mega-ripple>
+  <slot name="icon"><mega-icon>${this.icon}</mega-icon></slot>
   <slot name="checkmark">
     <svg viewBox="-2 -3 30 30">
       <path fill="none" stroke="black" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
     </svg>
   </slot>
   <slot></slot>
-</mwc-ripple>
+</mega-ripple>
 `
   }
 }

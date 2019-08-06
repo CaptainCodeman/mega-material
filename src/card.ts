@@ -5,12 +5,12 @@ import { defaultCSS, elevationCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-card': CardElement;
+    'mega-card': CardElement;
   }
 }
 
 export type CardType = 'basic' | 'basic-text'
-@customElement('mwc-card')
+@customElement('mega-card')
 export class CardElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   outlined = false;
@@ -25,7 +25,7 @@ export class CardElement extends LitElement {
       css`
 :host {
   display: block;
-  background-color: var(--mdc-theme-surface, #fff);
+  background-color: var(--mega-theme-surface, #fff);
   border-radius: 2px;
   box-shadow: var(--elevation-02);
   display: flex;
@@ -132,7 +132,7 @@ slot[name="media"]::slotted(:last-child),
 }
 
 .action-icons {
-  color: var(--mdc-theme-text-icon-on-background, rgba(0, 0, 0, 0.38));
+  color: var(--mega-theme-text-icon-on-background, rgba(0, 0, 0, 0.38));
   flex-grow: 1;
   justify-content: flex-end;
 }
@@ -181,7 +181,7 @@ slot[name="action-icon"]::slotted(*),
 }
 
 .action--icon:not(:disabled) {
-  color: var(--mdc-theme-text-icon-on-background, rgba(0, 0, 0, 0.38));
+  color: var(--mega-theme-text-icon-on-background, rgba(0, 0, 0, 0.38));
 }
 `
     ]
@@ -191,7 +191,7 @@ slot[name="action-icon"]::slotted(*),
     return html`
 <div class="primary-action">
   <slot name="header"></slot>
-  <mwc-ripple>
+  <mega-ripple>
     <slot name="primary-action" tabindex="0">
       <div class="media">
         <slot name="media"><slot name="media-content"></slot></slot>
@@ -199,7 +199,7 @@ slot[name="action-icon"]::slotted(*),
     </slot>
     <slot name="primary"></slot>
     <slot name="secondary"></slot>
-  </mwc-ripple>
+  </mega-ripple>
 </div>
 <div class="actions">
   <slot name="action">

@@ -6,11 +6,11 @@ import { defaultCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-bottom-navigation': BottomNavigationElement;
+    'mega-bottom-navigation': BottomNavigationElement;
   }
 }
 
-@customElement('mwc-bottom-navigation')
+@customElement('mega-bottom-navigation')
 export class BottomNavigationElement extends LitElement {
   @property({ type: Number, reflect: true })
   selected = 0;
@@ -43,8 +43,8 @@ export class BottomNavigationElement extends LitElement {
   margin: 8px 12px 12px 12px;
   min-width: 80px;
   max-width: 168px;
-  --mdc-icon-size: 24px;
-  --mdc-theme-primary: #ccc;
+  --mega-icon-size: 24px;
+  --mega-theme-primary: #ccc;
 }
 `
     ]

@@ -1,7 +1,7 @@
 import { css } from "lit-element";
 
 export const rippleCSS = css`
-mwc-ripple {
+mega-ripple {
   position: absolute;
   border-radius: inherit;
   top: 0;

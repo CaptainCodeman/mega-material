@@ -5,11 +5,11 @@ import { defaultCSS, elevationCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-snackbar': SnackbarElement;
+    'mega-snackbar': SnackbarElement;
   }
 }
 
-@customElement('mwc-snackbar')
+@customElement('mega-snackbar')
 export class SnackbarElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   dismissable = false;
@@ -159,7 +159,7 @@ export class SnackbarElement extends LitElement {
 
 .label::before {
   display: inline;
-  content: attr(data-mdc-snackbar-label-text);
+  content: attr(data-mega-snackbar-label-text);
 }
 
 .actions {
@@ -171,36 +171,36 @@ export class SnackbarElement extends LitElement {
   box-sizing: border-box;
 }
 
-/* .mdc-snackbar__action:not(:disabled) */
+/* .mega-snackbar__action:not(:disabled) */
 .actions ::slotted(*) {
   color: #bb86fc;
-  --mdc-theme-primary: #bb86fc;
+  --mega-theme-primary: #bb86fc;
 }
 /*
 Action ripple ...
-.mdc-snackbar__action::before, .mdc-snackbar__action::after {
+.mega-snackbar__action::before, .mega-snackbar__action::after {
   background-color: #bb86fc;
 }
-.mdc-snackbar__action:hover::before {
+.mega-snackbar__action:hover::before {
   opacity: 0.08;
 }
-.mdc-snackbar__action:not(.mdc-ripple-upgraded):focus::before, .mdc-snackbar__action.mdc-ripple-upgraded--background-focused::before {
+.mega-snackbar__action:not(.mega-ripple-upgraded):focus::before, .mega-snackbar__action.mega-ripple-upgraded--background-focused::before {
   transition-duration: 75ms;
   opacity: 0.24;
 }
-.mdc-snackbar__action:not(.mdc-ripple-upgraded)::after {
+.mega-snackbar__action:not(.mega-ripple-upgraded)::after {
   transition: opacity 150ms linear;
 }
-.mdc-snackbar__action:not(.mdc-ripple-upgraded):active::after {
+.mega-snackbar__action:not(.mega-ripple-upgraded):active::after {
   transition-duration: 75ms;
   opacity: 0.24;
 }
-.mdc-snackbar__action.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.24;
+.mega-snackbar__action.mega-ripple-upgraded {
+  --mega-ripple-fg-opacity: 0.24;
 }
 */
 
-mwc-icon-button {
+mega-icon-button {
   color: rgba(255, 255, 255, 0.87);
   width: 36px;
   height: 36px;
@@ -208,42 +208,42 @@ mwc-icon-button {
 /*
 dismiss icon ripple
 
-.mdc-snackbar__dismiss::before, .mdc-snackbar__dismiss::after {
+.mega-snackbar__dismiss::before, .mega-snackbar__dismiss::after {
   background-color: rgba(255, 255, 255, 0.87);
 }
-.mdc-snackbar__dismiss:hover::before {
+.mega-snackbar__dismiss:hover::before {
   opacity: 0.08;
 }
-.mdc-snackbar__dismiss:not(.mdc-ripple-upgraded):focus::before, .mdc-snackbar__dismiss.mdc-ripple-upgraded--background-focused::before {
+.mega-snackbar__dismiss:not(.mega-ripple-upgraded):focus::before, .mega-snackbar__dismiss.mega-ripple-upgraded--background-focused::before {
   transition-duration: 75ms;
   opacity: 0.24;
 }
-.mdc-snackbar__dismiss:not(.mdc-ripple-upgraded)::after {
+.mega-snackbar__dismiss:not(.mega-ripple-upgraded)::after {
   transition: opacity 150ms linear;
 }
-.mdc-snackbar__dismiss:not(.mdc-ripple-upgraded):active::after {
+.mega-snackbar__dismiss:not(.mega-ripple-upgraded):active::after {
   transition-duration: 75ms;
   opacity: 0.24;
 }
-.mdc-snackbar__dismiss.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.24;
+.mega-snackbar__dismiss.mega-ripple-upgraded {
+  --mega-ripple-fg-opacity: 0.24;
 }
 */
 
-mwc-icon-button {
+mega-icon-button {
   margin-left: 8px;
   margin-right: 0;
-  --mdc-icon-button-size: 36px;
-  --mdc-icon-size: 18px;
-  --mdc-icon-button-padding: 9px;
+  --mega-icon-button-size: 36px;
+  --mega-icon-size: 18px;
+  --mega-icon-button-padding: 9px;
 }
-:host(:not([dismissable])) mwc-icon-button {
+:host(:not([dismissable])) mega-icon-button {
   display: none;
 }
 
 slot[name="action"],
-.mdc-snackbar__dismiss.mdc-snackbar__dismiss svg,
-.mdc-snackbar__dismiss.mdc-snackbar__dismiss img {
+.mega-snackbar__dismiss.mega-snackbar__dismiss svg,
+.mega-snackbar__dismiss.mega-snackbar__dismiss img {
   width: 18px;
   height: 18px;
 }`
@@ -258,7 +258,7 @@ slot[name="action"],
   </div>
   <div class="actions">
     <slot name="action"></slot>
-    <mwc-icon-button icon="clear" @click=${this.dismiss}></mwc-icon-button>
+    <mega-icon-button icon="clear" @click=${this.dismiss}></mega-icon-button>
   </div>
 </div>`
   }

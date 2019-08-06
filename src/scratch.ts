@@ -8,8 +8,8 @@ import { isLightBackground } from './colors';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-scratch': ScratchElement;
-    'mwc-scratch-color': ScratchColorElement;
+    'mega-scratch': ScratchElement;
+    'mega-scratch-color': ScratchColorElement;
   }
 }
 
@@ -22,7 +22,7 @@ if (!HTMLSlotElement.prototype.assignedElements) {
   })
 }
 
-@customElement('mwc-scratch')
+@customElement('mega-scratch')
 export class ScratchElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   primary: boolean = false
@@ -82,7 +82,7 @@ export class ScratchElement extends LitElement {
   justify-content: center;
 }
 
-slot[name="icon"] mwc-icon,
+slot[name="icon"] mega-icon,
 slot[name="icon"]::slotted(*) {
   color: #999;
   margin-left: 0;
@@ -99,15 +99,15 @@ slot[name="icon"]::slotted(*) {
 
   render() {
     return html`
-<mwc-ripple ?primary=${this.primary}></mwc-ripple>
-<slot name="icon">${ this.icon ? html`<mwc-icon>${this.icon}</mwc-icon>` : nothing }</slot>
+<mega-ripple ?primary=${this.primary}></mega-ripple>
+<slot name="icon">${ this.icon ? html`<mega-icon>${this.icon}</mega-icon>` : nothing }</slot>
 <slot></slot>
 `
   }
 }
 
 
-@customElement('mwc-scratch-color')
+@customElement('mega-scratch-color')
 export class ScratchColorElement extends LitElement {
   @property({ type: String, reflect: true })
   theme: string = ''
@@ -140,96 +140,96 @@ export class ScratchColorElement extends LitElement {
   box-sizing: border-box;
   padding: 12px;
   min-width: 200px;
-  color: var(--mwc-background-on);
-  background-color: var(--mwc-background);
+  color: var(--mega-background-on);
+  background-color: var(--mega-background);
   outline: none;
   user-select: none;
 }
 
 :host([theme="primary"]) {
-  color: var(--mwc-primary);
+  color: var(--mega-primary);
 }
 
 :host([theme="primary-light"]) {
-  color: var(--mwc-primary-light);
+  color: var(--mega-primary-light);
 }
 
 :host([theme="primary-dark"]) {
-  color: var(--mwc-primary-dark);
+  color: var(--mega-primary-dark);
 }
 
 :host([theme="secondary"]) {
-  color: var(--mwc-secondary);
+  color: var(--mega-secondary);
 }
 
 :host([theme="secondary-light"]) {
-  color: var(--mwc-secondary-light);
+  color: var(--mega-secondary-light);
 }
 
 :host([theme="secondary-dark"]) {
-  color: var(--mwc-secondary-dark);
+  color: var(--mega-secondary-dark);
 }
 
 :host([theme^="primary"][bg]) {
-  color: var(--mwc-primary-on);
+  color: var(--mega-primary-on);
 }
 
 :host([theme="primary"][bg]) {
-  background-color: var(--mwc-primary);
+  background-color: var(--mega-primary);
 }
 
 :host([theme="primary-light"][bg]) {
-  background-color: var(--mwc-primary-light);
+  background-color: var(--mega-primary-light);
 }
 
 :host([theme="primary-dark"][bg]) {
-  background-color: var(--mwc-primary-dark);
+  background-color: var(--mega-primary-dark);
 }
 
 :host([theme^="secondary"][bg]) {
-  color: var(--mwc-primary-on);
+  color: var(--mega-primary-on);
 }
 
 :host([theme="secondary"][bg]) {
-  background-color: var(--mwc-secondary);
+  background-color: var(--mega-secondary);
 }
 
 :host([theme="secondary-light"][bg]) {
-  background-color: var(--mwc-secondary-light);
+  background-color: var(--mega-secondary-light);
 }
 
 :host([theme="secondary-dark"][bg]) {
-  background-color: var(--mwc-secondary-dark);
+  background-color: var(--mega-secondary-dark);
 }
 
 :host([theme="background"]) {
-  color: var(--mwc-background-on);
-  background-color: var(--mwc-background);
+  color: var(--mega-background-on);
+  background-color: var(--mega-background);
 }
 
 :host([bg][theme="background"]) {
-  color: var(--mwc-background);
-  background-color: var(--mwc-background-on);
+  color: var(--mega-background);
+  background-color: var(--mega-background-on);
 }
 
 :host([theme="surface"]) {
-  color: var(--mwc-surface-on);
-  background-color: var(--mwc-surface);
+  color: var(--mega-surface-on);
+  background-color: var(--mega-surface);
 }
 
 :host([bg][theme="surface"]) {
-  color: var(--mwc-surface);
-  background-color: var(--mwc-surface-on);
+  color: var(--mega-surface);
+  background-color: var(--mega-surface-on);
 }
 
 :host([theme="error"]) {
-  color: var(--mwc-error-on);
-  background-color: var(--mwc-error);
+  color: var(--mega-error-on);
+  background-color: var(--mega-error);
 }
 
 :host([bg][theme="error"]) {
-  color: var(--mwc-error);
-  background-color: var(--mwc-error-on);
+  color: var(--mega-error);
+  background-color: var(--mega-error-on);
 }
 
 :host::before,
@@ -246,12 +246,12 @@ export class ScratchColorElement extends LitElement {
 
 :host([theme^="primary"])::before,
 :host([theme^="primary"])::after {
-  background-color: var(--mwc-primary);
+  background-color: var(--mega-primary);
 }
 
 :host([theme^="secondary"])::before,
 :host([theme^="secondary"])::after {
-  background-color: var(--mwc-secondary);
+  background-color: var(--mega-secondary);
 }
 
 :host([selected])::before {

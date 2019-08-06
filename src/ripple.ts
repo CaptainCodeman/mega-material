@@ -4,13 +4,13 @@ import { defaultCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-ripple': RippleElement;
+    'mega-ripple': RippleElement;
   }
 }
 
 const
-  DEACTIVATION_TIMEOUT_MS = 225, // Corresponds to $mdc-ripple-translate-duration (i.e. activation animation duration)
-  FG_DEACTIVATION_MS = 150, // Corresponds to $mdc-ripple-fade-out-duration (i.e. deactivation animation duration)
+  DEACTIVATION_TIMEOUT_MS = 225, // Corresponds to $mega-ripple-translate-duration (i.e. activation animation duration)
+  FG_DEACTIVATION_MS = 150, // Corresponds to $mega-ripple-fade-out-duration (i.e. deactivation animation duration)
   INITIAL_ORIGIN_SCALE = 0.6,
   PADDING = 10,
   TAP_DELAY_MS = 300 // Delay between touch and simulated mouse events on touch devices
@@ -18,7 +18,7 @@ const
 /**
  * Options passed in when attaching a ripple to an object.
  */
-export interface MDCRippleAttachOpts {
+export interface RippleAttachOpts {
   isUnbounded?: boolean;
 }
 
@@ -28,7 +28,7 @@ export interface MDCRippleAttachOpts {
  * unbounded Whether or not the ripple bleeds out of the bounds of the element.
  * disabled Whether or not the ripple is attached to a disabled component.
  */
-export interface MDCRippleCapableSurface {
+export interface RippleCapableSurface {
   readonly root_: Element;
   unbounded?: boolean;
   disabled?: boolean;
@@ -69,7 +69,7 @@ const POINTER_DEACTIVATION_EVENT_TYPES: DeactivationEventType[] = [
 // simultaneous nested activations
 let activatedTargets: Array<EventTarget | null> = [];
 
-@customElement('mwc-ripple')
+@customElement('mega-ripple')
 export class RippleElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   primary = false;
@@ -264,8 +264,8 @@ export class RippleElement extends LitElement {
       translateEnd = `${endPoint.x}px, ${endPoint.y}px`;
     }
 
-    this.updateCssVariable_('--mdc-ripple-fg-translate-start', translateStart);
-    this.updateCssVariable_('--mdc-ripple-fg-translate-end', translateEnd);
+    this.updateCssVariable_('--mega-ripple-fg-translate-start', translateStart);
+    this.updateCssVariable_('--mega-ripple-fg-translate-end', translateEnd);
     // Cancel any ongoing activation/deactivation animations
     clearTimeout(this.activationTimer_);
     clearTimeout(this.fgDeactivationRemovalTimer_);
@@ -388,8 +388,8 @@ export class RippleElement extends LitElement {
   }
 
   private updateLayoutCssVars_() {
-    this.updateCssVariable_('--mdc-ripple-fg-size', `${this.initialSize_}px`);
-    this.updateCssVariable_('--mdc-ripple-fg-scale', this.fgScale_);
+    this.updateCssVariable_('--mega-ripple-fg-size', `${this.initialSize_}px`);
+    this.updateCssVariable_('--mega-ripple-fg-scale', this.fgScale_);
 
     if (this.unbounded) {
       this.unboundedCoords_ = {
@@ -397,8 +397,8 @@ export class RippleElement extends LitElement {
         top: Math.round((this.frame_.height / 2) - (this.initialSize_ / 2)),
       };
 
-      this.updateCssVariable_('--mdc-ripple-left', `${this.unboundedCoords_.left}px`);
-      this.updateCssVariable_('--mdc-ripple-top', `${this.unboundedCoords_.top}px`);
+      this.updateCssVariable_('--mega-ripple-left', `${this.unboundedCoords_.left}px`);
+      this.updateCssVariable_('--mega-ripple-top', `${this.unboundedCoords_.top}px`);
     }
   }
 
@@ -450,10 +450,10 @@ export class RippleElement extends LitElement {
 @keyframes fg-radius-in {
   from {
     animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transform: translate(var(--mdc-ripple-fg-translate-start, 0)) scale(1);
+    transform: translate(var(--mega-ripple-fg-translate-start, 0)) scale(1);
   }
   to {
-    transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
+    transform: translate(var(--mega-ripple-fg-translate-end, 0)) scale(var(--mega-ripple-fg-scale, 1));
   }
 }
 @keyframes fg-opacity-in {
@@ -462,13 +462,13 @@ export class RippleElement extends LitElement {
     opacity: 0;
   }
   to {
-    opacity: var(--mdc-ripple-fg-opacity, 0);
+    opacity: var(--mega-ripple-fg-opacity, 0);
   }
 }
 @keyframes fg-opacity-out {
   from {
     animation-timing-function: linear;
-    opacity: var(--mdc-ripple-fg-opacity, 0);
+    opacity: var(--mega-ripple-fg-opacity, 0);
   }
   to {
     opacity: 0;
@@ -477,13 +477,13 @@ export class RippleElement extends LitElement {
       css`
 /* TODO: set variables in root to allow overriding per item ? */
 :host {
-  --mdc-ripple-fg-size: 0;
-  --mdc-ripple-left: 0;
-  --mdc-ripple-top: 0;
-  --mdc-ripple-fg-scale: 1;
-  --mdc-ripple-fg-translate-end: 0;
-  --mdc-ripple-fg-translate-start: 0;
-  --mdc-ripple-fg-opacity: 0.12;
+  --mega-ripple-fg-size: 0;
+  --mega-ripple-left: 0;
+  --mega-ripple-top: 0;
+  --mega-ripple-fg-scale: 1;
+  --mega-ripple-fg-translate-end: 0;
+  --mega-ripple-fg-translate-start: 0;
+  --mega-ripple-fg-opacity: 0.12;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   will-change: transform, opacity;
   position: relative;
@@ -503,7 +503,7 @@ div::after {
   opacity: 0;
   pointer-events: none;
   content: "";
-  background-color: var(--mdc-ripple-bg-color, #000);
+  background-color: var(--mega-ripple-bg-color, #000);
   top: -50%;
   left: -50%;
   width: 200%;
@@ -513,7 +513,7 @@ div::before {
   transition: opacity 15ms linear,
               background-color 15ms linear;
   z-index: 1;
-  transform: scale(var(--mdc-ripple-fg-scale, 1));
+  transform: scale(var(--mega-ripple-fg-scale, 1));
 }
 div::after {
   top: 0;
@@ -521,8 +521,8 @@ div::after {
   transform: scale(0);
   transform-origin: center center;
   transition: opacity 150ms linear;
-  width: var(--mdc-ripple-fg-size, 100%);
-  height: var(--mdc-ripple-fg-size, 100%);
+  width: var(--mega-ripple-fg-size, 100%);
+  height: var(--mega-ripple-fg-size, 100%);
 }
 :host([foreground-activation]) div::after {
   animation: fg-radius-in 225ms forwards,
@@ -530,7 +530,7 @@ div::after {
 }
 :host([foreground-deactivation]) div::after {
   animation: fg-opacity-out 150ms;
-  transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
+  transform: translate(var(--mega-ripple-fg-translate-end, 0)) scale(var(--mega-ripple-fg-scale, 1));
 }
 :host(:hover) div::before {
   opacity: 0.04;
@@ -546,23 +546,23 @@ div::after {
 }
 :host([unbounded]) div::before,
 :host([unbounded]) div::after {
-  top: var(--mdc-ripple-top, 0);
-  left: var(--mdc-ripple-left, 0);
-  width: var(--mdc-ripple-fg-size, 100%);
-  height: var(--mdc-ripple-fg-size, 100%);
+  top: var(--mega-ripple-top, 0);
+  left: var(--mega-ripple-left, 0);
+  width: var(--mega-ripple-fg-size, 100%);
+  height: var(--mega-ripple-fg-size, 100%);
 }
 :host([primary]) div::before,
 :host([primary]) div::after {
-  background-color: var(--mdc-theme-primary, #6200ee);
+  background-color: var(--mega-theme-primary, #6200ee);
 }
 :host([accent]) div::before,
 :host([accent]) div::after {
-  background-color:var(--mdc-theme-accent, #018786);
+  background-color:var(--mega-theme-accent, #018786);
 }
 
 :host([activated]) div::before,
 :host([activated]) div::after {
-  background-color: var(--mdc-theme-primary, #6200ee);
+  background-color: var(--mega-theme-primary, #6200ee);
   opacity: 0.12;
 }
 

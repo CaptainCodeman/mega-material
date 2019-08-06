@@ -3,11 +3,11 @@ import { defaultCSS, elevationCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-top-app-bar': TopAppBarElement;
+    'mega-top-app-bar': TopAppBarElement;
   }
 }
 
-@customElement('mwc-top-app-bar')
+@customElement('mega-top-app-bar')
 export class TopAppBarElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   fixed = false;
@@ -50,7 +50,7 @@ export class TopAppBarElement extends LitElement {
   }
 
   private notifyNavigationIconClicked_() {
-    this.dispatchEvent(new CustomEvent('MDCTopAppBar:nav', {
+    this.dispatchEvent(new CustomEvent('top-app-bar:nav', {
       bubbles: true,
       composed: true,
     }))
@@ -62,7 +62,7 @@ export class TopAppBarElement extends LitElement {
       elevationCSS,
       css`
 :host {
-  background-color: var(--mdc-theme-primary, #6200ee);
+  background-color: var(--mega-theme-primary, #6200ee);
   color: white;
   display: inline-flex;
   flex-direction: column;
@@ -75,13 +75,13 @@ export class TopAppBarElement extends LitElement {
 }
 
 slot.icons::slotted(*) {
-  --mdc-ripple-fg-size: 0;
-  --mdc-ripple-left: 0;
-  --mdc-ripple-top: 0;
-  --mdc-ripple-fg-scale: 1;
-  --mdc-ripple-fg-translate-end: 0;
-  --mdc-ripple-fg-translate-start: 0;
-  --mdc-ripple-fg-opacity: 0.08;
+  --mega-ripple-fg-size: 0;
+  --mega-ripple-left: 0;
+  --mega-ripple-top: 0;
+  --mega-ripple-fg-scale: 1;
+  --mega-ripple-fg-translate-end: 0;
+  --mega-ripple-fg-translate-start: 0;
+  --mega-ripple-fg-opacity: 0.08;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   will-change: transform, opacity;
   display: flex;
@@ -92,7 +92,7 @@ slot.icons::slotted(*) {
   box-sizing: border-box;
   border: none;
   outline: none;
-  color: var(--mdc-theme-on-primary, #fff);
+  color: var(--mega-theme-on-primary, #fff);
   background-color: transparent;
   fill: currentColor;
   color: inherit;
@@ -173,7 +173,7 @@ slot[name="title"]::slotted(*) {
 :host([short][collapsed]) slot[name="title"]::slotted(*) {
   display: none;
 }
-:host([short][collapsed]) .mdc-top-app-bar__action-item {
+:host([short][collapsed]) .mega-top-app-bar__action-item {
   transition: padding 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 

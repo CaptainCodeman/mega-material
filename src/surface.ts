@@ -3,11 +3,11 @@ import { defaultCSS, elevationCSS, typographyCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-surface': SurfaceElement;
+    'mega-surface': SurfaceElement;
   }
 }
 
-@customElement('mwc-surface')
+@customElement('mega-surface')
 export class SurfaceElement extends LitElement {
   static get styles() {
     return [

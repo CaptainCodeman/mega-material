@@ -3,11 +3,11 @@ import { defaultCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-linear-progress': LinearProgressElement;
+    'mega-linear-progress': LinearProgressElement;
   }
 }
 
-@customElement('mwc-linear-progress')
+@customElement('mega-linear-progress')
 export class LinearProgressElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   indeterminate = false;
@@ -183,10 +183,10 @@ span {
   height: 100%;
   transform-origin: top left;
   transition: transform 250ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
-  transform: scaleX(var(--mwc-linear-buffer, 0));
+  transform: scaleX(var(--mega-linear-buffer, 0));
 }
 #primary {
-  transform: scaleX(var(--mwc-linear-progress, 0));
+  transform: scaleX(var(--mega-linear-progress, 0));
 }
 #secondary {
   visibility: hidden;
@@ -230,15 +230,15 @@ span {
 }
 
 span {
-  background-color: var(--mdc-theme-primary, #6200ee);
+  background-color: var(--mega-theme-primary, #6200ee);
 }
 
 #dots {
-  background-image: var(--mdc-linear-progress-buffering-dots-image, url('data:image/svg+xml,%3Csvg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" enable-background="new 0 0 5 2" xml:space="preserve" viewBox="0 0 5 2" preserveAspectRatio="none slice"%3E%3Ccircle cx="1" cy="1" r="1" fill="%23e6e6e6"/%3E%3C/svg%3E'));
+  background-image: var(--mega-linear-progress-buffering-dots-image, url('data:image/svg+xml,%3Csvg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" enable-background="new 0 0 5 2" xml:space="preserve" viewBox="0 0 5 2" preserveAspectRatio="none slice"%3E%3Ccircle cx="1" cy="1" r="1" fill="%23e6e6e6"/%3E%3C/svg%3E'));
 }
 
 #buffer {
-  background-color: var(--mdc-theme-secondary, #e6e6e6);
+  background-color: var(--mega-theme-secondary, #e6e6e6);
 }
 
 :host([indeterminate][reverse]) #primary {
@@ -253,8 +253,8 @@ span {
   }
 
   render() {
-    this.style.setProperty('--mwc-linear-buffer', this.buffer.toFixed(2))
-    this.style.setProperty('--mwc-linear-progress', this.progress.toFixed(2))
+    this.style.setProperty('--mega-linear-buffer', this.buffer.toFixed(2))
+    this.style.setProperty('--mega-linear-progress', this.progress.toFixed(2))
     return html`
 <div id="dots"></div>
 <div id="buffer"></div>

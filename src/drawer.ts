@@ -5,11 +5,11 @@ import { defaultCSS, elevationCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-drawer': DrawerElement;
+    'mega-drawer': DrawerElement;
   }
 }
 
-@customElement('mwc-drawer')
+@customElement('mega-drawer')
 export class DrawerElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   dismissible = false;
@@ -111,7 +111,7 @@ export class DrawerElement extends LitElement {
 
   firstUpdated() {
     // TODO: move to common event constants
-    this.appContentSlot.addEventListener('MDCTopAppBar:nav', e => this.navigationIconClicked_())
+    this.appContentSlot.addEventListener('top-app-bar:nav', e => this.navigationIconClicked_())
     this.drawerElement.addEventListener('keydown', (e) => this.handleKeydown_(e));
     this.drawerElement.addEventListener('transitionend', (e) => this.handleTransitionEnd_(e));
   }
@@ -202,24 +202,24 @@ h6 {
 }
 
 /* TODO: CSS variables for subheaders, icons, list-item, list-item-actived etc...
-.mdc-drawer .mdc-list-group__subheader {
+.mega-drawer .mega-list-group__subheader {
   color: rgba(0, 0, 0, 0.6);
 }
-.mdc-drawer .mdc-list-item__graphic {
+.mega-drawer .mega-list-item__graphic {
   color: rgba(0, 0, 0, 0.6);
 }
-.mdc-drawer .mdc-list-item {
+.mega-drawer .mega-list-item {
   color: rgba(0, 0, 0, 0.87);
 }
-.mdc-drawer .mdc-list-item--activated .mdc-list-item__graphic {
+.mega-drawer .mega-list-item--activated .mega-list-item__graphic {
   color: #6200ee;
 }
-.mdc-drawer .mdc-list-item--activated {
+.mega-drawer .mega-list-item--activated {
   color: rgba(98, 0, 238, 0.87);
 }
 */
 
-aside .mdc-list-item {
+aside .mega-list-item {
   border-radius: 4px;
 }
 
@@ -231,7 +231,7 @@ aside .mdc-list-item {
 /*
 TODO: handle slotted item types (css variables?)
 
-aside .mdc-list-item {
+aside .mega-list-item {
   font-family: Roboto, sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -245,13 +245,13 @@ aside .mdc-list-item {
   margin: 8px 8px;
   padding: 0 8px;
 }
-aside .mdc-list-item:nth-child(1) {
+aside .mega-list-item:nth-child(1) {
   margin-top: 2px;
 }
-aside .mdc-list-item:nth-last-child(1) {
+aside .mega-list-item:nth-last-child(1) {
   margin-bottom: 0;
 }
-aside .mdc-list-group__subheader {
+aside .mega-list-group__subheader {
   font-family: Roboto, sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -267,18 +267,18 @@ aside .mdc-list-group__subheader {
   margin: 0;
   padding: 0 16px;
 }
-aside .mdc-list-group__subheader::before {
+aside .mega-list-group__subheader::before {
   display: inline-block;
   width: 0;
   height: 24px;
   content: "";
   vertical-align: 0;
 }
-aside .mdc-list-divider {
+aside .mega-list-divider {
   margin: 3px 0 4px 0;
 }
-aside .mdc-list-item__text,
-aside .mdc-list-item__graphic {
+aside .mega-list-item__text,
+aside .mega-list-item__graphic {
   pointer-events: none;
 }
 */

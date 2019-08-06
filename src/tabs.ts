@@ -7,17 +7,17 @@ import { nothing } from 'lit-html';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-tab': TabElement;
-    'mwc-tab-bar': TabBarElement;
-    'mwc-tab-indicator': TabIndicatorElement;
-    'mwc-tab-scroller': TabScrollerElement;
+    'mega-tab': TabElement;
+    'mega-tab-bar': TabBarElement;
+    'mega-tab-indicator': TabIndicatorElement;
+    'mega-tab-scroller': TabScrollerElement;
   }
 }
 
 export type TabAlign = 'start' | 'end' | 'center'
 
 
-@customElement('mwc-tab')
+@customElement('mega-tab')
 export class TabElement extends LitElement {
   @property({ type: String })
   icon = '';
@@ -51,7 +51,7 @@ export class TabElement extends LitElement {
   position: relative;
   contain: content;
 }
-mwc-ripple {
+mega-ripple {
   display: flex;
   flex: 1 0 auto;
   justify-content: center;
@@ -81,11 +81,11 @@ button {
   z-index: 1;
 }
 #label {
-  color: var(--mdc-theme-on-surface, #000);
+  color: var(--mega-theme-on-surface, #000);
 }
-mwc-icon,
+mega-icon,
 slot[name="icon"]::slotted(*) {
-  color: var(--mdc-theme-on-surface, #000);
+  color: var(--mega-theme-on-surface, #000);
   fill: currentColor;
 }
 button::-moz-focus-inner {
@@ -107,7 +107,7 @@ button::-moz-focus-inner {
 }
 
 #label,
-mwc-icon,
+mega-icon,
 slot[name="icon"]::slotted(*) {
   transition: 150ms color linear, 150ms opacity linear;
   z-index: 2;
@@ -119,13 +119,13 @@ slot[name="icon"]::slotted(*) {
   line-height: 1;
 }
 
-mwc-icon,
+mega-icon,
 slot[name="icon"]::slotted(*) {
   width: 24px;
   height: 24px;
   opacity: 0.54;
   font-size: 24px;
-  --mdc-icon-size: 24px;
+  --mega-icon-size: 24px;
 }
 
 :host([stacked]) button {
@@ -138,7 +138,7 @@ slot[name="icon"]::slotted(*) {
   justify-content: space-between;
 }
 
-:host([stacked]) mwc-icon,
+:host([stacked]) mega-icon,
 :host([stacked]) slot[name="icon"]::slotted(*) {
   padding-top: 12px;
 }
@@ -148,21 +148,21 @@ slot[name="icon"]::slotted(*) {
 }
 
 :host([active]) #label {
-  color: var(--mdc-theme-primary, #6200ee);
+  color: var(--mega-theme-primary, #6200ee);
 }
-:host([active]) mwc-icon,
+:host([active]) mega-icon,
 :host([active]) slot[name="icon"]::slotted(*) {
-  color: var(--mdc-theme-primary, #6200ee);
+  color: var(--mega-theme-primary, #6200ee);
   fill: currentColor;
 }
 :host([active]) #label,
-:host([active]) mwc-icon,
+:host([active]) mega-icon,
 :host([active]) slot[name="icon"]::slotted(*) {
   transition-delay: 100ms;
   opacity: 1;
 }
 
-:host(:not([stacked])) mwc-icon + #label,
+:host(:not([stacked])) mega-icon + #label,
 :host(:not([stacked])) slot[name="icon"] + #label {
   padding-left: 8px;
   padding-right: 0;
@@ -173,20 +173,20 @@ slot[name="icon"]::slotted(*) {
 
   render() {
     return html`
-<mwc-ripple primary>
+<mega-ripple primary>
   <button role="tab" ?aria-selected=${this.selected} tabindex="0">
     <span id="content">
-      <slot name="icon">${this.icon ? html`<mwc-icon>${this.icon}</mwc-icon>` : nothing }</slot>
+      <slot name="icon">${this.icon ? html`<mega-icon>${this.icon}</mega-icon>` : nothing }</slot>
       <span id="label"><slot></slot></span>
     </span>
-    <mwc-tab-indicator .active=${this.active}></mwc-tab-indicator>
+    <mega-tab-indicator .active=${this.active}></mega-tab-indicator>
   </button>
-</mwc-ripple>
+</mega-ripple>
 `
   }
 }
 
-@customElement('mwc-tab-bar')
+@customElement('mega-tab-bar')
 export class TabBarElement extends LitElement {
   @property({ type: String, reflect: true })
   align: TabAlign = 'center'
@@ -230,11 +230,11 @@ export class TabBarElement extends LitElement {
   }
 
   render() {
-    return html`<mwc-tab-scroller .align=${this.align}><slot></slot></mwc-tab-scroller>`
+    return html`<mega-tab-scroller .align=${this.align}><slot></slot></mega-tab-scroller>`
   }
 }
 
-@customElement('mwc-tab-indicator')
+@customElement('mega-tab-indicator')
 export class TabIndicatorElement extends LitElement {
   @property({ type: String })
   icon = '';
@@ -257,19 +257,19 @@ export class TabIndicatorElement extends LitElement {
   z-index: 1;
 }
 #underline {
-  background-color: var(--mdc-theme-primary, #6200ee);
+  background-color: var(--mega-theme-primary, #6200ee);
   height: 2px;
 }
-.mdc-tab-indicator > .mdc-tab-indicator__content--icon {
-  color: var(--mdc-theme-secondary, #018786);
+.mega-tab-indicator > .mega-tab-indicator__content--icon {
+  color: var(--mega-theme-secondary, #018786);
 }
-.mdc-tab-indicator > .mdc-tab-indicator__content--icon {
+.mega-tab-indicator > .mega-tab-indicator__content--icon {
   height: 34px;
   font-size: 34px;
 }
 
 :host,
-.mdc-tab-indicator__content {
+.mega-tab-indicator__content {
   transform-origin: left;
   opacity: 0;
 }
@@ -279,29 +279,29 @@ export class TabIndicatorElement extends LitElement {
   width: 100%;
 }
 
-.mdc-tab-indicator__content--icon {
+.mega-tab-indicator__content--icon {
   align-self: center;
   margin: 0 auto;
 }
 
 :host([active]),
-.mdc-tab-indicator--active > .mdc-tab-indicator__content {
+.mega-tab-indicator--active > .mega-tab-indicator__content {
   opacity: 1;
 }
 
-.mdc-tab-indicator > .mdc-tab-indicator__content {
+.mega-tab-indicator > .mega-tab-indicator__content {
   transition: 250ms transform cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.mdc-tab-indicator--no-transition > .mdc-tab-indicator__content {
+.mega-tab-indicator--no-transition > .mega-tab-indicator__content {
   transition: none;
 }
 
-.mdc-tab-indicator--fade > .mdc-tab-indicator__content {
+.mega-tab-indicator--fade > .mega-tab-indicator__content {
   transition: 150ms opacity linear;
 }
 
-:host([active]) .mdc-tab-indicator--fade > .mdc-tab-indicator__content {
+:host([active]) .mega-tab-indicator--fade > .mega-tab-indicator__content {
   transition-delay: 100ms;
 }
 `
@@ -310,12 +310,12 @@ export class TabIndicatorElement extends LitElement {
 
   render() {
     return html`
-<slot name="icon">${this.icon ? html`<mwc-icon>${this.icon}</mwc-icon>` : nothing }</slot>
+<slot name="icon">${this.icon ? html`<mega-icon>${this.icon}</mega-icon>` : nothing }</slot>
 <span id="underline"></span>`
   }
 }
 
-@customElement('mwc-tab-scroller')
+@customElement('mega-tab-scroller')
 export class TabScrollerElement extends LitElement {
   @property({ type: String, reflect: true })
   align: TabAlign = 'center'

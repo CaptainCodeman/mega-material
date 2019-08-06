@@ -5,11 +5,11 @@ import { defaultCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-checkbox': CheckboxElement;
+    'mega-checkbox': CheckboxElement;
   }
 }
 
-@customElement('mwc-checkbox')
+@customElement('mega-checkbox')
 export class CheckboxElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   checked = false
@@ -36,7 +36,7 @@ export class CheckboxElement extends LitElement {
   }
 
   // TODO
-  // https://github.com/material-components/material-components-web/blob/master/packages/mdc-checkbox/foundation.ts
+  // https://github.com/material-components/material-components-web/blob/master/packages/mega-checkbox/foundation.ts
 
   static get styles() {
     return [
@@ -99,7 +99,7 @@ export class CheckboxElement extends LitElement {
 }
 @keyframes checked-indeterminate-mixedmark {
   from {
-    animation-timing-function: mdc-animation-deceleration-curve-timing-function;
+    animation-timing-function: mega-animation-deceleration-curve-timing-function;
     transform: rotate(-45deg);
     opacity: 0;
   }
@@ -153,8 +153,8 @@ input:enabled:not(:checked):not(:indeterminate) ~ .background {
 
 input:enabled:checked ~ .background,
 input:enabled:indeterminate ~ .background {
-  border-color: var(--mdc-theme-secondary, #018786);
-  background-color: var(--mdc-theme-secondary, #018786);
+  border-color: var(--mega-theme-secondary, #018786);
+  background-color: var(--mega-theme-secondary, #018786);
 }
 
 @keyframes fade-in-background-0 {
@@ -163,24 +163,24 @@ input:enabled:indeterminate ~ .background {
     background-color: transparent;
   }
   50% {
-    border-color: var(--mdc-theme-secondary, #018786);
-    background-color: var(--mdc-theme-secondary, #018786);
+    border-color: var(--mega-theme-secondary, #018786);
+    background-color: var(--mega-theme-secondary, #018786);
   }
 }
 @keyframes fade-out-background-0 {
   0%, 80% {
-    border-color: var(--mdc-theme-secondary, #018786);
-    background-color: var(--mdc-theme-secondary, #018786);
+    border-color: var(--mega-theme-secondary, #018786);
+    background-color: var(--mega-theme-secondary, #018786);
   }
   100% {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent;
   }
 }
-.mdc-checkbox--anim-unchecked-checked input:enabled ~ .background, :host([indeterminate]:not([checked])) input:enabled ~ .background {
+.mega-checkbox--anim-unchecked-checked input:enabled ~ .background, :host([indeterminate]:not([checked])) input:enabled ~ .background {
   animation-name: fade-in-background-0;
 }
-.mdc-checkbox--anim-checked-unchecked input:enabled ~ .background, :host(:not([checked])) input:enabled ~ .background {
+.mega-checkbox--anim-checked-unchecked input:enabled ~ .background, :host(:not([checked])) input:enabled ~ .background {
   animation-name: fade-out-background-0;
 }
 
@@ -211,7 +211,7 @@ input:disabled:indeterminate ~ .background {
     margin: 0 1px;
   }
 }
-.mdc-checkbox--disabled {
+.mega-checkbox--disabled {
   cursor: default;
   pointer-events: none;
 }
@@ -247,7 +247,7 @@ input:disabled:indeterminate ~ .background {
   opacity: 0;
   transition: opacity 180ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
 }
-.mdc-checkbox--upgraded .checkmark {
+.mega-checkbox--upgraded .checkmark {
   opacity: 1;
 }
 
@@ -270,18 +270,18 @@ path {
             transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-.mdc-checkbox--upgraded .background,
-.mdc-checkbox--upgraded .checkmark,
-.mdc-checkbox--upgraded path,
-.mdc-checkbox--upgraded .mixedmark {
+.mega-checkbox--upgraded .background,
+.mega-checkbox--upgraded .checkmark,
+.mega-checkbox--upgraded path,
+.mega-checkbox--upgraded .mixedmark {
   transition: none !important;
 }
 
-.mdc-checkbox--anim-unchecked-checked .background, :host([indeterminate]:not([checked])) .background, .mdc-checkbox--anim-checked-unchecked .background, :host(:not([checked])) .background {
+.mega-checkbox--anim-unchecked-checked .background, :host([indeterminate]:not([checked])) .background, .mega-checkbox--anim-checked-unchecked .background, :host(:not([checked])) .background {
   animation-duration: 180ms;
   animation-timing-function: linear;
 }
-.mdc-checkbox--anim-unchecked-checked path {
+.mega-checkbox--anim-unchecked-checked path {
   animation: unchecked-checked-checkmark-path 180ms linear 0s;
   transition: none;
 }
@@ -289,7 +289,7 @@ path {
   animation: unchecked-indeterminate-mixedmark 90ms linear 0s;
   transition: none;
 }
-.mdc-checkbox--anim-checked-unchecked path {
+.mega-checkbox--anim-checked-unchecked path {
   animation: checked-unchecked-checkmark-path 90ms linear 0s;
   transition: none;
 }
@@ -386,29 +386,29 @@ input:indeterminate ~ .background .mixedmark {
 }
 
 /* ripple?
-.mdc-checkbox {
+.mega-checkbox {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   will-change: transform, opacity;
 }
-.mdc-checkbox::before, .mdc-checkbox::after {
+.mega-checkbox::before, .mega-checkbox::after {
   position: absolute;
   border-radius: 50%;
   opacity: 0;
   pointer-events: none;
   content: "";
 }
-.mdc-checkbox::before {
+.mega-checkbox::before {
   transition: opacity 15ms linear, background-color 15ms linear;
   z-index: 1;
 }
 
-.mdc-checkbox::before, .mdc-checkbox::after {
+.mega-checkbox::before, .mega-checkbox::after {
   background-color: #018786;
 }
-.mdc-checkbox:hover::before {
+.mega-checkbox:hover::before {
   opacity: 0.04;
 }
-.mdc-checkbox::before, .mdc-checkbox::after {
+.mega-checkbox::before, .mega-checkbox::after {
   top: calc(50% - 50%);
   left: calc(50% - 50%);
   width: 100%;

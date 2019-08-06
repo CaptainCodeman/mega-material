@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
   <link rel="stylesheet" href="./styles.css">
   <style>
-    mwc-button {
+    mega-button {
       margin: 12px;
     }
   </style>
@@ -17,14 +17,14 @@
 </head>
 
 <body>
-  <mwc-button onclick="baseline()" unelevated>Baseline</mwc-button>
-  <mwc-button onclick="leading()" unelevated>Leading</mwc-button>
-  <mwc-button onclick="stacked()" unelevated>Stacked</mwc-button>
+  <mega-button onclick="baseline()" unelevated>Baseline</mega-button>
+  <mega-button onclick="leading()" unelevated>Leading</mega-button>
+  <mega-button onclick="stacked()" unelevated>Stacked</mega-button>
 
-  <mwc-snackbar id="el" dismissable>
+  <mega-snackbar id="el" dismissable>
     <span>Can't send photo. Retry in 5 seconds.</span>
-    <mwc-button slot="action">Retry</mwc-button>
-  </mwc-snackbar>
+    <mega-button slot="action">Retry</mega-button>
+  </mega-snackbar>
 
   <script>
     function baseline() {

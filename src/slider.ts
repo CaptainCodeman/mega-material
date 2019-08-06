@@ -7,7 +7,7 @@ import { nothing } from 'lit-html';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-slider': SliderElement;
+    'mega-slider': SliderElement;
   }
 }
 
@@ -40,7 +40,7 @@ const PAGE_FACTOR = 4,
         PAGE_UP: 'PageUp',
       };
 
-@customElement('mwc-slider')
+@customElement('mega-slider')
 export class SliderElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   active = false;
@@ -344,7 +344,7 @@ export class SliderElement extends LitElement {
     return [
       defaultCSS,
       css`
-@keyframes mdc-slider-emphasize {
+@keyframes mega-slider-emphasize {
   0% {
     animation-timing-function: ease-out;
   }
@@ -366,25 +366,25 @@ export class SliderElement extends LitElement {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 :host(:not([disabled])) .track {
-  background-color: var(--mdc-theme-secondary, #018786);
+  background-color: var(--mega-theme-secondary, #018786);
 }
 :host(:not([disabled])) .track-container {
   background-color: rgba(1, 135, 134, 0.26);
 }
 :host(:not([disabled])) .track-marker::after,
 :host(:not([disabled])) .track-marker-container::after {
-  background-color: var(--mdc-theme-secondary, #018786);
+  background-color: var(--mega-theme-secondary, #018786);
 }
 :host(:not([disabled])) .thumb {
-  fill: var(--mdc-theme-secondary, #018786);
-  stroke: var(--mdc-theme-secondary, #018786);
+  fill: var(--mega-theme-secondary, #018786);
+  stroke: var(--mega-theme-secondary, #018786);
 }
 :host(:not([disabled])) .focus-ring {
-  background-color: var(--mdc-theme-secondary, #018786);
+  background-color: var(--mega-theme-secondary, #018786);
 }
 :host(:not([disabled])) .pin {
-  color: var(--mdc-theme-text-primary-on-dark, white);
-  background-color: var(--mdc-theme-secondary, #018786);
+  color: var(--mega-theme-text-primary-on-dark, white);
+  background-color: var(--mega-theme-secondary, #018786);
 }
 :host([disabled]) {
   cursor: auto;
@@ -402,7 +402,7 @@ export class SliderElement extends LitElement {
 :host([disabled]) .thumb {
   fill: #9a9a9a;
   stroke: #9a9a9a;
-  stroke: var(--mdc-slider-bg-color-behind-component, white);
+  stroke: var(--mega-slider-bg-color-behind-component, white);
 }
 
 :host:focus {
@@ -513,7 +513,7 @@ export class SliderElement extends LitElement {
 }
 
 :host([focus]) .thumb {
-  animation: mdc-slider-emphasize 266.67ms linear;
+  animation: mega-slider-emphasize 266.67ms linear;
 }
 :host([focus]) .focus-ring {
   transform: scale3d(1.55, 1.55, 1.55);

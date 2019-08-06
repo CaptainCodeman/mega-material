@@ -8,15 +8,15 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
   <link rel="stylesheet" href="./styles.css">
   <style>
-    mwc-linear-progress {
+    mega-linear-progress {
       width: 50%;
       margin: auto;
     }
 
     .demo-progress-bar {
-      --mdc-theme-primary: red;
-      --mdc-theme-secondary: orange;
-      --mdc-linear-progress-buffering-dots-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' enable-background='new 0 0 5 2' xml:space='preserve' viewBox='0 0 5 2' preserveAspectRatio='none slice'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23ffcdd2'/%3E%3C/svg%3E");
+      --mega-theme-primary: red;
+      --mega-theme-secondary: orange;
+      --mega-linear-progress-buffering-dots-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' enable-background='new 0 0 5 2' xml:space='preserve' viewBox='0 0 5 2' preserveAspectRatio='none slice'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23ffcdd2'/%3E%3C/svg%3E");
     }
   </style>
   <script src="./button.js" type="module"></script>
@@ -24,20 +24,20 @@
 </head>
 
 <body>
-  <mwc-button id="toggle" raised ripple label="Toggle"></mwc-button>
-  <mwc-linear-progress indeterminate id="progress"></mwc-linear-progress>
+  <mega-button id="toggle" raised ripple label="Toggle"></mega-button>
+  <mega-linear-progress indeterminate id="progress"></mega-linear-progress>
 
   <h3>linear-progress: reverse + styled</h3>
-  <mwc-linear-progress indeterminate reverse class="demo-progress-bar"></mwc-linear-progress>
+  <mega-linear-progress indeterminate reverse class="demo-progress-bar"></mega-linear-progress>
 
   <h3>linear-progress: determinate</h3>
-  <mwc-linear-progress progress="0.5" buffer="1"></mwc-linear-progress>
+  <mega-linear-progress progress="0.5" buffer="1"></mega-linear-progress>
 
   <h3>linear-progress: determinate buffer + styled</h3>
-  <mwc-linear-progress progress="0.3" buffer="0.7" class="demo-progress-bar"></mwc-linear-progress>
+  <mega-linear-progress progress="0.3" buffer="0.7" class="demo-progress-bar"></mega-linear-progress>
 
   <h3>linear-progress: determinate buffer reverse</h3>
-  <mwc-linear-progress reverse progress="0.2" buffer="0.6"></mwc-linear-progress>
+  <mega-linear-progress reverse progress="0.2" buffer="0.6"></mega-linear-progress>
 
   <script>
     toggle.onclick = () => progress.closed = !progress.closed

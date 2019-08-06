@@ -8,12 +8,12 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
   <link rel="stylesheet" href="./styles.css">
   <style>
-    mwc-list {
+    mega-list {
       border: 1px solid #ccc;
       width: 600px;
     }
 
-    mwc-list[shaped] mwc-list-item {
+    mega-list[shaped] mega-list-item {
       border-radius: 0 32px 32px 0;
     }
   </style>
@@ -22,99 +22,99 @@
 
 <body>
   <p>Single-Line</p>
-  <mwc-list>
-    <mwc-list-item>Line item</mwc-list-item>
-    <mwc-list-item>Line item</mwc-list-item>
-    <mwc-list-item>Line item</mwc-list-item>
-  </mwc-list>
+  <mega-list>
+    <mega-list-item>Line item</mega-list-item>
+    <mega-list-item>Line item</mega-list-item>
+    <mega-list-item>Line item</mega-list-item>
+  </mega-list>
 
   <p>Two-Line</p>
-  <mwc-list type="two-line">
-    <mwc-list-item>Line item<span slot="secondary">Secondary text</span></mwc-list-item>
-    <mwc-list-item>Line item<span slot="secondary">Secondary text</span></mwc-list-item>
-    <mwc-list-item>Line item<span slot="secondary">Secondary text</span></mwc-list-item>
-  </mwc-list>
+  <mega-list type="two-line">
+    <mega-list-item>Line item<span slot="secondary">Secondary text</span></mega-list-item>
+    <mega-list-item>Line item<span slot="secondary">Secondary text</span></mega-list-item>
+    <mega-list-item>Line item<span slot="secondary">Secondary text</span></mega-list-item>
+  </mega-list>
 
   <p>Dense</p>
-  <mwc-list dense>
-    <mwc-list-item>Line item</mwc-list-item>
-    <mwc-list-item>Line item</mwc-list-item>
-    <mwc-list-item>Line item</mwc-list-item>
-  </mwc-list>
+  <mega-list dense>
+    <mega-list-item>Line item</mega-list-item>
+    <mega-list-item>Line item</mega-list-item>
+    <mega-list-item>Line item</mega-list-item>
+  </mega-list>
 
   <p>Leading Icon</p>
-  <mwc-list>
-    <mwc-list-item icon="wifi">Line item</mwc-list-item>
-    <mwc-list-item icon="bluetooth">Line item</mwc-list-item>
-    <mwc-list-item icon="data_usage">Line item</mwc-list-item>
-  </mwc-list>
+  <mega-list>
+    <mega-list-item icon="wifi">Line item</mega-list-item>
+    <mega-list-item icon="bluetooth">Line item</mega-list-item>
+    <mega-list-item icon="data_usage">Line item</mega-list-item>
+  </mega-list>
 
   <p>List with activated item</p>
-  <mwc-list>
-    <mwc-list-item icon="inbox">Inbox</mwc-list-item>
-    <mwc-list-item icon="star" activated>Star</mwc-list-item>
-    <mwc-list-item icon="send">Send</mwc-list-item>
-    <mwc-list-item icon="drafts">Drafts</mwc-list-item>
-  </mwc-list>
+  <mega-list>
+    <mega-list-item icon="inbox">Inbox</mega-list-item>
+    <mega-list-item icon="star" activated>Star</mega-list-item>
+    <mega-list-item icon="send">Send</mega-list-item>
+    <mega-list-item icon="drafts">Drafts</mega-list-item>
+  </mega-list>
 
   <p>List with shaped activated item</p>
-  <mwc-list shaped>
-    <mwc-list-item icon="inbox">Inbox</mwc-list-item>
-    <mwc-list-item icon="star" activated>Star</mwc-list-item>
-    <mwc-list-item icon="send">Send</mwc-list-item>
-    <mwc-list-item icon="drafts">Drafts</mwc-list-item>
-  </mwc-list>
+  <mega-list shaped>
+    <mega-list-item icon="inbox">Inbox</mega-list-item>
+    <mega-list-item icon="star" activated>Star</mega-list-item>
+    <mega-list-item icon="send">Send</mega-list-item>
+    <mega-list-item icon="drafts">Drafts</mega-list-item>
+  </mega-list>
 
   <p>Trailing Icon</p>
-  <mwc-list>
-    <mwc-list-item trailing-icon="info">Line item</mwc-list-item>
-    <mwc-list-item trailing-icon="info">Line item</mwc-list-item>
-    <mwc-list-item trailing-icon="info">Line item</mwc-list-item>
-  </mwc-list>
+  <mega-list>
+    <mega-list-item trailing-icon="info">Line item</mega-list-item>
+    <mega-list-item trailing-icon="info">Line item</mega-list-item>
+    <mega-list-item trailing-icon="info">Line item</mega-list-item>
+  </mega-list>
 
   <p>Two-Line with Leading and Trailing Icon and Divider</p>
-  <mwc-list type="avatar-list">
-    <mwc-list-item icon="folder" trailing-icon="info">
+  <mega-list type="avatar-list">
+    <mega-list-item icon="folder" trailing-icon="info">
       Dog Photos
       <span slot="secondary">9 Jan 2018</span>
-    </mwc-list-item>
-    <mwc-list-item icon="folder" trailing-icon="info">
+    </mega-list-item>
+    <mega-list-item icon="folder" trailing-icon="info">
       Cat Photos
       <span slot="secondary">22 Dec 2017</span>
-    </mwc-list-item>
-    <mwc-list-divider></mwc-list-divider>
-    <mwc-list-item icon="folder" trailing-icon="info">
+    </mega-list-item>
+    <mega-list-divider></mega-list-divider>
+    <mega-list-item icon="folder" trailing-icon="info">
       Potatoes
       <span slot="secondary">30 Nov 2017</span>
-    </mwc-list-item>
-    <mwc-list-item icon="folder" trailing-icon="info">
+    </mega-list-item>
+    <mega-list-item icon="folder" trailing-icon="info">
       Carrots
       <span slot="secondary">17 Oct 2017</span>
-    </mwc-list-item>
-  </mwc-list>
+    </mega-list-item>
+  </mega-list>
 
   <p>List with Trailing Checkboxes</p>
   <p>NOT YET IMPLEMENTED</p>
   <!--
-  <mwc-list>
-    <mwc-list-item type="checkbox">Dog Photos</mwc-list-item>
-    <mwc-list-item type="checkbox" checked>Cat Photos</mwc-list-item>
-    <mwc-list-divider></mwc-list-divider>
-    <mwc-list-item type="checkbox" checked>Potatoes</mwc-list-item>
-    <mwc-list-item type="checkbox">Carrots</mwc-list-item>
-  </mwc-list>
+  <mega-list>
+    <mega-list-item type="checkbox">Dog Photos</mega-list-item>
+    <mega-list-item type="checkbox" checked>Cat Photos</mega-list-item>
+    <mega-list-divider></mega-list-divider>
+    <mega-list-item type="checkbox" checked>Potatoes</mega-list-item>
+    <mega-list-item type="checkbox">Carrots</mega-list-item>
+  </mega-list>
   -->
 
   <p>List with Trailing Radio Buttons</p>
   <p>NOT YET IMPLEMENTED</p>
   <!--
-  <mwc-list>
-    <mwc-list-item type="radio">Dog Photos</mwc-list-item>
-    <mwc-list-item type="radio" checked>Cat Photos</mwc-list-item>
-    <mwc-list-divider></mwc-list-divider>
-    <mwc-list-item type="radio">Potatoes</mwc-list-item>
-    <mwc-list-item type="radio">Carrots</mwc-list-item>
-  </mwc-list>
+  <mega-list>
+    <mega-list-item type="radio">Dog Photos</mega-list-item>
+    <mega-list-item type="radio" checked>Cat Photos</mega-list-item>
+    <mega-list-divider></mega-list-divider>
+    <mega-list-item type="radio">Potatoes</mega-list-item>
+    <mega-list-item type="radio">Carrots</mega-list-item>
+  </mega-list>
   -->
 </body>
 

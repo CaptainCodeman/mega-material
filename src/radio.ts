@@ -5,11 +5,11 @@ import { defaultCSS, elevationCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-radio': RadioElement;
+    'mega-radio': RadioElement;
   }
 }
 
-@customElement('mwc-radio')
+@customElement('mega-radio')
 export class RadioElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   checked = false;
@@ -43,14 +43,14 @@ export class RadioElement extends LitElement {
 }
 
 :host([checked]) .track {
-  background-color: var(--mdc-theme-secondary, #018786);
-  border-color: var(--mdc-theme-secondary, #018786);
+  background-color: var(--mega-theme-secondary, #018786);
+  border-color: var(--mega-theme-secondary, #018786);
   opacity: 0.54;
 }
 
 :host([checked]) .thumb {
-  background-color: var(--mdc-theme-secondary, #018786);
-  border-color: var(--mdc-theme-secondary, #018786);
+  background-color: var(--mega-theme-secondary, #018786);
+  border-color: var(--mega-theme-secondary, #018786);
 }
 
 :host(:not([checked])) .track {
@@ -94,7 +94,7 @@ input[dir=rtl] {
               border-color 90ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-mwc-ripple {
+mega-ripple {
   left: -18px;
   right: initial;
   display: flex;
@@ -109,8 +109,8 @@ mwc-ripple {
               background-color 90ms cubic-bezier(0.4, 0, 0.2, 1),
               border-color 90ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-[dir=rtl] mwc-ripple,
-mwc-ripple[dir=rtl] {
+[dir=rtl] mega-ripple,
+mega-ripple[dir=rtl] {
   left: initial;
   right: -18px;
 }
@@ -126,11 +126,11 @@ mwc-ripple[dir=rtl] {
   z-index: 1;
 }
 
-:host([checked]) mwc-ripple {
+:host([checked]) mega-ripple {
   transform: translateX(20px);
 }
-[dir=rtl] :host([checked]) mwc-ripple,
-:host([checked]) mwc-ripple[dir=rtl] {
+[dir=rtl] :host([checked]) mega-ripple,
+:host([checked]) mega-ripple[dir=rtl] {
   transform: translateX(-20px);
 }
 :host([checked]) input {
@@ -153,30 +153,30 @@ mwc-ripple[dir=rtl] {
   pointer-events: none;
 }
 
-mwc-ripple {
-  --mdc-ripple-fg-opacity: 0.12;
-  --mdc-ripple-fg-size: 0;
-  --mdc-ripple-left: 0;
-  --mdc-ripple-top: 0;
-  --mdc-ripple-fg-scale: 1;
-  --mdc-ripple-fg-translate-end: 0;
-  --mdc-ripple-fg-translate-start: 0;
+mega-ripple {
+  --mega-ripple-fg-opacity: 0.12;
+  --mega-ripple-fg-size: 0;
+  --mega-ripple-left: 0;
+  --mega-ripple-top: 0;
+  --mega-ripple-fg-scale: 1;
+  --mega-ripple-fg-translate-end: 0;
+  --mega-ripple-fg-translate-start: 0;
 }
 
-:host(:not([checked])) mwc-ripple {
-  --mdc-ripple-fg-opacity: 0.24;
+:host(:not([checked])) mega-ripple {
+  --mega-ripple-fg-opacity: 0.24;
 }`
     ]
   }
 
   render() {
     return html`
-<mwc-ripple unbounded>
+<mega-ripple unbounded>
   <input type="radio" role="radio" name=${this.name} ?checked=${this.checked} ?disabled=${this.disabled} @change=${this.changeHandler} .value=${this.value}>
   <div id="bg">
     <div id="outer"></div>
     <div id="inner"></div>
   </div>
-</mwc-ripple>`
+</mega-ripple>`
   }
 }

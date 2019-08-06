@@ -7,11 +7,11 @@ import { defaultCSS, elevationCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-button': ButtonElement;
+    'mega-button': ButtonElement;
   }
 }
 
-@customElement('mwc-button')
+@customElement('mega-button')
 export class ButtonElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   raised = false;
@@ -50,7 +50,7 @@ export class ButtonElement extends LitElement {
   display: inline-flex;
   outline: none;
   contain: content;
-  border-radius: var(--mdc-button-border-radius, 4px);
+  border-radius: var(--mega-button-border-radius, 4px);
   will-change: box-shadow;
 }
 
@@ -80,7 +80,7 @@ button {
   -webkit-appearance: none;
   overflow: hidden;
   vertical-align: middle;
-  border-radius: var(--mdc-button-border-radius, 4px);
+  border-radius: var(--mega-button-border-radius, 4px);
 }
 
 button::-moz-focus-inner {
@@ -102,7 +102,7 @@ button::-moz-focus-inner {
 :host(:not(:disabled)) button {
   background-color: transparent;
 }
-mwc-icon {
+mega-icon {
   margin-left: 0;
   margin-right: 8px;
   display: inline-block;
@@ -112,10 +112,10 @@ mwc-icon {
   vertical-align: top;
 }
 :host(:not(:disabled)) button {
-  color: var(--mdc-theme-primary, #6200ee);
+  color: var(--mega-theme-primary, #6200ee);
 }
 
-.label + mwc-icon {
+.label + mega-icon {
   margin-left: 8px;
   margin-right: 0;
 }
@@ -124,15 +124,15 @@ svg {
   fill: currentColor;
 }
 
-:host([raised]) mwc-icon,
-:host([unelevated]) mwc-icon,
-:host([outlined]) mwc-icon {
+:host([raised]) mega-icon,
+:host([unelevated]) mega-icon,
+:host([outlined]) mega-icon {
   margin-left: -4px;
   margin-right: 8px;
 }
-:host([raised]) .label + mwc-icon,
-:host([unelevated]) .label + mwc-icon,
-:host([outlined]) .label + mwc-icon {
+:host([raised]) .label + mega-icon,
+:host([unelevated]) .label + mega-icon,
+:host([outlined]) .label + mega-icon {
   margin-left: 8px;
   margin-right: -4px;
 }
@@ -148,11 +148,11 @@ svg {
 }
 :host([raised]:not(:disabled)) button,
 :host([unelevated]:not(:disabled)) button {
-  background-color: var(--mdc-theme-primary, #6200ee);
+  background-color: var(--mega-theme-primary, #6200ee);
 }
 :host([raised]:not(:disabled)) button,
 :host([unelevated]:not(:disabled)) button {
-  color: var(--mdc-theme-on-primary, #fff);
+  color: var(--mega-theme-on-primary, #fff);
 }
 
 :host([raised])  {
@@ -179,7 +179,7 @@ svg {
   border-color: rgba(0, 0, 0, 0.37);
 }
 :host([outlined]:not(:disabled)) button {
-  border-color: var(--mdc-theme-primary, #6200ee);
+  border-color: var(--mega-theme-primary, #6200ee);
 }
 
 :host([dense]) button {
@@ -187,23 +187,23 @@ svg {
   font-size: 0.8125rem;
 }
 
-:host([raised]) mwc-ripple,
-:host([unelevated]) mwc-ripple {
-  --mdc-ripple-fg-opacity: 0.24;
+:host([raised]) mega-ripple,
+:host([unelevated]) mega-ripple {
+  --mega-ripple-fg-opacity: 0.24;
 }`
     ]
   }
 
   render() {
-    const mdcButtonIcon = html`<mwc-icon>${this.icon}</mwc-icon>`
+    const icon = html`<mega-icon>${this.icon}</mega-icon>`
     return html`
-<mwc-ripple primary>
+<mega-ripple primary>
   <button ?disabled=${this.disabled} aria-label=${this.label || this.icon}>
-    ${this.icon && !this.trailingIcon ? mdcButtonIcon : nothing}
+    ${this.icon && !this.trailingIcon ? icon : nothing}
     <span class="label">${this.label}</span>
-    ${this.icon && this.trailingIcon ? mdcButtonIcon : nothing}
+    ${this.icon && this.trailingIcon ? icon : nothing}
     <slot></slot>
   </button>
-</mwc-ripple>`
+</mega-ripple>`
   }
 }

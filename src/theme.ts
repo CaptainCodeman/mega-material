@@ -3,153 +3,153 @@ import { nothing } from 'lit-html';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-theme': ThemeElement;
+    'mega-theme': ThemeElement;
   }
 }
 
-@customElement('mwc-theme')
+@customElement('mega-theme')
 export class ThemeElement extends LitElement {
   static get styles() {
     return [
       css`
 :root {
-  --mdc-theme-primary: #6200ee;
-  --mdc-theme-secondary: #018786;
-  --mdc-theme-background: #fff;
-  --mdc-theme-surface: #fff;
-  --mdc-theme-on-primary: #fff;
-  --mdc-theme-on-secondary: #fff;
-  --mdc-theme-on-surface: #000;
-  --mdc-theme-text-primary-on-background: rgba(0, 0, 0, 0.87);
-  --mdc-theme-text-secondary-on-background: rgba(0, 0, 0, 0.54);
-  --mdc-theme-text-hint-on-background: rgba(0, 0, 0, 0.38);
-  --mdc-theme-text-disabled-on-background: rgba(0, 0, 0, 0.38);
-  --mdc-theme-text-icon-on-background: rgba(0, 0, 0, 0.38);
-  --mdc-theme-text-primary-on-light: rgba(0, 0, 0, 0.87);
-  --mdc-theme-text-secondary-on-light: rgba(0, 0, 0, 0.54);
-  --mdc-theme-text-hint-on-light: rgba(0, 0, 0, 0.38);
-  --mdc-theme-text-disabled-on-light: rgba(0, 0, 0, 0.38);
-  --mdc-theme-text-icon-on-light: rgba(0, 0, 0, 0.38);
-  --mdc-theme-text-primary-on-dark: #fff;
-  --mdc-theme-text-secondary-on-dark: rgba(255, 255, 255, 0.7);
-  --mdc-theme-text-hint-on-dark: rgba(255, 255, 255, 0.5);
-  --mdc-theme-text-disabled-on-dark: rgba(255, 255, 255, 0.5);
-  --mdc-theme-text-icon-on-dark: rgba(255, 255, 255, 0.5);
+  --mega-theme-primary: #6200ee;
+  --mega-theme-secondary: #018786;
+  --mega-theme-background: #fff;
+  --mega-theme-surface: #fff;
+  --mega-theme-on-primary: #fff;
+  --mega-theme-on-secondary: #fff;
+  --mega-theme-on-surface: #000;
+  --mega-theme-text-primary-on-background: rgba(0, 0, 0, 0.87);
+  --mega-theme-text-secondary-on-background: rgba(0, 0, 0, 0.54);
+  --mega-theme-text-hint-on-background: rgba(0, 0, 0, 0.38);
+  --mega-theme-text-disabled-on-background: rgba(0, 0, 0, 0.38);
+  --mega-theme-text-icon-on-background: rgba(0, 0, 0, 0.38);
+  --mega-theme-text-primary-on-light: rgba(0, 0, 0, 0.87);
+  --mega-theme-text-secondary-on-light: rgba(0, 0, 0, 0.54);
+  --mega-theme-text-hint-on-light: rgba(0, 0, 0, 0.38);
+  --mega-theme-text-disabled-on-light: rgba(0, 0, 0, 0.38);
+  --mega-theme-text-icon-on-light: rgba(0, 0, 0, 0.38);
+  --mega-theme-text-primary-on-dark: #fff;
+  --mega-theme-text-secondary-on-dark: rgba(255, 255, 255, 0.7);
+  --mega-theme-text-hint-on-dark: rgba(255, 255, 255, 0.5);
+  --mega-theme-text-disabled-on-dark: rgba(255, 255, 255, 0.5);
+  --mega-theme-text-icon-on-dark: rgba(255, 255, 255, 0.5);
 
-  --mwc-primary: #6200EE;
-  --mwc-primary-dark: #3700B3;
-  --mwc-primary-light: #BB86FC;
+  --mega-primary: #6200EE;
+  --mega-primary-dark: #3700B3;
+  --mega-primary-light: #BB86FC;
 
-  --mwc-secondary: #03DAC6;
-  --mwc-secondary-dark: #018786;
-  --mwc-secondary-light: #018786;
+  --mega-secondary: #03DAC6;
+  --mega-secondary-dark: #018786;
+  --mega-secondary-light: #018786;
 
-  --mwc-background: #FFFFFF;
-  --mwc-surface: #FFFFFF;
-  --mwc-error: #B00020;
+  --mega-background: #FFFFFF;
+  --mega-surface: #FFFFFF;
+  --mega-error: #B00020;
 
-  --mwc-on-primary: #FFFFFF;
-  --mwc-on-secondary: #000000;
-  --mwc-on-background: #000000;
-  --mwc-on-surface: #000000;
-  --mwc-on-error: #FFFFFF;
+  --mega-on-primary: #FFFFFF;
+  --mega-on-secondary: #000000;
+  --mega-on-background: #000000;
+  --mega-on-surface: #000000;
+  --mega-on-error: #FFFFFF;
 }
 
 /*
-.mdc-theme--primary {
-  color: var(--mdc-theme-primary, #6200ee) !important;
+.mega-theme--primary {
+  color: var(--mega-theme-primary, #6200ee) !important;
 }
 
-.mdc-theme--secondary {
-  color: var(--mdc-theme-secondary, #018786) !important;
+.mega-theme--secondary {
+  color: var(--mega-theme-secondary, #018786) !important;
 }
 
-.mdc-theme--background {
-  background-color: var(--mdc-theme-background, #fff);
+.mega-theme--background {
+  background-color: var(--mega-theme-background, #fff);
 }
 
-.mdc-theme--surface {
-  background-color: var(--mdc-theme-surface, #fff);
+.mega-theme--surface {
+  background-color: var(--mega-theme-surface, #fff);
 }
 
-.mdc-theme--on-primary {
-  color: var(--mdc-theme-on-primary, #fff) !important;
+.mega-theme--on-primary {
+  color: var(--mega-theme-on-primary, #fff) !important;
 }
 
-.mdc-theme--on-secondary {
-  color: var(--mdc-theme-on-secondary, #fff) !important;
+.mega-theme--on-secondary {
+  color: var(--mega-theme-on-secondary, #fff) !important;
 }
 
-.mdc-theme--on-surface {
-  color: var(--mdc-theme-on-surface, #000) !important;
+.mega-theme--on-surface {
+  color: var(--mega-theme-on-surface, #000) !important;
 }
 
-.mdc-theme--text-primary-on-background {
-  color: var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87)) !important;
+.mega-theme--text-primary-on-background {
+  color: var(--mega-theme-text-primary-on-background, rgba(0, 0, 0, 0.87)) !important;
 }
 
-.mdc-theme--text-secondary-on-background {
-  color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54)) !important;
+.mega-theme--text-secondary-on-background {
+  color: var(--mega-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54)) !important;
 }
 
-.mdc-theme--text-hint-on-background {
-  color: var(--mdc-theme-text-hint-on-background, rgba(0, 0, 0, 0.38)) !important;
+.mega-theme--text-hint-on-background {
+  color: var(--mega-theme-text-hint-on-background, rgba(0, 0, 0, 0.38)) !important;
 }
 
-.mdc-theme--text-disabled-on-background {
-  color: var(--mdc-theme-text-disabled-on-background, rgba(0, 0, 0, 0.38)) !important;
+.mega-theme--text-disabled-on-background {
+  color: var(--mega-theme-text-disabled-on-background, rgba(0, 0, 0, 0.38)) !important;
 }
 
-.mdc-theme--text-icon-on-background {
-  color: var(--mdc-theme-text-icon-on-background, rgba(0, 0, 0, 0.38)) !important;
+.mega-theme--text-icon-on-background {
+  color: var(--mega-theme-text-icon-on-background, rgba(0, 0, 0, 0.38)) !important;
 }
 
-.mdc-theme--text-primary-on-light {
-  color: var(--mdc-theme-text-primary-on-light, rgba(0, 0, 0, 0.87)) !important;
+.mega-theme--text-primary-on-light {
+  color: var(--mega-theme-text-primary-on-light, rgba(0, 0, 0, 0.87)) !important;
 }
 
-.mdc-theme--text-secondary-on-light {
-  color: var(--mdc-theme-text-secondary-on-light, rgba(0, 0, 0, 0.54)) !important;
+.mega-theme--text-secondary-on-light {
+  color: var(--mega-theme-text-secondary-on-light, rgba(0, 0, 0, 0.54)) !important;
 }
 
-.mdc-theme--text-hint-on-light {
-  color: var(--mdc-theme-text-hint-on-light, rgba(0, 0, 0, 0.38)) !important;
+.mega-theme--text-hint-on-light {
+  color: var(--mega-theme-text-hint-on-light, rgba(0, 0, 0, 0.38)) !important;
 }
 
-.mdc-theme--text-disabled-on-light {
-  color: var(--mdc-theme-text-disabled-on-light, rgba(0, 0, 0, 0.38)) !important;
+.mega-theme--text-disabled-on-light {
+  color: var(--mega-theme-text-disabled-on-light, rgba(0, 0, 0, 0.38)) !important;
 }
 
-.mdc-theme--text-icon-on-light {
-  color: var(--mdc-theme-text-icon-on-light, rgba(0, 0, 0, 0.38)) !important;
+.mega-theme--text-icon-on-light {
+  color: var(--mega-theme-text-icon-on-light, rgba(0, 0, 0, 0.38)) !important;
 }
 
-.mdc-theme--text-primary-on-dark {
-  color: var(--mdc-theme-text-primary-on-dark, white) !important;
+.mega-theme--text-primary-on-dark {
+  color: var(--mega-theme-text-primary-on-dark, white) !important;
 }
 
-.mdc-theme--text-secondary-on-dark {
-  color: var(--mdc-theme-text-secondary-on-dark, rgba(255, 255, 255, 0.7)) !important;
+.mega-theme--text-secondary-on-dark {
+  color: var(--mega-theme-text-secondary-on-dark, rgba(255, 255, 255, 0.7)) !important;
 }
 
-.mdc-theme--text-hint-on-dark {
-  color: var(--mdc-theme-text-hint-on-dark, rgba(255, 255, 255, 0.5)) !important;
+.mega-theme--text-hint-on-dark {
+  color: var(--mega-theme-text-hint-on-dark, rgba(255, 255, 255, 0.5)) !important;
 }
 
-.mdc-theme--text-disabled-on-dark {
-  color: var(--mdc-theme-text-disabled-on-dark, rgba(255, 255, 255, 0.5)) !important;
+.mega-theme--text-disabled-on-dark {
+  color: var(--mega-theme-text-disabled-on-dark, rgba(255, 255, 255, 0.5)) !important;
 }
 
-.mdc-theme--text-icon-on-dark {
-  color: var(--mdc-theme-text-icon-on-dark, rgba(255, 255, 255, 0.5)) !important;
+.mega-theme--text-icon-on-dark {
+  color: var(--mega-theme-text-icon-on-dark, rgba(255, 255, 255, 0.5)) !important;
 }
 
-.mdc-theme--primary-bg {
-  background-color: var(--mdc-theme-primary, #6200ee) !important;
+.mega-theme--primary-bg {
+  background-color: var(--mega-theme-primary, #6200ee) !important;
 }
 
-.mdc-theme--secondary-bg {
-  background-color: var(--mdc-theme-secondary, #018786) !important;
+.mega-theme--secondary-bg {
+  background-color: var(--mega-theme-secondary, #018786) !important;
 }
 */
 `

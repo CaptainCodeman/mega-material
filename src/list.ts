@@ -7,15 +7,15 @@ import { nothing } from 'lit-html';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-list': ListElement;
-    'mwc-list-divider': ListDividerElement;
-    'mwc-list-item': ListItemElement;
+    'mega-list': ListElement;
+    'mega-list-divider': ListDividerElement;
+    'mega-list-item': ListItemElement;
   }
 }
 
 export type ListType = 'default' | 'two-line' | 'avatar-list'
 
-@customElement('mwc-list')
+@customElement('mega-list')
 export class ListElement extends LitElement {
   @property({ type: String, reflect: true })
   type = 'default'
@@ -76,7 +76,7 @@ export class ListElement extends LitElement {
   letter-spacing: 0.00937em;
   text-decoration: inherit;
   text-transform: inherit;
-  color: var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87));
+  color: var(--mega-theme-text-primary-on-background, rgba(0, 0, 0, 0.87));
   margin: 0;
   padding: 8px 0;
   line-height: 1.5rem;
@@ -90,16 +90,16 @@ export class ListElement extends LitElement {
 }
 
 /*
-a.mdc-list-item {
+a.mega-list-item {
   color: inherit;
   text-decoration: none;
 }
 
-.mdc-list-group .mdc-list {
+.mega-list-group .mega-list {
   padding: 0;
 }
 
-.mdc-list-group__subheader {
+.mega-list-group__subheader {
   font-family: Roboto, sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -112,8 +112,8 @@ a.mdc-list-item {
   margin: 0.75rem 16px;
 }
 
-.mdc-list-group__subheader {
-  color: var(--mdc-theme-text-primary-on-background, rgba(0, 0, 0, 0.87));
+.mega-list-group__subheader {
+  color: var(--mega-theme-text-primary-on-background, rgba(0, 0, 0, 0.87));
 }
 */`
     ]
@@ -124,7 +124,7 @@ a.mdc-list-item {
   }
 }
 
-@customElement('mwc-list-divider')
+@customElement('mega-list-divider')
 export class ListDividerElement extends LitElement {
   static get styles() {
     return [
@@ -162,7 +162,7 @@ export class ListDividerElement extends LitElement {
 
 export type ListItemType = 'default' | 'radio' | 'checkbox'
 
-@customElement('mwc-list-item')
+@customElement('mega-list-item')
 export class ListItemElement extends LitElement {
   @property({ type: String })
   type = 'default'
@@ -201,7 +201,7 @@ export class ListItemElement extends LitElement {
   overflow: hidden;
 }
 
-mwc-ripple {
+mega-ripple {
   position: absolute;
   left: -16px;
   width: calc(100% + 32px);
@@ -214,26 +214,26 @@ mwc-ripple {
 }
 
 .secondary {
-  color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54));
+  color: var(--mega-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54));
 }
 
-mwc-icon,
+mega-icon,
 slot[name="icon"]::slotted(*),
 .meta {
   background-color: transparent;
-  color: var(--mdc-theme-text-hint-on-background, rgba(0, 0, 0, 0.38));
+  color: var(--mega-theme-text-hint-on-background, rgba(0, 0, 0, 0.38));
 }
 
 :host([selected]),
 :host([activated]),
-:host([selected]) mwc-icon,
+:host([selected]) mega-icon,
 :host([selected]) slot[name="icon"]::slotted(*),
-:host([activated]) mwc-icon,
+:host([activated]) mega-icon,
 :host([activated]) slot[name="icon"]::slotted(*) {
-  color: var(--mdc-theme-primary, #6200ee);
+  color: var(--mega-theme-primary, #6200ee);
 }
 
-slot[name="icon"] mwc-icon,
+slot[name="icon"] mega-icon,
 slot[name="icon"]::slotted(*) {
   margin-left: 0;
   margin-right: 32px;
@@ -278,7 +278,7 @@ slot[name="icon"]::slotted(*) {
   height: 40px;
 }
 
-:host([dense]) slot[name="icon"] mwc-icon,
+:host([dense]) slot[name="icon"] mega-icon,
 :host([dense]) slot[name="icon"]::slotted(*) {
   margin-left: 0;
   margin-right: 36px;
@@ -290,7 +290,7 @@ slot[name="icon"]::slotted(*) {
   height: 56px;
 }
 
-:host([list-type="avatar-list"]) slot[name="icon"] mwc-icon,
+:host([list-type="avatar-list"]) slot[name="icon"] mega-icon,
 :host([list-type="avatar-list"]) slot[name="icon"]::slotted(*) {
   margin-left: 0;
   margin-right: 16px;
@@ -313,7 +313,7 @@ slot[name="icon"]::slotted(*) {
   height: 48px;
 }
 
-:host([list-type="avatar-list"][dense]) slot[name="icon"] mwc-icon,
+:host([list-type="avatar-list"][dense]) slot[name="icon"] mega-icon,
 :host([list-type="avatar-list"][dense]) slot[name="icon"]::slotted(*) {
   margin-left: 0;
   margin-right: 20px;
@@ -322,7 +322,7 @@ slot[name="icon"]::slotted(*) {
 }
 
 /*
-a.mdc-list-item {
+a.mega-list-item {
   color: inherit;
   text-decoration: none;
 }
@@ -333,14 +333,14 @@ a.mdc-list-item {
 
   render() {
     return html`
-<mwc-ripple ?selected=${this.selected} ?activated=${this.activated}></mwc-ripple>
-<slot name="icon">${ this.icon ? html`<mwc-icon>${this.icon}</mwc-icon>` : nothing }</slot>
+<mega-ripple ?selected=${this.selected} ?activated=${this.activated}></mega-ripple>
+<slot name="icon">${ this.icon ? html`<mega-icon>${this.icon}</mega-icon>` : nothing }</slot>
 <span class="text">
   <span class="primary"><slot>${this.label}</slot></span>
   <span class="secondary"><slot name="secondary"></slot></span>
 </span>
-<span class="meta"><slot name="meta">${ this.trailingIcon ? html`<mwc-icon>${this.trailingIcon}</mwc-icon>` : nothing }</slot></span>`
-// <span class="graphic"><slot name="icon"><mwc-icon>${this.icon}</mwc-icon></slot></span>
-// <span class="meta"><slot name="trailingIcon"><mwc-icon>${this.trailingIcon}</mwc-icon></slot></span>
+<span class="meta"><slot name="meta">${ this.trailingIcon ? html`<mega-icon>${this.trailingIcon}</mega-icon>` : nothing }</slot></span>`
+// <span class="graphic"><slot name="icon"><mega-icon>${this.icon}</mega-icon></slot></span>
+// <span class="meta"><slot name="trailingIcon"><mega-icon>${this.trailingIcon}</mega-icon></slot></span>
   }
 }

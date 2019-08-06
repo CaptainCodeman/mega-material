@@ -6,11 +6,11 @@ import { defaultCSS } from './styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'mwc-icon-button': IconButtonElement;
+    'mega-icon-button': IconButtonElement;
   }
 }
 
-@customElement('mwc-icon-button')
+@customElement('mega-icon-button')
 export class IconButtonElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   on = false
@@ -36,16 +36,16 @@ export class IconButtonElement extends LitElement {
   contain: content;
 }
 
-mwc-ripple {
-  width: var(--mdc-icon-button-size, 48px);
-  height: var(--mdc-icon-button-size, 48px);
+mega-ripple {
+  width: var(--mega-icon-button-size, 48px);
+  height: var(--mega-icon-button-size, 48px);
 }
 
 button {
   will-change: transform, opacity;
   width: 100%;
   height: 100%;
-  padding: var(--mdc-icon-button-padding, 12px);
+  padding: var(--mega-icon-button-padding, 12px);
   display: inline-block;
   position: relative;
   box-sizing: border-box;
@@ -61,9 +61,9 @@ button {
 
 ::slotted(svg),
 ::slotted(img)
-::slotted(mwc-icon), {
-  width: var(--mdc-icon-size, 24px);
-  height: var(--mdc-icon-size, 24px);
+::slotted(mega-icon), {
+  width: var(--mega-icon-size, 24px);
+  height: var(--mega-icon-size, 24px);
   display: inline-block;
 }
 
@@ -76,7 +76,7 @@ button {
 }
 
 :host:disabled {
-  color: var(--mdc-theme-text-disabled-on-light, rgba(0, 0, 0, 0.38));
+  color: var(--mega-theme-text-disabled-on-light, rgba(0, 0, 0, 0.38));
   cursor: default;
   pointer-events: none;
 }`
@@ -85,14 +85,14 @@ button {
 
   render() {
     return html`
-<mwc-ripple unbounded>
+<mega-ripple unbounded>
   <button
     aria-label=${this.label}
     aria-hidden="true"
     aria-pressed="false">
-    <slot><mwc-icon>${this.icon}</mwc-icon></slot>
-    <slot name="on"><mwc-icon>${this.iconOn}</mwc-icon></slot>
+    <slot><mega-icon>${this.icon}</mega-icon></slot>
+    <slot name="on"><mega-icon>${this.iconOn}</mega-icon></slot>
   </button>
-</mwc-ripple>`
+</mega-ripple>`
   }
 }
