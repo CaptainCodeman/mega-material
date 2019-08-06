@@ -60,7 +60,7 @@
     const unelevated = 'var(--elevation-00)'
     document.addEventListener('click', e => {
       e.composedPath().filter(el => {
-        if (el.tagName === 'MWC-SURFACE') {
+        if (el.tagName === 'MEGA-SURFACE') {
           let elevation = el.style.getPropertyValue('--elevation');
           if (el.elevationSaved === undefined) {
             el.elevationSaved = elevation;

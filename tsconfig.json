@@ -8,7 +8,7 @@
       "target": "esnext",
       "moduleResolution": "node",
       "noImplicitAny": true,
-      "noEmitHelpers":  true,
+      "noEmitHelpers": true,
       "importHelpers": true,
       "strictNullChecks": true,
       "experimentalDecorators": true,
