@@ -1,4 +1,4 @@
-import { matches, getNormalizedEventCoords, Point } from './utils';
+import { matches, getNormalizedEventCoords, Point, passiveOrFalse } from './utils';
 import { LitElement, customElement, property, css, html } from 'lit-element';
 import { defaultCSS } from './styles';
 
@@ -139,11 +139,11 @@ export class RippleElement extends LitElement {
   private registerRootHandlers_(supportsPressRipple: boolean) {
     if (supportsPressRipple) {
       ACTIVATION_EVENT_TYPES.forEach((evtType) => {
-        this.addEventListener(evtType, this.activateHandler_);
+        this.addEventListener(evtType, this.activateHandler_, passiveOrFalse);
       });
       if (this.unbounded) {
         // TODO: use resize observer (wrapper element)
-        window.addEventListener('resize', this.resizeHandler_);
+        window.addEventListener('resize', this.resizeHandler_, passiveOrFalse);
       }
     }
 

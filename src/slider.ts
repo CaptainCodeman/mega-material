@@ -4,6 +4,7 @@ import './icon'
 import './ripple'
 import { defaultCSS } from './styles';
 import { nothing } from 'lit-html';
+import { passiveOrFalse } from './utils';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -95,7 +96,7 @@ export class SliderElement extends LitElement {
 
     this.updateComplete.then(() => {
       DOWN_EVENTS.forEach(name => {
-        this.addEventListener(name, this.interactionStartHandler_)
+        this.addEventListener(name, this.interactionStartHandler_, passiveOrFalse)
         this.thumbContainer.addEventListener(name, this.thumbContainerPointerHandler_)
       })
     })
@@ -103,7 +104,7 @@ export class SliderElement extends LitElement {
     this.addEventListener('keydown', this.keydownHandler_);
     this.addEventListener('focus', this.focusHandler_);
     this.addEventListener('blur', this.blurHandler_);
-    window.addEventListener('resize', this.resizeHandler_);
+    window.addEventListener('resize', this.resizeHandler_, passiveOrFalse);
 
     this.layout_()
   }

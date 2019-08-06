@@ -1,3 +1,20 @@
+let _supportsPassive = false;
+
+try {
+  const opts = Object.defineProperty({}, 'passive', {
+    get: function() {
+      _supportsPassive = true;
+    }
+  });
+  const handler = (e: Event) => {}
+  window.addEventListener("testPassive", handler, opts);
+  window.removeEventListener("testPassive", handler, false);
+} catch (e) {}
+
+export const supportsPassive = _supportsPassive;
+
+export const passiveOrFalse = supportsPassive ? { passive: true } : false
+
 export function matches(element: Element, selector: string): boolean {
     const nativeMatches = element.matches || element.webkitMatchesSelector;
     return nativeMatches.call(element, selector);
