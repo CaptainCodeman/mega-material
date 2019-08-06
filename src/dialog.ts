@@ -35,14 +35,8 @@ export class DialogElement extends LitElement {
   @property({ type: String })
   title: string
 
-  @query('#dialog')
-  dialogElement: HTMLDivElement
-
   @query('#content')
   contentElement: HTMLDivElement
-
-  @query('slot[name="action"]')
-  actionSlot: HTMLSlotElement
 
   private actionElements_: Node[] = []
   private animationFrame_ = 0
@@ -83,13 +77,10 @@ export class DialogElement extends LitElement {
     }, DIALOG_ANIMATION_CLOSE_TIME_MS);
   }
 
-  firstUpdated(changedProperties: PropertyValues) {
-    this.actionSlot.addEventListener('slotchange', e => this.actionSlotChanged_(e))
-  }
-
   private actionSlotChanged_(e: Event) {
+    const el = <HTMLSlotElement>e.target
     this.actionElements_.forEach(node => node.removeEventListener('click', this.close))
-    this.actionElements_ = this.actionSlot.assignedNodes().filter(node => node.nodeType === 1)
+    this.actionElements_ = el.assignedNodes().filter(node => node.nodeType === 1)
     this.actionElements_.forEach(node => node.addEventListener('click', this.close))
   }
 
@@ -332,7 +323,7 @@ slot[name="action"]::slotted(:first-child) {
     <div id="surface">
       <h2 id="title">${this.title}</h2>
       <div id="content"><slot></slot></div>
-      <footer><slot name="action"></slot></footer>
+      <footer><slot name="action" @slotchange=${this.actionSlotChanged_}></slot></footer>
     </div>
   </div>
   <div id="scrim" @click=${this.close}></div>

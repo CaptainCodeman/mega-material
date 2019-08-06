@@ -33,8 +33,8 @@ export class SnackbarElement extends LitElement {
   private surface: HTMLDivElement
   private timer_: number
 
-  firstUpdated() {
-    this.surface.addEventListener('transitionend', e => this.closing = false)
+  onTransitionEnd_(e: Event) {
+    this.closing = false
   }
 
   async open() {
@@ -252,7 +252,7 @@ slot[name="action"],
 
   render() {
     return html`
-<div class="surface">
+<div class="surface" @transitionend=${this.onTransitionEnd_}>
   <div class="label" role="status" aria-live="polite">
     <slot></slot>
   </div>

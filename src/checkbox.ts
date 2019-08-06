@@ -23,16 +23,14 @@ export class CheckboxElement extends LitElement {
   @property({ type: String })
   value = ''
 
-  @query('input')
-  protected formElement!: HTMLInputElement;
-
   createRenderRoot() {
     return this.attachShadow({ mode: 'open', delegatesFocus: true });
   }
 
-  private changeHandler_() {
-    this.checked = this.formElement.checked;
-    this.indeterminate = this.formElement.indeterminate;
+  private changeHandler_(e: Event) {
+    const el = <HTMLInputElement>e.target
+    this.checked = el.checked;
+    this.indeterminate = el.indeterminate;
   }
 
   // TODO

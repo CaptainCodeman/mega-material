@@ -37,9 +37,6 @@ export class DrawerElement extends LitElement {
   @query('aside')
   private drawerElement: HTMLElement;
 
-  @query('[name="app-content"]')
-  private appContentSlot: HTMLSlotElement;
-
   private animationFrame_ = 0;
 
   connectedCallback() {
@@ -107,13 +104,6 @@ export class DrawerElement extends LitElement {
     this.animating = false
     this.opening = false
     this.closing = false
-  }
-
-  firstUpdated() {
-    // TODO: move to common event constants
-    this.appContentSlot.addEventListener('top-app-bar:nav', e => this.navigationIconClicked_())
-    this.drawerElement.addEventListener('keydown', (e) => this.handleKeydown_(e));
-    this.drawerElement.addEventListener('transitionend', (e) => this.handleTransitionEnd_(e));
   }
 
   private navigationIconClicked_() {
@@ -372,7 +362,7 @@ header {
 
   render() {
     return html`
-<aside>
+<aside @keydown=${this.handleKeydown_} @transitionend=${this.handleTransitionEnd_}>
   <header ?hidden=${!this.hasheader}>
     <slot name="header">
       <h3><slot name="title"></slot></h3>
@@ -382,6 +372,6 @@ header {
   <div class="content"><slot></slot></div>
 </aside>
 ${this.modal ? html`<div class="scrim" @click=${this.handleScrimClick_}></div>` : nothing}
-<div class="app-content"><slot name="app-content"></slot></div>`
+<div class="app-content"><slot name="app-content" @top-app-bar:nav=${this.navigationIconClicked_}></slot></div>`
   }
 }

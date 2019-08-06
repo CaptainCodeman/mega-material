@@ -194,14 +194,7 @@ export class TabBarElement extends LitElement {
   @property({ type: Number, reflect: true, attribute: 'active-index' })
   activeIndex: number
 
-  @query('slot')
-  slotElement: HTMLSlotElement
-
   private tabItems_: Node[] = []
-
-  firstUpdated(changedProperties: PropertyValues) {
-    this.slotElement.addEventListener('slotchange', e => this.slotChanged_(e))
-  }
 
   updated(changedProperties: PropertyValues) {
     if (changedProperties.has('activeIndex')) {
@@ -210,7 +203,8 @@ export class TabBarElement extends LitElement {
   }
 
   private slotChanged_(e: Event) {
-    this.tabItems_ = this.slotElement.assignedNodes().filter(node => node.nodeType === 1)
+    const el = <HTMLSlotElement>e.target
+    this.tabItems_ = el.assignedNodes().filter(node => node.nodeType === 1)
     this.updateActive_()
   }
 
@@ -230,7 +224,7 @@ export class TabBarElement extends LitElement {
   }
 
   render() {
-    return html`<mega-tab-scroller .align=${this.align}><slot></slot></mega-tab-scroller>`
+    return html`<mega-tab-scroller .align=${this.align}><slot @slotchange=${this.slotChanged_}></slot></mega-tab-scroller>`
   }
 }
 

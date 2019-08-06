@@ -30,22 +30,18 @@ export class ScratchElement extends LitElement {
   @property({ type: String })
   icon: string
 
-  @query('slot[name="icon"]')
-  iconSlot: HTMLSlotElement
-
   private iconElements: Element[] = []
 
   @property({ type: Boolean, reflect: true, attribute: 'has-icon' })
   private hasIcon: boolean = false
 
-  firstUpdated(changedProperties: PropertyValues) {
-    this.iconSlot.addEventListener('slotchange', e => {
-      this.iconElements = this.iconSlot.assignedElements()
-      this.hasIconCheck()
-    })
+  updated(changedProperties: PropertyValues) {
+    this.hasIconCheck()
   }
 
-  updated(changedProperties: PropertyValues) {
+  slotChanged_(e: Event) {
+    const el = <HTMLSlotElement>e.target
+    this.iconElements = el.assignedElements()
     this.hasIconCheck()
   }
 
@@ -292,6 +288,6 @@ export class ScratchColorElement extends LitElement {
   }
 
   render() {
-    return html`<div><slot></slot></div>`
+    return html`<div><slot @slotchange=${this.slotChanged_}></slot></div>`
   }
 }

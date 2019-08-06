@@ -27,10 +27,10 @@ export class TopAppBarElement extends LitElement {
   @property({ type: Boolean, reflect: true, attribute: 'center-title' })
   centerTitle = false;
 
-  @query('[name="navigationIcon"]')
-  private navIconSlot: HTMLSlotElement;
-
   private scrollTarget_: HTMLElement | Window;
+
+  private lastScrollPosition_: number
+  private topAppBarHeight_: number
 
   get scrollTarget() {
     return this.scrollTarget_ || window as Window;
@@ -43,13 +43,47 @@ export class TopAppBarElement extends LitElement {
   }
 
   firstUpdated() {
-    this.navIconSlot.addEventListener('click', e => this.notifyNavigationIconClicked_())
 
-    // this.mdcRoot.addEventListener('keydown', (e) => this.mdcFoundation.handleKeydown(e));
-    // this.mdcRoot.addEventListener('transitionend', (e) => this.mdcFoundation.handleTransitionEnd(e));
+    this.lastScrollPosition_ = this.getViewportScrollY_()
+    this.topAppBarHeight_ = this.getTopAppBarHeight_()
   }
 
-  private notifyNavigationIconClicked_() {
+  connectedCallback() {
+    super.connectedCallback()
+
+    this.scrollTarget.addEventListener('scroll', this.handleTargetScroll_)
+
+    this.lastScrollPosition_ = this.getViewportScrollY_()
+    this.topAppBarHeight_ = this.getTopAppBarHeight_()
+
+    if (!this.short && !this.fixed) {
+      window.addEventListener('resize', this.handleWindowResize_);
+    }
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback()
+  }
+
+  private handleTargetScroll_(e: Event) {
+
+  }
+
+  private handleWindowResize_(e: Event) {
+
+  }
+
+  private getTopAppBarHeight_() {
+    return this.clientHeight
+  }
+
+  private getViewportScrollY_() {
+    const win = this.scrollTarget as Window
+    const el = this.scrollTarget as Element
+    return win.pageYOffset !== undefined ? win.pageYOffset : el.scrollTop
+  }
+
+  private navigationIconClicked_() {
     this.dispatchEvent(new CustomEvent('top-app-bar:nav', {
       bubbles: true,
       composed: true,
@@ -308,7 +342,7 @@ slot[name="title"]::slotted(*) {
 <header>
   <div>
     <section ?align-center=${this.centerTitle}>
-      <slot class="icons" name="navigationIcon" ?hidden=${this.centerTitle}></slot>
+      <slot class="icons" name="navigationIcon" ?hidden=${this.centerTitle} @click=${this.navigationIconClicked_}></slot>
       <slot name="title"></slot>
     </section>
     <section role="toolbar">

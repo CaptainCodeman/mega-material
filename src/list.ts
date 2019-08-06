@@ -23,14 +23,10 @@ export class ListElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   dense = false
 
-  @query('slot')
-  slotElement: HTMLSlotElement
-
   private listItems_: Node[] = []
 
   firstUpdated(changedProperties: PropertyValues) {
     this.setAttribute('role', 'list')
-    this.slotElement.addEventListener('slotchange', e => this.slotChanged_(e))
   }
 
   updated(changedProperties: PropertyValues) {
@@ -42,7 +38,8 @@ export class ListElement extends LitElement {
   }
 
   private slotChanged_(e: Event) {
-    this.listItems_ = this.slotElement.assignedNodes().filter(node => node.nodeType === 1)
+    const el = <HTMLSlotElement>e.target
+    this.listItems_ = el.assignedNodes().filter(node => node.nodeType === 1)
     this.updateItems_()
   }
 
@@ -120,7 +117,7 @@ a.mega-list-item {
   }
 
   render() {
-    return html`<slot></slot>`
+    return html`<slot @slotchange=${this.slotChanged_}></slot>`
   }
 }
 

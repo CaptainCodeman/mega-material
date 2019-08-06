@@ -17,11 +17,9 @@ export class SwitchElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   disabled = false;
 
-  @query('input')
-  protected formElement!: HTMLInputElement;
-
   private changeHandler_(e: Event) {
-    this.checked = this.formElement.checked;
+    const el = <HTMLInputElement>e.target
+    this.checked = el.checked;
   }
 
   static get styles() {
