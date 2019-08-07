@@ -1,1 +1,1 @@
-import{L as s,d as e,e as t,t as a,h as r,_ as o,a as l}from"./common.js";let m=class extends s{static get styles(){return[e,t,a]}render(){return r`<slot></slot>`}};m=o([l("mega-surface")],m);export{m as SurfaceElement};
+import{L as s,h as t,_ as e,a}from"./common.js";import{d as r,e as o,t as m}from"./common2.js";let n=class extends s{static get styles(){return[r,o,m]}render(){return t`<slot></slot>`}};n=e([a("mega-surface")],n);export{n as SurfaceElement};

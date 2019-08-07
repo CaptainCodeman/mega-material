@@ -13,8 +13,8 @@ declare global {
 
 @customElement('mega-button')
 export class ButtonElement extends LitElement {
-  @property({ type: Boolean, reflect: true })
-  block = false;
+  @property({ type: Boolean, reflect: true, attribute: 'full-width' })
+  fullWidth = false;
 
   @property({ type: Boolean, reflect: true })
   raised = false;
@@ -195,7 +195,7 @@ svg {
   --mega-ripple-fg-opacity: 0.24;
 }
 
-:host([block]) button {
+:host([full-width]) button {
   width: 100%;
 }
 `
