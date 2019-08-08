@@ -1,4 +1,11 @@
-import { configure } from '@storybook/polymer';
+import { configure, addParameters } from '@storybook/polymer';
+import theme from './theme';
+
+addParameters({
+  options: {
+    theme,
+  },
+});
 
 // automatically import all files ending in *.stories.js
 const req = require.context('../stories', true, /\.stories\.js$/);
