@@ -1,5 +1,5 @@
 import { LitElement, html, css, customElement, property, PropertyValues, query } from 'lit-element'
-import { textfieldLabelStyle } from './shared-styles'
+import { textFieldLabelCSS } from './styles'
 
 @customElement('mega-notched-outline')
 export class NotchedOutlineElement extends LitElement {
@@ -42,7 +42,7 @@ export class NotchedOutlineElement extends LitElement {
 
   static get styles() {
     return [
-      textfieldLabelStyle,
+      textFieldLabelCSS,
       css`
         :host {
           position: relative;

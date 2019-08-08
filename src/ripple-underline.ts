@@ -1,5 +1,5 @@
 import { LitElement, html, css, customElement, property } from 'lit-element'
-import { textfieldLabelStyle } from './shared-styles'
+import { textFieldLabelCSS } from './styles'
 
 @customElement('mega-ripple-underline')
 export class RippleUnderlineElement extends LitElement {
@@ -22,7 +22,7 @@ export class RippleUnderlineElement extends LitElement {
 
   static get styles() {
     return [
-      textfieldLabelStyle,
+      textFieldLabelCSS,
       css`
         :host {
           display: block;

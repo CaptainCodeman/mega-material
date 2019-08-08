@@ -1,6 +1,6 @@
 import { css } from 'lit-element'
 
-export const textfieldLabelStyle = css`
+export const textFieldLabelCSS = css`
   label {
     font-size: 16px;
     font-weight: 400;
