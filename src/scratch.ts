@@ -97,7 +97,7 @@ slot[name="icon"]::slotted(*) {
     return html`
 <mega-ripple ?primary=${this.primary}></mega-ripple>
 <slot name="icon">${ this.icon ? html`<mega-icon>${this.icon}</mega-icon>` : nothing }</slot>
-<slot></slot>
+<slot @slotchange=${this.slotChanged_}></slot>
 `
   }
 }
@@ -288,6 +288,6 @@ export class ScratchColorElement extends LitElement {
   }
 
   render() {
-    return html`<div><slot @slotchange=${this.slotChanged_}></slot></div>`
+    return html`<div><slot></slot></div>`
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "mega-material",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "Material Lit Elements",
   "main": "index.js",
   "browser": "maga-material.min.js",

@@ -52,7 +52,7 @@ const input = [
 ]
 
 export default [{
-  input: [...input, 'src/scratch.ts'], // for simplified testing things out:
+  input,
   output: {
     dir: 'docs',
     format: 'esm',
