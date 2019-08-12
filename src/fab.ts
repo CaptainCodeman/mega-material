@@ -1,5 +1,4 @@
 import { LitElement, html, customElement, css, property } from 'lit-element';
-import { nothing } from 'lit-html';
 
 import './icon'
 import './ripple'
