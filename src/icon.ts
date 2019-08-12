@@ -30,17 +30,17 @@ const ICON_CATEGORIES = [
 ]
 */
 
-// TODO: make lazy and check for --mega-icon-font being set to something else
-// use css font loading api to hide icons until font has loaded or something like
-// https://github.com/bramstein/fontfaceobserver to fade them in when they are
-// https://github.com/typekit/webfontloader
-const el = document.createElement('link');
-el.rel = 'stylesheet';
-el.href = 'https://fonts.googleapis.com/icon?family=Material+Icons';
-document.head!.appendChild(el);
-
 @customElement('mega-icon')
 export class IconElement extends LitElement {
+  constructor() {
+    super()
+    IconElement.ensureFontLoaded()
+  }
+
+  render() {
+    return html`<slot></slot>`
+  }
+
   static get styles() {
     return [
       defaultCSS,
@@ -64,8 +64,20 @@ export class IconElement extends LitElement {
     ]
   }
 
-  render() {
-    return html`<slot></slot>`
+  static fontRequested_ = false
+  static ensureFontLoaded() {
+    // TODO: make lazy and check for --mega-icon-font being set to something else
+    // use css font loading api to hide icons until font has loaded or something like
+    // https://github.com/bramstein/fontfaceobserver to fade them in when they are
+    // https://github.com/typekit/webfontloader
+    if (this.fontRequested_) return
+
+    const el = document.createElement('link');
+    el.rel = 'stylesheet';
+    el.href = 'https://fonts.googleapis.com/icon?family=Material+Icons';
+    document.head!.appendChild(el);
+
+    this.fontRequested_ = true
   }
 }
 
