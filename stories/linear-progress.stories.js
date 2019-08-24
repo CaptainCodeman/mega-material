@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/polymer';
 import { withKnobs, number, boolean } from '@storybook/addon-knobs/polymer';
 
-import '../dist/linear-progress.js'
+import '../docs/linear-progress.js'
 
 const percentageRange = {
   range: true,
