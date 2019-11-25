@@ -3,10 +3,10 @@
   "version": "1.0.0-alpha.2",
   "description": "Material Lit Elements",
   "main": "index.js",
-  "browser": "maga-material.min.js",
+  "browser": "mega-material.min.js",
   "esnext": "index.js",
   "types": "index.d.ts",
-  "unpkg": "maga-material.min.js",
+  "unpkg": "mega-material.min.js",
   "scripts": {
     "dec": "tsc --emitDeclarationOnly",
     "dev": "rollup -c -w",
