@@ -139,7 +139,7 @@ export class TextfieldElement extends LitElement {
         outline: none;
       }
 
-      :host([fullwidth]) {
+      :host([full-width]) {
         width: 100%;
       }
 
