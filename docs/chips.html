@@ -10,11 +10,18 @@
     />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./chips.js" type="module"></script>
+    <script src="./icon.js" type="module"></script>
   </head>
 
   <body>
-    <p>Choice Chips</p>
-    <mega-chip-set type="choice">
+    <h3>
+      Choice chips
+    </h3>
+    <p>
+      Material design equivalent of radio buttons.
+      <a href="https://material.io/components/chips/#choice-chips" target="_blank">design docs</a>
+    </p>
+    <mega-chip-set>
       <mega-chip>
         <label for="choice1">Choice 1</label>
         <input type="radio" name="choice" id="choice1" value="choice1" checked />
@@ -33,8 +40,14 @@
       </mega-chip>
     </mega-chip-set>
 
-    <p>Filter Chips</p>
-    <mega-chip-set type="choice">
+    <h3>
+      Filter chips.
+    </h3>
+    <p>
+      Material design equivalent of a list of checkboxes.
+      <a href="https://material.io/components/chips/#filter-chips" target="_blank">design docs</a>
+    </p>
+    <mega-chip-set>
       <mega-chip>
         <label for="choice1">Filter 1</label>
         <input type="checkbox" name="choice1" id="choice1" value="choice1" checked />
@@ -53,36 +66,75 @@
       </mega-chip>
     </mega-chip-set>
 
-    <p>Filter Chips with visuals</p>
+    <h4>Filter Chips with visuals</h4>
+    <p>Filter chips allow additional visuals</p>
     <style>
       mega-chip.white-stroke::part(path) {
         stroke: white;
       }
     </style>
-    <mega-chip-set type="choice">
+    <mega-chip-set>
       <mega-chip class="white-stroke">
-        <img
-          slot="left-visual"
-          src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/5.jpg"
-        />
+        <div slot="visual" style="background-color: mediumseagreen;"></div>
         <label for="choice1">Medium sea green</label>
         <input type="checkbox" name="choice1" id="choice1" value="choice1" checked />
       </mega-chip>
       <mega-chip class="white-stroke">
-        <div slot="left-visual" style="background-color: goldenrod;"></div>
+        <div slot="visual" style="background-color: goldenrod;"></div>
         <label for="choice2">Goldenrod</label>
         <input type="checkbox" name="choice2" id="choice2" value="choice2" disabled />
       </mega-chip>
       <mega-chip class="white-stroke">
-        <div slot="left-visual" style="background-color: indianred"></div>
-        <label for="choice1">Indianred</label>
+        <div slot="visual" style="background-color: mediumvioletred"></div>
+        <label for="choice1">Medium violet red</label>
         <input type="checkbox" name="choice3" id="choice4" value="choice3" />
       </mega-chip>
       <mega-chip class="white-stroke">
-        <div slot="left-visual" style="background-color:mediumslateblue"></div>
-        <label for="choice1">Mediums Late Blue</label>
+        <div slot="visual" style="background-color:mediumslateblue"></div>
+        <label for="choice1">Mediums late blue</label>
         <input type="checkbox" name="choice4" id="choice4" value="choice4" />
       </mega-chip>
+    </mega-chip-set>
+
+    <h3>
+      Action chips
+    </h3>
+    <p>
+      Dynamically and contextually actions.
+      <a href="https://material.io/components/chips/#action-chips" target="_blank">design docs</a>
+    </p>
+    <mega-chip-set>
+      <mega-chip>
+        <img
+          slot="visual"
+          src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/5.jpg"
+        />
+        <label for="btn">Share with doggo</label>
+        <input type="button" id="btn" />
+      </mega-chip>
+      <mega-chip id="turn-on-lights">
+        <mega-icon slot="visual">brightness_5</mega-icon>
+        <label for="btn">Turn on lights</label>
+        <input type="button" id="btn" />
+      </mega-chip>
+      <script>
+        const setAlarm = document.querySelector('#turn-on-lights')
+        setAlarm.querySelector('input').addEventListener('click', () => {
+          setAlarm.querySelector('label').textContent = 'Turning on lights'
+          setAlarm.querySelector('mega-icon').textContent = 'brightness_6'
+
+          setTimeout(() => {
+            setAlarm.querySelector('label').textContent = 'Lights turned on'
+            setAlarm.setAttribute('selected', '')
+            setAlarm.querySelector('mega-icon').innerHTML = 'brightness_7'
+            setTimeout(() => {
+              setAlarm.querySelector('label').textContent = 'Turn on lights'
+              setAlarm.removeAttribute('selected')
+              setAlarm.querySelector('mega-icon').innerHTML = 'brightness_5'
+            }, 2000)
+          }, 2000)
+        })
+      </script>
     </mega-chip-set>
   </body>
 </html>

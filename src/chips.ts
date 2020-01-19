@@ -1,11 +1,10 @@
 /* eslint-disable max-classes-per-file */
-import { LitElement, html, customElement, css, property, svg } from 'lit-element'
+import { LitElement, html, customElement, css, property } from 'lit-element'
 import './icon'
 import './ripple'
-import { nothing } from 'lit-html'
 import { defaultCSS, elevationCSS } from './styles'
 
-type InputTypes = 'radio' | 'checkbox'
+type InputTypes = 'radio' | 'checkbox' | 'button'
 
 class ChipSetElementBase extends LitElement {
   private inputs: NodeListOf<HTMLInputElement>
@@ -65,12 +64,13 @@ class ChipSetElementBase extends LitElement {
     this.inputs.forEach(input => {
       const chipElement = input.parentElement as ChipElementBase
       if (chipElement instanceof ChipElementBase === false) {
-        throw new TypeError('<input> must be a direct child of <chip-element>')
+        throw new TypeError('<input> must be a direct child of <mega-chip>')
       }
 
-      chipElement.selected = input.checked
+      const type = input.type as InputTypes
+      if (type === 'radio' || type === 'checkbox') chipElement.selected = input.checked
       chipElement.focused = document.activeElement === input
-      chipElement.type = input.type as InputTypes
+      chipElement.type = type
     })
   }
 
@@ -204,7 +204,7 @@ class ChipElementBase extends LitElement {
         }
 
         /* type=checkbox */
-        :host([type='checkbox'][selected]) {
+        :host(:not([type='radio'])[selected]) {
           background-color: rgba(0, 0, 0, 0.23);
           color: rgba(0, 0, 0, 1);
         }
@@ -240,17 +240,6 @@ class ChipElementBase extends LitElement {
         :host(:not([type='radio'])[has-visual]) .checkmark path {
           stroke-width: 2.5px;
         }
-
-        @keyframes mega-chip-entry {
-          from {
-            transform: scale(0.8);
-            opacity: 0.4;
-          }
-          to {
-            transform: scale(1);
-            opacity: 1;
-          }
-        }
       `,
     ]
   }
@@ -277,9 +266,7 @@ class ChipElementBase extends LitElement {
     if (!input) {
       return
     }
-
     this.disabled = input.disabled
-    this.selected = input.checked
   }
 
   protected slotChange(event: Event) {
