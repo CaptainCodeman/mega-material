@@ -1,56 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>chips</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./chips.js" type="module"></script>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>chips</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
-  <link rel="stylesheet" href="./styles.css">
-  <script src="./chips.js" type="module"></script>
-</head>
+  <body>
+    <p>Choice Chips</p>
+    <mega-chip-set type="choice">
+      <mega-chip>
+        <label for="choice1">Choice 1</label>
+        <input type="radio" name="choice" id="choice1" value="choice1" checked />
+      </mega-chip>
+      <mega-chip>
+        <label for="choice2">Disabled</label>
+        <input type="radio" name="choice" id="choice2" value="choice2" disabled />
+      </mega-chip>
+      <mega-chip>
+        <label for="choice1">Choice 3</label>
+        <input type="radio" name="choice" id="choice4" value="choice3" />
+      </mega-chip>
+      <mega-chip>
+        <label for="choice1">Choice 4</label>
+        <input type="radio" name="choice" id="choice4" value="choice4" />
+      </mega-chip>
 
-<body>
-  <p>Choice Chips</p>
-  <mega-chip-set type="choice">
-    <mega-chip>Extra Small</mega-chip>
-    <mega-chip>Small</mega-chip>
-    <mega-chip selected>Medium</mega-chip>
-    <mega-chip>Large</mega-chip>
-    <mega-chip>Extra Large</mega-chip>
-  </mega-chip-set>
+      <!-- <mega-chip selected>Medium</mega-chip>
+      <mega-chip hover>Hover</mega-chip>
+      <mega-chip focus>Focus</mega-chip>
+      <mega-chip pressed>Pressed</mega-chip>
+      <mega-chip active>Active</mega-chip> -->
+    </mega-chip-set>
 
-  <p>Choice Chips</p>
-  <mega-chip-set type="filter">
-    <mega-chip>Tops</mega-chip>
-    <mega-chip selected>Bottoms</mega-chip>
-    <mega-chip>Shoes</mega-chip>
-    <mega-chip selected>Accessories</mega-chip>
-  </mega-chip-set>
+    <p>Filter Chips</p>
+    <mega-chip-set type="choice">
+      <mega-chip>
+        <label for="choice1">Filter 1</label>
+        <input type="checkbox" name="choice1" id="choice1" value="choice1" checked />
+      </mega-chip>
+      <mega-chip>
+        <label for="choice2">Disabled</label>
+        <input type="checkbox" name="choice2" id="choice2" value="choice2" disabled />
+      </mega-chip>
+      <mega-chip>
+        <label for="choice1">Filter 3</label>
+        <input type="checkbox" name="choice3" id="choice4" value="choice3" />
+      </mega-chip>
+      <mega-chip>
+        <label for="choice1">Filter 4</label>
+        <input type="checkbox" name="choice4" id="choice4" value="choice4" />
+      </mega-chip>
 
-  <p>With Leading Icon</p>
-  <mega-chip-set type="filter">
-    <mega-chip icon="face" selected>Tops</mega-chip>
-    <mega-chip icon="face">Bottoms</mega-chip>
-    <mega-chip icon="face" selected>Shoes</mega-chip>
-    <mega-chip icon="face">Accessories</mega-chip>
-  </mega-chip-set>
-
-  <p>Action Chips</p>
-  <mega-chip-set>
-    <mega-chip icon="event">Add to calendar</mega-chip>
-    <mega-chip icon="bookmark">Bookmark</mega-chip>
-    <mega-chip icon="alarm">Set Alarm</mega-chip>
-    <mega-chip icon="directions">Get Directions</mega-chip>
-  </mega-chip-set>
-
-  <p>Shaped Chips</p>
-  <mega-chip-set>
-    <mega-chip>Bookcase</mega-chip>
-    <mega-chip>TV Stand</mega-chip>
-    <mega-chip>Sofas</mega-chip>
-    <mega-chip>Office chairs</mega-chip>
-  </mega-chip-set>
-</body>
-
+      <!-- <mega-chip selected>Medium</mega-chip>
+      <mega-chip hover>Hover</mega-chip>
+      <mega-chip focus>Focus</mega-chip>
+      <mega-chip pressed>Pressed</mega-chip>
+      <mega-chip active>Active</mega-chip> -->
+    </mega-chip-set>
+  </body>
 </html>
