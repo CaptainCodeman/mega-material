@@ -217,21 +217,27 @@ class ChipElementBase extends LitElement {
           stroke-dashoffset: 0;
         }
 
-        slot[name='left-visual']::slotted(*) {
+        slot[name='visual']::slotted(*) {
           display: inline-block;
           width: 24px;
           height: 24px;
           margin: -3px -1px -7px 4px;
           border-radius: calc(24px / 2);
         }
+        slot[name='visual']::slotted(mega-icon) {
+          --mega-icon-size: 18px;
+          width: 18px;
+          height: 18px;
+          margin: -2px -2px -4px 7px;
+        }
 
-        :host([type='checkbox'][has-visual]) .checkmark {
+        :host(:not([type='radio'])[has-visual]) .checkmark {
           height: 17px;
           position: absolute;
           left: -3px;
           top: 8.5px;
         }
-        :host([type='checkbox'][has-visual]) .checkmark path {
+        :host(:not([type='radio'])[has-visual]) .checkmark path {
           stroke-width: 2.5px;
         }
 
@@ -284,12 +290,11 @@ class ChipElementBase extends LitElement {
   render() {
     return html`
       <mega-ripple ?disabled=${this.disabled} ?primary=${this.type === 'radio'}>
-        <slot name="left-visual" @slotchange=${this.slotChange}></slot>
+        <slot name="visual" @slotchange=${this.slotChange}></slot>
         <svg viewBox="-4 -4 30 30" class="checkmark">
           <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" part="path" />
         </svg>
         <span class="text"><slot></slot></span>
-        <!-- <slot name="right-visual"></slot> -->
       </mega-ripple>
     `
   }
