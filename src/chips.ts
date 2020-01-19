@@ -1,16 +1,11 @@
 /* eslint-disable max-classes-per-file */
-import { LitElement, html, customElement, css, property, Constructor } from 'lit-element'
+import { LitElement, html, customElement, css, property, svg } from 'lit-element'
 import './icon'
 import './ripple'
 import { nothing } from 'lit-html'
 import { defaultCSS, elevationCSS } from './styles'
-import { withThemable } from './utils/themable'
 
 type InputTypes = 'radio' | 'checkbox'
-
-function isChip(chip: unknown): chip is typeof ChipElement {
-  return chip instanceof ChipElementBase
-}
 
 class ChipSetElementBase extends LitElement {
   private inputs: NodeListOf<HTMLInputElement>
@@ -68,14 +63,10 @@ class ChipSetElementBase extends LitElement {
    */
   recalcSelectedState = () => {
     this.inputs.forEach(input => {
-      const chipElement = (input.parentElement as unknown) as Constructor<typeofChipElement>
-      // if (!isChip(chipElement)) {
-      //   throw new TypeError('<input> must be a direct child of <chip-element>')
-      // }
-
-      // if () {
-      //
-      // }
+      const chipElement = input.parentElement as ChipElementBase
+      if (chipElement instanceof ChipElementBase === false) {
+        throw new TypeError('<input> must be a direct child of <chip-element>')
+      }
 
       chipElement.selected = input.checked
       chipElement.focused = document.activeElement === input
@@ -106,81 +97,34 @@ class ChipElementBase extends LitElement {
   @property({ type: Boolean, reflect: true })
   selected = false
 
+  @property({ type: Boolean, reflect: true, attribute: 'has-visual' })
+  private hasVisual = false
+
   private mutationObserver: MutationObserver
-
-  // @property({ type: String, reflect: true })
-  // text = ''
-
-  // @property({ type: String, reflect: true })
-  // icon = ''
 
   // @property({ type: Boolean, reflect: true, attribute: 'trailing-icon' })
   // trailingIcon = ''
-
-  // @property({ type: String, reflect: true })
-  // checkmark = ''
 
   static get styles() {
     return [
       defaultCSS,
       elevationCSS,
       css`
-        /* @keyframes mega-ripple-fg-radius-in {
-          from {
-            animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translate(var(--mega-ripple-fg-translate-start, 0)) scale(1);
-          }
-          to {
-            transform: translate(var(--mega-ripple-fg-translate-end, 0))
-              scale(var(--mega-ripple-fg-scale, 1));
-          }
-        }
-
-        @keyframes mega-ripple-fg-opacity-in {
-          from {
-            animation-timing-function: linear;
-            opacity: 0;
-          }
-          to {
-            opacity: var(--mega-ripple-fg-opacity, 0);
-          }
-        }
-
-        @keyframes mega-ripple-fg-opacity-out {
-          from {
-            animation-timing-function: linear;
-            opacity: var(--mega-ripple-fg-opacity, 0);
-          }
-          to {
-            opacity: 0;
-          }
-        } */
-
         :host {
-          --mega-ripple-fg-size: 0;
-          --mega-ripple-left: 0;
-          --mega-ripple-top: 0;
-          --mega-ripple-fg-scale: 1;
-          --mega-ripple-fg-translate-end: 0;
-          --mega-ripple-fg-translate-start: 0;
           -webkit-tap-highlight-color: transparent;
           will-change: transform, opacity, box-shadow;
           border-radius: 16px;
+          height: 32px;
           background-color: rgba(0, 0, 0, 0.12);
           color: rgba(0, 0, 0, 0.6);
-          font-family: Roboto, sans-serif;
-          -moz-osx-font-smoothing: grayscale;
-          -webkit-font-smoothing: antialiased;
           font-size: 0.875rem;
           line-height: 1.25rem;
           font-weight: 400;
           letter-spacing: 0.01786em;
           text-decoration: inherit;
           text-transform: inherit;
-          display: inline-flex;
           position: relative;
-          align-items: center;
-          outline: none;
+          /* outline: none; */
           cursor: pointer;
           overflow: hidden;
           box-shadow: var(--elevation-00);
@@ -188,14 +132,9 @@ class ChipElementBase extends LitElement {
         }
 
         mega-ripple {
-          width: 100%;
-          height: 100%;
           border-radius: inherit;
-          padding: 6px 12px 5px;
-
-          line-height: 21px;
           white-space: nowrap;
-          display: inline-flex;
+          display: flex;
           position: relative;
           align-items: center;
         }
@@ -214,17 +153,11 @@ class ChipElementBase extends LitElement {
           color: rgba(0, 0, 0, 0.86);
         }
 
-        :host(:active:not([disabled]):not([selected])) {
+        :host(:active:not([disabled])) {
           box-shadow: var(--elevation-03);
+        }
+        :host(:active:not([disabled]):not([selected])) {
           color: rgba(0, 0, 0, 0.86);
-        }
-
-        :host([selected]) {
-          color: var(--mega-theme-primary, #6200ee);
-          background-color: rgba(227, 213, 255, 0.976);
-        }
-        :host([selected]):hover {
-          color: var(--mega-theme-primary, #6200ee);
         }
 
         /* Make the input the complete clickable area of the parent, handles focus, checked, etc. */
@@ -238,6 +171,79 @@ class ChipElementBase extends LitElement {
           display: block;
           margin: 0;
           padding: 0;
+        }
+        :host(:not([disabled])) ::slotted(input) {
+          cursor: pointer;
+        }
+
+        /* https://material.io/components/chips/#specs */
+        .text {
+          padding: 0 12px 0 4px; /* 12 minus the svg margin */
+        }
+        .checkmark {
+          height: 21px;
+          margin: -2px -2px -5px 8px;
+          width: 0;
+          transition: width 150ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .checkmark path {
+          transition: stroke-dashoffset 150ms 50ms cubic-bezier(0.4, 0, 0.6, 1);
+          stroke-width: 2px;
+          stroke-dashoffset: 29.78334;
+          stroke-dasharray: 29.78334;
+          stroke: black;
+        }
+
+        /* type=radio */
+        :host([type='radio'][selected]) {
+          color: var(--mega-theme-primary, #6200ee);
+          background-color: rgba(227, 213, 255, 0.976);
+        }
+        :host([type='radio'][selected]):hover {
+          color: var(--mega-theme-primary, #6200ee);
+        }
+
+        /* type=checkbox */
+        :host([type='checkbox'][selected]) {
+          background-color: rgba(0, 0, 0, 0.23);
+          color: rgba(0, 0, 0, 1);
+        }
+
+        :host([type='checkbox'][selected]) .checkmark {
+          width: 21px;
+        }
+
+        :host([type='checkbox'][selected]) .checkmark path {
+          stroke-dashoffset: 0;
+        }
+
+        slot[name='left-visual']::slotted(*) {
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          margin: -3px -1px -7px 4px;
+          border-radius: calc(24px / 2);
+        }
+
+        :host([type='checkbox'][has-visual]) .checkmark {
+          height: 17px;
+          position: absolute;
+          left: -3px;
+          top: 8.5px;
+        }
+        :host([type='checkbox'][has-visual]) .checkmark path {
+          stroke-width: 2.5px;
+        }
+
+        @keyframes mega-chip-entry {
+          from {
+            transform: scale(0.8);
+            opacity: 0.4;
+          }
+          to {
+            transform: scale(1);
+            opacity: 1;
+          }
         }
       `,
     ]
@@ -270,31 +276,26 @@ class ChipElementBase extends LitElement {
     this.selected = input.checked
   }
 
+  protected slotChange(event: Event) {
+    const slot = event.target as HTMLSlotElement
+    this.hasVisual = slot.assignedNodes().length > 0
+  }
+
   render() {
     return html`
-      <mega-ripple ?disabled=${this.disabled} primary>
-        ${this.icon
-          ? html`
-              <slot name="icon"><mega-icon>${this.icon}</mega-icon></slot>
-            `
-          : nothing}
-        ${this.type !== 'radio'
-          ? html`
-              <slot name="checkmark">
-                <svg viewBox="-6 -7 30 30">
-                  <path fill="none" stroke="black" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
-                </svg>
-              </slot>
-            `
-          : nothing}
-        <slot></slot>
+      <mega-ripple ?disabled=${this.disabled} ?primary=${this.type === 'radio'}>
+        <slot name="left-visual" @slotchange=${this.slotChange}></slot>
+        <svg viewBox="-4 -4 30 30" class="checkmark">
+          <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" part="path" />
+        </svg>
+        <span class="text"><slot></slot></span>
+        <!-- <slot name="right-visual"></slot> -->
       </mega-ripple>
     `
   }
 }
 
-
-@customElement('mega-chip-set');
+@customElement('mega-chip-set')
 class ChipSetElement extends ChipSetElementBase {}
 
 // const ChipSetElement = withThemable(ChipSetElementBase

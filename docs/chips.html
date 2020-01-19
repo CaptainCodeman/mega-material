@@ -31,12 +31,6 @@
         <label for="choice1">Choice 4</label>
         <input type="radio" name="choice" id="choice4" value="choice4" />
       </mega-chip>
-
-      <!-- <mega-chip selected>Medium</mega-chip>
-      <mega-chip hover>Hover</mega-chip>
-      <mega-chip focus>Focus</mega-chip>
-      <mega-chip pressed>Pressed</mega-chip>
-      <mega-chip active>Active</mega-chip> -->
     </mega-chip-set>
 
     <p>Filter Chips</p>
@@ -57,12 +51,38 @@
         <label for="choice1">Filter 4</label>
         <input type="checkbox" name="choice4" id="choice4" value="choice4" />
       </mega-chip>
+    </mega-chip-set>
 
-      <!-- <mega-chip selected>Medium</mega-chip>
-      <mega-chip hover>Hover</mega-chip>
-      <mega-chip focus>Focus</mega-chip>
-      <mega-chip pressed>Pressed</mega-chip>
-      <mega-chip active>Active</mega-chip> -->
+    <p>Filter Chips with visuals</p>
+    <style>
+      mega-chip.white-stroke::part(path) {
+        stroke: white;
+      }
+    </style>
+    <mega-chip-set type="choice">
+      <mega-chip class="white-stroke">
+        <img
+          slot="left-visual"
+          src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/5.jpg"
+        />
+        <label for="choice1">Medium sea green</label>
+        <input type="checkbox" name="choice1" id="choice1" value="choice1" checked />
+      </mega-chip>
+      <mega-chip class="white-stroke">
+        <div slot="left-visual" style="background-color: goldenrod;"></div>
+        <label for="choice2">Goldenrod</label>
+        <input type="checkbox" name="choice2" id="choice2" value="choice2" disabled />
+      </mega-chip>
+      <mega-chip class="white-stroke">
+        <div slot="left-visual" style="background-color: indianred"></div>
+        <label for="choice1">Indianred</label>
+        <input type="checkbox" name="choice3" id="choice4" value="choice3" />
+      </mega-chip>
+      <mega-chip class="white-stroke">
+        <div slot="left-visual" style="background-color:mediumslateblue"></div>
+        <label for="choice1">Mediums Late Blue</label>
+        <input type="checkbox" name="choice4" id="choice4" value="choice4" />
+      </mega-chip>
     </mega-chip-set>
   </body>
 </html>
