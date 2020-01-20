@@ -15,70 +15,24 @@ declare global {
 type InputTypes = 'radio' | 'checkbox' | 'button'
 
 export class ChipSetElement extends LitElement {
-  private inputs: NodeListOf<HTMLInputElement>
-
   static get styles() {
     return [
       css`
         :host {
           display: flex;
-          flex: 1;
           padding: 4px;
           box-sizing: border-box;
-          overflow-x: auto; /* @TODO add prev next buttons, add breakout that it can scroll to the absolute edge. */
+          overflow-x: auto;
         }
         div {
-          min-height: min-content;
           display: flex;
         }
-
         ::slotted(mega-chip) {
           margin-right: 4px;
-        }
-
-        :host([type='input']) ::slotted(mega-chip) {
-          animation: mega-chip-entry 100ms cubic-bezier(0, 0, 0.2, 1);
         }
       `,
       themable('mega-chip-set'),
     ]
-  }
-
-  firstUpdated() {
-    this.inputs = this.querySelectorAll<HTMLInputElement>('input')
-    this.inputs.forEach(input => {
-      input.addEventListener('change', this.recalcSelectedState, { passive: true })
-      input.addEventListener('focus', this.recalcSelectedState, { passive: true })
-      input.addEventListener('blur', this.recalcSelectedState, { passive: true })
-    })
-    this.recalcSelectedState()
-  }
-
-  disconnectedCallback() {
-    this.inputs = this.querySelectorAll<HTMLInputElement>('input')
-    this.inputs.forEach(input => {
-      input.removeEventListener('change', this.recalcSelectedState)
-      input.removeEventListener('focus', this.recalcSelectedState)
-      input.removeEventListener('blur', this.recalcSelectedState)
-    })
-  }
-
-  /**
-   * We recalc this from the parent instead of directly on the child because
-   * an input[type=radio] only fires when selected.
-   */
-  recalcSelectedState = () => {
-    this.inputs.forEach(input => {
-      const chipElement = input.parentElement as ChipElement
-      if (chipElement instanceof ChipElement === false) {
-        throw new TypeError('<input> must be a direct child of <mega-chip>')
-      }
-
-      const type = input.type as InputTypes
-      if (type === 'radio' || type === 'checkbox') chipElement.selected = input.checked
-      chipElement.focused = document.activeElement === input
-      chipElement.type = type
-    })
   }
 
   render() {
@@ -101,9 +55,11 @@ export class ChipElement extends LitElement {
 
   private hasVisual = false
 
-  theme: 'light' | 'dark' = 'light'
+  theme: 'light' | 'dark' | string = 'light'
 
   private mutationObserver: MutationObserver
+
+  private input: HTMLInputElement
 
   static properties: PropertyDeclarations = {
     type: { type: String, reflect: true },
@@ -218,8 +174,14 @@ export class ChipElement extends LitElement {
   }
 
   connectedCallback() {
+    const inputElement = this.querySelector('input')
+    if (!inputElement) {
+      throw new Error('<mega-chip/> must have a input element as child')
+    }
+    this.input = inputElement
+
     super.connectedCallback()
-    this.mutationObserver = new MutationObserver(this.updateState.bind(this))
+    this.mutationObserver = new MutationObserver(this.updateState)
     this.mutationObserver.observe(this, {
       childList: true,
       subtree: true,
@@ -227,6 +189,14 @@ export class ChipElement extends LitElement {
       attributeFilter: ['disabled'],
     })
     this.updateState()
+
+    this.input.addEventListener('blur', this.updateState, { passive: true })
+    this.input.addEventListener('focus', this.updateState, { passive: true })
+
+    // Change events aren't fired for radio's when deselected
+    // use events of closes form/document/shadowRoot
+    const eventElement = inputElement.closest('form') || inputElement.getRootNode()
+    eventElement.addEventListener('change', this.updateState, { passive: true })
   }
 
   disconnectedCallback() {
@@ -234,12 +204,13 @@ export class ChipElement extends LitElement {
     super.disconnectedCallback()
   }
 
-  protected updateState() {
-    const input = this.querySelector('input')
-    if (!input) {
-      return
-    }
-    this.disabled = input.disabled
+  protected updateState = () => {
+    const type = this.input.type as InputTypes
+
+    this.selected = this.input.checked
+    this.focused = document.activeElement === this.input
+    this.type = type
+    this.disabled = this.input.disabled
   }
 
   protected slotChange(event: Event) {
@@ -254,6 +225,7 @@ export class ChipElement extends LitElement {
         <svg viewBox="-4 -4 30 30" class="checkmark">
           <path fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" part="path" />
         </svg>
+        <slot name="input"></slot>
         <span class="text"><slot></slot></span>
       </mega-ripple>
     `
