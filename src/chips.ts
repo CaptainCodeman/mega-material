@@ -1,6 +1,5 @@
 /* eslint-disable max-classes-per-file */
-import { LitElement, html, css, PropertyDeclarations, CSSResult, CSSResultArray } from 'lit-element'
-import './icon'
+import { LitElement, html, css, PropertyDeclarations } from 'lit-element'
 import './ripple'
 import { elevationCSS } from './styles'
 import { themable, theme } from './utils/themable'
