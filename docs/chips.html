@@ -40,6 +40,26 @@
       </mega-chip>
     </mega-chip-set>
 
+    <h4>On dark</h4>
+    <mega-chip-set style="background-color: #6200ee; padding: 10px;">
+      <mega-chip theme="dark">
+        <label for="choice1">Choice 1</label>
+        <input type="radio" name="choice2" id="choice1" value="choice1" checked />
+      </mega-chip>
+      <mega-chip theme="dark">
+        <label for="choice2">Disabled</label>
+        <input type="radio" name="choice2" id="choice2" value="choice2" disabled />
+      </mega-chip>
+      <mega-chip theme="dark">
+        <label for="choice1">Choice 3</label>
+        <input type="radio" name="choice2" id="choice4" value="choice3" />
+      </mega-chip>
+      <mega-chip theme="dark">
+        <label for="choice1">Choice 4</label>
+        <input type="radio" name="choice2" id="choice4" value="choice4" />
+      </mega-chip>
+    </mega-chip-set>
+
     <h3>
       Filter chips.
     </h3>
@@ -50,24 +70,43 @@
     <mega-chip-set>
       <mega-chip>
         <label for="choice1">Filter 1</label>
-        <input type="checkbox" name="choice1" id="choice1" value="choice1" checked />
+        <input type="checkbox" name="filter1" id="choice1" value="choice1" checked />
       </mega-chip>
       <mega-chip>
         <label for="choice2">Disabled</label>
-        <input type="checkbox" name="choice2" id="choice2" value="choice2" disabled />
+        <input type="checkbox" name="filter2" id="choice2" value="choice2" disabled />
       </mega-chip>
       <mega-chip>
         <label for="choice1">Filter 3</label>
-        <input type="checkbox" name="choice3" id="choice4" value="choice3" />
+        <input type="checkbox" name="filter3" id="choice4" value="choice3" />
       </mega-chip>
       <mega-chip>
         <label for="choice1">Filter 4</label>
-        <input type="checkbox" name="choice4" id="choice4" value="choice4" />
+        <input type="checkbox" name="filter4" id="choice4" value="choice4" />
       </mega-chip>
     </mega-chip-set>
 
-    <h4>Filter Chips with visuals</h4>
-    <p>Filter chips allow additional visuals</p>
+    <h4>On dark</h4>
+    <mega-chip-set style="background-color: #6200ee; padding: 10px;">
+      <mega-chip theme="dark">
+        <label for="choice1">Filter 1</label>
+        <input type="checkbox" name="filter5" id="choice1" value="choice1" checked />
+      </mega-chip>
+      <mega-chip theme="dark">
+        <label for="choice2">Disabled</label>
+        <input type="checkbox" name="filter6" id="choice2" value="choice2" disabled />
+      </mega-chip>
+      <mega-chip theme="dark">
+        <label for="choice1">Filter 3</label>
+        <input type="checkbox" name="filter7" id="choice4" value="choice3" />
+      </mega-chip>
+      <mega-chip theme="dark">
+        <label for="choice1">Filter 4</label>
+        <input type="checkbox" name="filter8" id="choice4" value="choice4" />
+      </mega-chip>
+    </mega-chip-set>
+
+    <h4>With visuals</h4>
     <style>
       mega-chip.white-stroke::part(path) {
         stroke: white;
@@ -77,22 +116,51 @@
       <mega-chip class="white-stroke">
         <div slot="visual" style="background-color: mediumseagreen;"></div>
         <label for="choice1">Medium sea green</label>
-        <input type="checkbox" name="choice1" id="choice1" value="choice1" checked />
+        <input type="checkbox" name="filter9" id="choice1" value="choice1" checked />
       </mega-chip>
       <mega-chip class="white-stroke">
         <div slot="visual" style="background-color: goldenrod;"></div>
         <label for="choice2">Goldenrod</label>
-        <input type="checkbox" name="choice2" id="choice2" value="choice2" disabled />
+        <input type="checkbox" name="filter10" id="choice2" value="choice2" disabled />
       </mega-chip>
       <mega-chip class="white-stroke">
         <div slot="visual" style="background-color: mediumvioletred"></div>
         <label for="choice1">Medium violet red</label>
-        <input type="checkbox" name="choice3" id="choice4" value="choice3" />
+        <input type="checkbox" name="filter11" id="choice4" value="choice3" />
       </mega-chip>
       <mega-chip class="white-stroke">
         <div slot="visual" style="background-color:mediumslateblue"></div>
         <label for="choice1">Mediums late blue</label>
-        <input type="checkbox" name="choice4" id="choice4" value="choice4" />
+        <input type="checkbox" name="filter12" id="choice4" value="choice4" />
+      </mega-chip>
+    </mega-chip-set>
+
+    <h4>With visuals + On dark</h4>
+    <style>
+      mega-chip.white-stroke::part(path) {
+        stroke: white;
+      }
+    </style>
+    <mega-chip-set style="background-color: #6200ee; padding: 10px;">
+      <mega-chip class="white-stroke" theme="dark">
+        <div slot="visual" style="background-color: mediumseagreen;"></div>
+        <label for="choice1">Medium sea green</label>
+        <input type="checkbox" name="filter13" id="choice1" value="choice1" checked />
+      </mega-chip>
+      <mega-chip class="white-stroke" theme="dark">
+        <div slot="visual" style="background-color: goldenrod;"></div>
+        <label for="choice2">Goldenrod</label>
+        <input type="checkbox" name="filter14" id="choice2" value="choice2" disabled />
+      </mega-chip>
+      <mega-chip class="white-stroke" theme="dark">
+        <div slot="visual" style="background-color: mediumvioletred"></div>
+        <label for="choice1">Medium violet red</label>
+        <input type="checkbox" name="filter15" id="choice4" value="choice3" />
+      </mega-chip>
+      <mega-chip class="white-stroke" theme="dark">
+        <div slot="visual" style="background-color:mediumslateblue"></div>
+        <label for="choice1">Mediums late blue</label>
+        <input type="checkbox" name="filter16" id="choice4" value="choice4" />
       </mega-chip>
     </mega-chip-set>
 
@@ -131,6 +199,41 @@
               setAlarm.querySelector('label').textContent = 'Turn on lights'
               setAlarm.removeAttribute('selected')
               setAlarm.querySelector('mega-icon').innerHTML = 'brightness_5'
+            }, 2000)
+          }, 2000)
+        })
+      </script>
+    </mega-chip-set>
+
+    <h4>On dark</h4>
+    <mega-chip-set style="background-color: #6200ee; padding: 10px;">
+      <mega-chip theme="dark">
+        <img
+          slot="visual"
+          src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/5.jpg"
+        />
+        <label for="btn">Share with doggo</label>
+        <input type="button" id="btn" />
+      </mega-chip>
+      <mega-chip id="turn-on-lights2" theme="dark">
+        <mega-icon slot="visual">brightness_5</mega-icon>
+        <label for="btn">Turn on lights</label>
+        <input type="button" id="btn" />
+      </mega-chip>
+      <script>
+        const setAlarm2 = document.querySelector('#turn-on-lights2')
+        setAlarm2.querySelector('input').addEventListener('click', () => {
+          setAlarm2.querySelector('label').textContent = 'Turning on lights'
+          setAlarm2.querySelector('mega-icon').textContent = 'brightness_6'
+
+          setTimeout(() => {
+            setAlarm2.querySelector('label').textContent = 'Lights turned on'
+            setAlarm2.setAttribute('selected', '')
+            setAlarm2.querySelector('mega-icon').innerHTML = 'brightness_7'
+            setTimeout(() => {
+              setAlarm2.querySelector('label').textContent = 'Turn on lights'
+              setAlarm2.removeAttribute('selected')
+              setAlarm2.querySelector('mega-icon').innerHTML = 'brightness_5'
             }, 2000)
           }, 2000)
         })
