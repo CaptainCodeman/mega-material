@@ -1,22 +1,28 @@
 /* eslint-disable max-classes-per-file */
-import { LitElement, html, customElement, css, property } from 'lit-element'
+import { LitElement, html, css, PropertyDeclarations, CSSResult, CSSResultArray } from 'lit-element'
 import './icon'
 import './ripple'
-import { defaultCSS, elevationCSS } from './styles'
+import { elevationCSS } from './styles'
+import { themable, theme } from './utils/themable'
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'mega-chip-set': typeof ChipSetElement
+    'mega-chip': typeof ChipElement
+  }
+}
 
 type InputTypes = 'radio' | 'checkbox' | 'button'
 
-class ChipSetElementBase extends LitElement {
+export class ChipSetElement extends LitElement {
   private inputs: NodeListOf<HTMLInputElement>
 
   static get styles() {
     return [
-      defaultCSS,
       css`
         :host {
           display: flex;
           flex: 1;
-
           padding: 4px;
           box-sizing: border-box;
           overflow-x: auto; /* @TODO add prev next buttons, add breakout that it can scroll to the absolute edge. */
@@ -34,6 +40,7 @@ class ChipSetElementBase extends LitElement {
           animation: mega-chip-entry 100ms cubic-bezier(0, 0, 0.2, 1);
         }
       `,
+      themable('mega-chip-set'),
     ]
   }
 
@@ -62,8 +69,8 @@ class ChipSetElementBase extends LitElement {
    */
   recalcSelectedState = () => {
     this.inputs.forEach(input => {
-      const chipElement = input.parentElement as ChipElementBase
-      if (chipElement instanceof ChipElementBase === false) {
+      const chipElement = input.parentElement as ChipElement
+      if (chipElement instanceof ChipElement === false) {
         throw new TypeError('<input> must be a direct child of <mega-chip>')
       }
 
@@ -81,33 +88,35 @@ class ChipSetElementBase extends LitElement {
   }
 }
 
-class ChipElementBase extends LitElement {
-  @property({ type: String, reflect: true })
+export class ChipElement extends LitElement {
   type: InputTypes
 
-  @property({ type: Boolean, reflect: true })
   disabled = false
 
-  @property({ type: Boolean, reflect: true })
   raised = false
 
-  @property({ type: Boolean, reflect: true })
   focused = false
 
-  @property({ type: Boolean, reflect: true })
   selected = false
 
-  @property({ type: Boolean, reflect: true, attribute: 'has-visual' })
   private hasVisual = false
+
+  theme: 'light' | 'dark' = 'light'
 
   private mutationObserver: MutationObserver
 
-  // @property({ type: Boolean, reflect: true, attribute: 'trailing-icon' })
-  // trailingIcon = ''
+  static properties: PropertyDeclarations = {
+    type: { type: String, reflect: true },
+    disabled: { type: Boolean, reflect: true },
+    raised: { type: Boolean, reflect: true },
+    focused: { type: Boolean, reflect: true },
+    selected: { type: Boolean, reflect: true },
+    hasVisual: { type: Boolean, reflect: true, attribute: 'has-visual' },
+    theme: { type: String, reflect: true },
+  }
 
   static get styles() {
     return [
-      defaultCSS,
       elevationCSS,
       css`
         :host {
@@ -115,8 +124,6 @@ class ChipElementBase extends LitElement {
           will-change: transform, opacity, box-shadow;
           border-radius: 16px;
           height: 32px;
-          background-color: rgba(0, 0, 0, 0.12);
-          color: rgba(0, 0, 0, 0.6);
           font-size: 0.875rem;
           line-height: 1.25rem;
           font-weight: 400;
@@ -124,11 +131,12 @@ class ChipElementBase extends LitElement {
           text-decoration: inherit;
           text-transform: inherit;
           position: relative;
-          /* outline: none; */
-          cursor: pointer;
           overflow: hidden;
           box-shadow: var(--elevation-00);
           transition: var(--elevation-transition);
+        }
+        :host(:active:not([disabled])) {
+          box-shadow: var(--elevation-03);
         }
 
         mega-ripple {
@@ -137,27 +145,6 @@ class ChipElementBase extends LitElement {
           display: flex;
           position: relative;
           align-items: center;
-        }
-
-        :host([disabled]) {
-          background-color: rgba(0, 0, 0, 0.043);
-          color: rgba(0, 0, 0, 0.3);
-        }
-        :host(:hover:not([disabled]):not([selected])) {
-          background-color: rgba(0, 0, 0, 0.16);
-          color: rgba(0, 0, 0, 0.81);
-        }
-
-        :host([focused]:not([disabled]):not([selected])) {
-          background-color: rgba(0, 0, 0, 0.22);
-          color: rgba(0, 0, 0, 0.86);
-        }
-
-        :host(:active:not([disabled])) {
-          box-shadow: var(--elevation-03);
-        }
-        :host(:active:not([disabled]):not([selected])) {
-          color: rgba(0, 0, 0, 0.86);
         }
 
         /* Make the input the complete clickable area of the parent, handles focus, checked, etc. */
@@ -172,6 +159,7 @@ class ChipElementBase extends LitElement {
           margin: 0;
           padding: 0;
         }
+
         :host(:not([disabled])) ::slotted(input) {
           cursor: pointer;
         }
@@ -191,22 +179,6 @@ class ChipElementBase extends LitElement {
           stroke-width: 2px;
           stroke-dashoffset: 29.78334;
           stroke-dasharray: 29.78334;
-          stroke: black;
-        }
-
-        /* type=radio */
-        :host([type='radio'][selected]) {
-          color: var(--mega-theme-primary, #6200ee);
-          background-color: rgba(227, 213, 255, 0.976);
-        }
-        :host([type='radio'][selected]):hover {
-          color: var(--mega-theme-primary, #6200ee);
-        }
-
-        /* type=checkbox */
-        :host(:not([type='radio'])[selected]) {
-          background-color: rgba(0, 0, 0, 0.23);
-          color: rgba(0, 0, 0, 1);
         }
 
         :host([type='checkbox'][selected]) .checkmark {
@@ -241,6 +213,7 @@ class ChipElementBase extends LitElement {
           stroke-width: 2.5px;
         }
       `,
+      themable('mega-chip'),
     ]
   }
 
@@ -287,19 +260,99 @@ class ChipElementBase extends LitElement {
   }
 }
 
-@customElement('mega-chip-set')
-class ChipSetElement extends ChipSetElementBase {}
+/* theme=light */
+theme(
+  'mega-chip',
+  css`
+    /* type=* */
+    :host([theme='light']) {
+      background-color: rgba(0, 0, 0, 0.12);
+      color: rgba(0, 0, 0, 0.6);
+    }
+    :host([theme='light'][disabled]) {
+      background-color: rgba(0, 0, 0, 0.043);
+      color: rgba(0, 0, 0, 0.3);
+    }
+    :host([theme='light']:hover:not([disabled]):not([selected])) {
+      background-color: rgba(0, 0, 0, 0.16);
+      color: rgba(0, 0, 0, 0.81);
+    }
 
-// const ChipSetElement = withThemable(ChipSetElementBase
-// window.customElements.define('mega-chip-set', ChipSetElement)
+    :host([theme='light'][focused]:not([disabled]):not([selected])) {
+      background-color: rgba(0, 0, 0, 0.22);
+      color: rgba(0, 0, 0, 0.86);
+    }
 
-@customElement('mega-chip')
-class ChipElement extends ChipElementBase {}
+    :host([theme='light']:active:not([disabled]):not([selected])) {
+      color: rgba(0, 0, 0, 0.86);
+    }
 
-declare global {
-  interface HTMLElementTagNameMap {
-    'mega-chip-set': typeof ChipSetElement
-  }
-}
+    /* type=radio */
+    :host([theme='light'][type='radio'][selected]) {
+      color: var(--mega-theme-primary, #6200ee);
+      background-color: rgba(227, 213, 255, 0.976);
+    }
+    :host([theme='light'][type='radio'][selected]):hover {
+      color: var(--mega-theme-primary, #6200ee);
+    }
 
-export { ChipSetElement, ChipElement }
+    /* type=checkbox */
+    :host([theme='light']:not([type='radio'])[selected]) {
+      background-color: rgba(0, 0, 0, 0.23);
+      color: rgba(0, 0, 0, 1);
+    }
+
+    :host([theme='light']) .checkmark path {
+      stroke: rgba(0, 0, 0, 1);
+    }
+  `,
+)
+
+/* theme=dark */
+theme(
+  'mega-chip',
+  css`
+    /* type=* */
+    :host([theme='dark']) {
+      background-color: rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.6);
+    }
+    :host([theme='dark'][disabled]) {
+      background-color: rgba(255, 255, 255, 0.043);
+      color: rgba(255, 255, 255, 0.3);
+    }
+    :host([theme='dark']:hover:not([disabled]):not([selected])) {
+      background-color: rgba(255, 255, 255, 0.16);
+      color: rgba(255, 255, 255, 0.81);
+    }
+    :host([theme='dark'][focused]:not([disabled]):not([selected])) {
+      background-color: rgba(255, 255, 255, 0.22);
+      color: rgba(255, 255, 255, 0.86);
+    }
+    :host([theme='dark']:active:not([disabled]):not([selected])) {
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    /* type=radio */
+    :host([theme='dark'][type='radio'][selected]) {
+      color: var(--mega-theme-primary, #6200ee);
+      background-color: rgba(227, 213, 255, 0.976);
+    }
+    :host([theme='dark'][type='radio'][selected]):hover {
+      color: var(--mega-theme-primary, #6200ee);
+    }
+
+    /* type=checkbox */
+    :host([theme='dark']:not([type='radio'])[selected]) {
+      background-color: rgba(255, 255, 255, 0.23);
+      color: rgba(255, 255, 255, 1);
+    }
+
+    :host([theme='dark']) .checkmark path {
+      stroke: rgba(255, 255, 255, 1);
+    }
+  `,
+)
+
+window.customElements.define('mega-chip-set', ChipSetElement)
+window.customElements.define('mega-chip', ChipElement)
