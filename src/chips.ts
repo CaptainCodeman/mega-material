@@ -105,6 +105,9 @@ export class ChipElement extends LitElement {
 
         /* Make the input the complete clickable area of the parent, handles focus, checked, etc. */
         :host ::slotted(input) {
+          -moz-appearance: none;
+          -webkit-appearance: none;
+          appearance: none;
           height: 100%;
           width: 100%;
           position: absolute;
