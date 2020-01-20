@@ -75,23 +75,15 @@ export class ChipElement extends LitElement {
       elevationCSS,
       css`
         :host {
+          display: block;
           -webkit-tap-highlight-color: transparent;
-          will-change: transform, opacity, box-shadow;
           border-radius: 16px;
           height: 32px;
           font-size: 0.875rem;
           line-height: 1.25rem;
           font-weight: 400;
           letter-spacing: 0.01786em;
-          text-decoration: inherit;
-          text-transform: inherit;
           position: relative;
-          overflow: hidden;
-          box-shadow: var(--elevation-00);
-          transition: var(--elevation-transition);
-        }
-        :host(:active:not([disabled])) {
-          box-shadow: var(--elevation-03);
         }
 
         mega-ripple {
@@ -100,6 +92,21 @@ export class ChipElement extends LitElement {
           display: flex;
           position: relative;
           align-items: center;
+        }
+        .fastshadow {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          border-radius: 16px;
+          box-shadow: var(--elevation-03);
+          top: 0;
+          pointer-events: none;
+          opacity: 0;
+          will-change: opacity;
+          transition: opacity 280ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        :host(:active:not([disabled])) .fastshadow {
+          opacity: 1;
         }
 
         /* Make the input the complete clickable area of the parent, handles focus, checked, etc. */
@@ -230,6 +237,7 @@ export class ChipElement extends LitElement {
         <slot name="input"></slot>
         <span class="text"><slot></slot></span>
       </mega-ripple>
+      <div class="fastshadow"></div>
     `
   }
 }
