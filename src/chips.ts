@@ -21,7 +21,7 @@ export class ChipSetElement extends LitElement {
           display: flex;
           padding: 4px;
           box-sizing: border-box;
-          overflow-x: auto;
+          overflow-x: auto; /* todo(paales) Overflow hides the dropshadow of the button. */
         }
         div {
           display: flex;
