@@ -12,7 +12,7 @@ declare global {
 @customElement('mega-snackbar')
 export class SnackbarElement extends LitElement {
   @property({ type: Boolean, reflect: true })
-  dismissable = false;
+  dismissible = false;
 
   @property({ type: Boolean, reflect: true })
   opened = false;
@@ -237,7 +237,7 @@ mega-icon-button {
   --mega-icon-size: 18px;
   --mega-icon-button-padding: 9px;
 }
-:host(:not([dismissable])) mega-icon-button {
+:host(:not([dismissible])) mega-icon-button {
   display: none;
 }
 
