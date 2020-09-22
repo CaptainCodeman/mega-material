@@ -43,7 +43,6 @@ export class TopAppBarElement extends LitElement {
   }
 
   firstUpdated() {
-
     this.lastScrollPosition_ = this.getViewportScrollY_()
     this.topAppBarHeight_ = this.getTopAppBarHeight_()
   }
@@ -267,7 +266,7 @@ slot[name="title"]::slotted(*) {
 :host([dense][prominent]) section {
   padding: 0 12px;
 }
-:host([dense]][prominent]) slot[name="title"]::slotted(*) {
+:host([dense][prominent]) slot[name="title"]::slotted(*) {
   padding-left: 20px;
   padding-right: 0;
   padding-bottom: 9px;
