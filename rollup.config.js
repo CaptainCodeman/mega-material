@@ -25,7 +25,6 @@ const plugins = [
     output: {
       beautify: false,
     },
-    sourcemap: true,
   }),
 ];
 
